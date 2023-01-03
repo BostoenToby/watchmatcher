@@ -17,12 +17,14 @@
 		"@types/cookie": "^0.5.1",
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
 		"@typescript-eslint/parser": "^5.45.0",
+		"@unocss/reset": "^0.48.0",
 		"eslint": "^8.28.0",
 		"eslint-plugin-svelte3": "^4.0.0",
 		"svelte": "^3.54.0",
 		"svelte-check": "^2.9.2",
 		"tslib": "^2.4.1",
 		"typescript": "^4.9.3",
+		"unocss": "^0.48.0",
 		"vite": "^4.0.0"
 	},
 	"type": "module"

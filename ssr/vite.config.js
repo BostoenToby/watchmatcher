@@ -1,8 +1,9 @@
-import { sveltekit } from '@sveltejs/kit/vite';
+import { sveltekit } from '@sveltejs/kit/vite'
+import Unocss from 'unocss/vite'
 
 /** @type {import('vite').UserConfig} */
 const config = {
-	plugins: [sveltekit()]
-};
+  plugins: [sveltekit(), Unocss()],
+}
 
-export default config;
+export default config
