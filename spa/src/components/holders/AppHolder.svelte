@@ -2,7 +2,7 @@
     import AppHeader from '../generic/AppHeader.svelte'
 </script>
 
-<main>
+<main class="scrollbar-gutter-auto">
     <AppHeader />
     <slot></slot>
 </main>

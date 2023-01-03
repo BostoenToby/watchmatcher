@@ -15,6 +15,7 @@ export default defineConfig({
           provider: 'google',
           fonts: {
             classic: 'Quattrocento',
+            text: 'Montserrat'
           },
         }),
       ],
