@@ -1,7 +1,7 @@
 <script lang="ts">
-
+  import AppHolder from '../components/holders/AppHolder.svelte'
 </script>
 
-<main>
-    <p class="text-center text-4xl font-bold text-emerald-700">Home</p>
-</main>
+<AppHolder>
+  <p>Home</p>
+</AppHolder>

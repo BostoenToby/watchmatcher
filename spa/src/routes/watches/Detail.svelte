@@ -1,7 +1,9 @@
 <script lang="ts">
-    export let name
+  import AppHolder from '../../components/holders/AppHolder.svelte'
+
+  export let name
 </script>
 
-<main>
-    <p class="text-3xl text-emerald-700 text-center font-bold">Detail watch {name}</p>
-</main>
+<AppHolder>
+  <p>Detail watch {name}</p>
+</AppHolder>
