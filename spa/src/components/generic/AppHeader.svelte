@@ -19,9 +19,9 @@
     <Link to="/watches" class="no-underline text-zinc-600 self-center hover:text-emerald-700 focus:text-emerald-700 hover:underline focus:underline outline-none">Watches</Link>
     <Link to="/matcher" class="no-underline text-zinc-600 self-center hover:text-emerald-700 focus:text-emerald-700 hover:underline focus:underline outline-none">Matcher</Link>
   </nav>
-  <h1 class="uppercase tracking-widest text-3xl text-center text-zinc-800 font-classic">
+  <Link to="/" class="no-underline my-4 uppercase tracking-widest text-3xl text-center text-zinc-800 font-classic">
     Watchmatcher
-  </h1>
+  </Link>
   <div class="w-1/2 justify-self-end flex justify-between">
     <input
       type="text"
