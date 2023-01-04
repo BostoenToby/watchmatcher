@@ -17,7 +17,7 @@
           <h3 class="mt-0">OYSTER PERPETUAL</h3>
         </div>
         <Link
-          to="/brands/rolex"
+          to="/watches/rolex"
           class="no-underline outline-none self-center bg-emerald-700 text-white rounded-md px-4 py-2"
           >View</Link>
       </div>
@@ -33,7 +33,7 @@
           <h3 class="mt-0">CODE 11.59</h3>
         </div>
         <Link
-          to="/brands/tissot"
+          to="/watches/tissot"
           class="no-underline outline-none self-center bg-emerald-700 text-white rounded-md px-4 py-2"
           >View</Link>
       </div>
@@ -49,7 +49,7 @@
           <h3 class="mt-0">ROYAL OAK</h3>
         </div>
         <Link
-          to="/brands/audemars-piguet"
+          to="/watches/audemars-piguet"
           class="no-underline outline-none self-center bg-emerald-700 text-white rounded-md px-4 py-2"
           >View</Link>
       </div>
@@ -65,7 +65,7 @@
           <h3 class="mt-0">INTEGRATED KING GOLD CERAMIC</h3>
         </div>
         <Link
-          to="/brands/patek-philippe"
+          to="/watches/patek-philippe"
           class="no-underline outline-none self-center bg-emerald-700 text-white rounded-md px-4 py-2"
           >View</Link>
       </div>
@@ -81,7 +81,7 @@
           <h3 class="mt-0">FIFTYSIX TOURBILLON</h3>
         </div>
         <Link
-          to="/brands/hublot"
+          to="/watches/hublot"
           class="no-underline outline-none self-center bg-emerald-700 text-white rounded-md px-4 py-2"
           >View</Link>
       </div>
