@@ -12,14 +12,14 @@
 </script>
 
 <header
-  class="grid grid-cols-3 px-12 py-4 items-center bg-zinc-100 m-0 text-zinc-600 font-classic">
+  class="grid grid-cols-3 px-12 py-4 items-center bg-zinc-100 m-0 text-zinc-600 font-text">
   <nav class="flex gap-16">
     <Link to="/" class="no-underline text-zinc-600 self-center hover:text-emerald-700 focus:text-emerald-700 hover:underline focus:underline outline-none">Home</Link>
     <Link to="/brands" class="no-underline text-zinc-600 self-center hover:text-emerald-700 focus:text-emerald-700 hover:underline focus:underline outline-none">Brands</Link>
     <Link to="/watches" class="no-underline text-zinc-600 self-center hover:text-emerald-700 focus:text-emerald-700 hover:underline focus:underline outline-none">Watches</Link>
     <Link to="/matcher" class="no-underline text-zinc-600 self-center hover:text-emerald-700 focus:text-emerald-700 hover:underline focus:underline outline-none">Matcher</Link>
   </nav>
-  <h1 class="uppercase tracking-widest text-3xl text-center text-zinc-800">
+  <h1 class="uppercase tracking-widest text-3xl text-center text-zinc-800 font-classic">
     Watchmatcher
   </h1>
   <div class="w-1/2 justify-self-end flex justify-between">
