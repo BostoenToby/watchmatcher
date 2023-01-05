@@ -49,7 +49,8 @@
             <img
               src="/{$brand.name.replace(' ', '-').toLocaleLowerCase()}-{index +
                 1}.webp"
-              alt="" />
+              alt=""
+              class="rounded-md" />
           </div>
           <div
             class={`${
@@ -79,7 +80,8 @@
             <img
               src="/{$brand.name.replace(' ', '-').toLocaleLowerCase()}-{index +
                 1}.webp"
-              alt="" />
+              alt=""
+              class="rounded-md" />
           </div>
         {/if}
       {/each}

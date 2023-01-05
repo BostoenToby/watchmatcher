@@ -1,11 +1,13 @@
 <script lang="ts">
   import { Link } from 'svelte-routing'
+
   import AppHolder from '../components/holders/AppHolder.svelte'
 </script>
 
 <AppHolder>
-  <!-- <div class="h-80 w-120 bg-neutral-200 rounded-md mx-auto mt-20" /> -->
-  <div class="flex items-center"><img src="/watchmatcher.jpg" alt="" class="w-120 mt-40 mx-auto mb-4"></div>
+  <div class="flex items-center">
+    <img src="/watchmatcher.jpg" alt="" class="w-120 mt-40 mx-auto mb-4" />
+  </div>
   <h1 class="text-center font-classic text-5xl mt-8">Watchmatcher</h1>
   <h1 class="text-center font-classic text-2xl mt-8">
     The place to find the perfect watch for you

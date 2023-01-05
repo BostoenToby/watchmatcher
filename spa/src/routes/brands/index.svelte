@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Link } from 'svelte-routing'
+
   import AppHolder from '../../components/holders/AppHolder.svelte'
   import brands from '../../assets/brands.json'
 </script>
@@ -13,7 +14,9 @@
         <div
           class="aspect-square flex overflow-hidden justify-center rounded-md">
           <img
-            src="/brands/{brand.name.replace(' ', '-').toLocaleLowerCase()}.webp"
+            src="/brands/{brand.name
+              .replace(' ', '-')
+              .toLocaleLowerCase()}.webp"
             alt=""
             class="max-h-full" />
         </div>
@@ -25,7 +28,7 @@
             <h3 class="mt-0">{brand.name}</h3>
           </div>
           <Link
-            to="/brands/{brand.name.replace(' ','-').toLocaleLowerCase()}"
+            to="/brands/{brand.name.replace(' ', '-').toLocaleLowerCase()}"
             class="no-underline outline-none self-center bg-emerald-700 text-white rounded-md px-4 py-2"
             >View</Link>
         </div>
