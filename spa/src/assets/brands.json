@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Rolex",
+    "country": "United Kingdom",
+    "city": "London",
+    "foundingDate": 1905,
+    "history": {
+      "head": "Rolex is a British-founded Swiss watch designer and manufacturer based in Geneva, Switzerland. Founded in 1905 as Wilsdorf and Davis by Hans Wilsdorf and Alfred Davis in London, the company registered Rolex as the brand name of its watches in 1908 and became Rolex Watch Co. Ltd. in 1915. After World War I, the company moved its base of operations to Geneva because of the unfavorable economy in the United Kingdom. In 1920, Hans Wilsdorf registered Montres Rolex SA in Geneva as the new company name (montre is French for wristwatch); it later became Rolex SA. Since 1960, the company has been owned by the Hans Wilsdorf Foundation, a private family trust.",
+      "information": [
+        {
+          "title": "1905-1919",
+          "informationblocks": [
+            {
+              "subtitle": "1905, Hans Wilsdorf",
+              "information": "The history of Rolex is inextricably linked to the visionary spirit of Hans Wilsdorf, its founder. In 1905, at the age of 24, Hans Wilsdorf founded a company in London specialising in the distribution of timepieces. He began to dream of a watch worn on the wrist. Wristwatches were not very precise at the time, but Hans Wilsdorf foresaw that they could become not only elegant, but also reliable. To convince the public of the reliability of his resolutely innovative timepieces, he equipped them with small, very precise movements manufactured by a Swiss watchmaking company in Bienne."
+            },
+            {
+              "subtitle": "1908, Genuis in five letters",
+              "information": "Hans Wilsdorf wanted his watches to bear a name that was short, easy to say and remember in any language, and which looked good on watch movements and dials. He said, “I tried combining the letters of the alphabet in every possible way. This gave me some hundred names, but none of them felt quite right. One morning, while riding on the upper deck of a horse-drawn omnibus along Cheapside in the City of London, a genie whispered ‘Rolex’ in my ear.”"
+            },
+            {
+              "subtitle": "1910, The quest for chronometric precision",
+              "information": "Rolex first concentrated on the quality of the movements. The relentless quest for chronometric precision rapidly led to success. In 1910, a Rolex watch was the first wristwatch in the world to receive the Swiss Certificate of Chronometric Precision, granted by the Official Watch Rating Centre in Bienne."
+            },
+            {
+              "subtitle": "1914, The quest for chronometric precision",
+              "information": "Four years later, in 1914, Kew Observatory in Great Britain awarded a Rolex wristwatch a class 'A' precision certificate, a distinction which until that point in time had been reserved exclusively for marine chronometers. From that date forward, the Rolex wristwatch was synonymous with precision."
+            },
+            {
+              "subtitle": "1919, Geneva",
+              "information": "Rolex moved to Geneva, a city renowned internationally for watchmaking. Montres Rolex S.A. was registered in Geneva in 1920."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "Audemars Piguet",
+    "country": "Switzerland",
+    "city": "Le Brassus",
+    "foundingDate": 1875,
+    "history": {
+      "head": "Rolex is a British-founded Swiss watch designer and manufacturer based in Geneva, Switzerland. Founded in 1905 as Wilsdorf and Davis by Hans Wilsdorf and Alfred Davis in London, the company registered Rolex as the brand name of its watches in 1908 and became Rolex Watch Co. Ltd. in 1915. After World War I, the company moved its base of operations to Geneva because of the unfavorable economy in the United Kingdom. In 1920, Hans Wilsdorf registered Montres Rolex SA in Geneva as the new company name (montre is French for wristwatch); it later became Rolex SA. Since 1960, the company has been owned by the Hans Wilsdorf Foundation, a private family trust.",
+      "information": [
+        {
+          "title": "1905-1919",
+          "informationblocks": [
+            {
+              "subtitle": "1905, Hans Wilsdorf",
+              "information": "The history of Rolex is inextricably linked to the visionary spirit of Hans Wilsdorf, its founder. In 1905, at the age of 24, Hans Wilsdorf founded a company in London specialising in the distribution of timepieces. He began to dream of a watch worn on the wrist. Wristwatches were not very precise at the time, but Hans Wilsdorf foresaw that they could become not only elegant, but also reliable. To convince the public of the reliability of his resolutely innovative timepieces, he equipped them with small, very precise movements manufactured by a Swiss watchmaking company in Bienne."
+            },
+            {
+              "subtitle": "1908, Genuis in five letters",
+              "information": "Hans Wilsdorf wanted his watches to bear a name that was short, easy to say and remember in any language, and which looked good on watch movements and dials. He said, “I tried combining the letters of the alphabet in every possible way. This gave me some hundred names, but none of them felt quite right. One morning, while riding on the upper deck of a horse-drawn omnibus along Cheapside in the City of London, a genie whispered ‘Rolex’ in my ear.”"
+            },
+            {
+              "subtitle": "1910, The quest for chronometric precision",
+              "information": "Rolex first concentrated on the quality of the movements. The relentless quest for chronometric precision rapidly led to success. In 1910, a Rolex watch was the first wristwatch in the world to receive the Swiss Certificate of Chronometric Precision, granted by the Official Watch Rating Centre in Bienne."
+            },
+            {
+              "subtitle": "1914, The quest for chronometric precision",
+              "information": "Four years later, in 1914, Kew Observatory in Great Britain awarded a Rolex wristwatch a class 'A' precision certificate, a distinction which until that point in time had been reserved exclusively for marine chronometers. From that date forward, the Rolex wristwatch was synonymous with precision."
+            },
+            {
+              "subtitle": "1919, Geneva",
+              "information": "Rolex moved to Geneva, a city renowned internationally for watchmaking. Montres Rolex S.A. was registered in Geneva in 1920."
+            }
+          ]
+        }
+      ]
+    }
+  }
+]
