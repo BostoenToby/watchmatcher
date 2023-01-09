@@ -1,0 +1,61 @@
+[
+  {
+    "question": "In what price range are you looking for a watch?",
+    "answers": ["€100 - €500", "€500 - €1000", "€1000 - €2500", "€2500 +"],
+    "multipleAnswers": false
+  },
+  {
+    "question": "Do you have a brand you prefer?",
+    "answers": ["Yes", "No"],
+    "multipleAnswers": false
+  },
+  {
+    "question": "Choose the brands you like.",
+    "answers": [
+      "Rolex",
+      "Audemars Piguet",
+      "Patek Philippe",
+      "Vacheron Constantin",
+      "Festina",
+      "Hublot",
+      "Casio",
+      "Tissot",
+      "Fossil",
+      "Omega",
+      "IWC",
+      "Breitling",
+      "Tag Heuer",
+      "Cartier",
+      "Longines",
+      "Seiko",
+      "Bulova",
+      "Movado",
+      "Rado",
+      "Hamilton",
+      "Gucci",
+      "Michael Kors",
+      "Emporio Armani",
+      "Candino",
+      "Guess",
+      "DKNY",
+      "Tommy Hilfiger",
+      "Diesel",
+      "D&G",
+      "Versace",
+      "Armani",
+      "Ferrari",
+      "Chopard",
+      "Swatch",
+      "Tudor",
+      "Oris",
+      "Maurice Lacroix",
+      "Mido",
+      "Montblanc",
+      "Rado",
+      "Raymond Weil",
+      "Ulysse Nardin",
+      "Zenith"
+    ],
+    "multipleAnswers": true
+  }
+]

@@ -6,7 +6,7 @@
 
 <AppHolder>
   <div class="flex items-center">
-    <img src="/watchmatcher.jpg" alt="" class="w-120 mt-40 mx-auto mb-4" />
+    <img src="/watchmatcher.webp" alt="" class="w-120 mt-40 mx-auto mb-4" />
   </div>
   <h1 class="text-center font-classic text-5xl mt-8">Watchmatcher</h1>
   <h1 class="text-center font-classic text-2xl mt-8">
@@ -22,7 +22,7 @@
     </div>
   </div>
   <section class="m-20 mb-40 flex justify-between gap-8 font-text">
-    <img src="/brand.jpg" alt="" class="w-2/5 rounded-md" />
+    <img src="/brand.webp" alt="" class="w-2/5 rounded-md" />
     <div class="w-1/2 flex flex-col justify-between">
       <h2 class="mt-0">Brands</h2>
       <div>
@@ -70,10 +70,10 @@
         class="no-underline text-white bg-emerald-700 px-4 py-2 rounded-md w-min"
         >Watches</Link>
     </div>
-    <img src="/watch.jpg" alt="" class="w-2/5 rounded-md" />
+    <img src="/watch.webp" alt="" class="w-2/5 rounded-md" />
   </section>
   <section class="m-20 mb-40 flex justify-between font-text">
-    <img src="/matcher.jpg" alt="" class="w-2/5 rounded-md" />
+    <img src="/matcher.webp" alt="" class="w-2/5 rounded-md" />
     <div class="w-1/2 flex flex-col justify-between">
       <h2 class="mt-0">Watch matcher</h2>
       <div>
