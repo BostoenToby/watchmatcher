@@ -1,5 +1,6 @@
 <script lang="ts">
   import { writable } from 'svelte/store'
+  import { navigate } from 'svelte-routing'
 
   import AppHolder from '../components/holders/AppHolder.svelte'
   import type { Answer } from '../interfaces/questions.interface'
@@ -9,63 +10,78 @@
 
   function onChange(event) {
     const answerFound = event.currentTarget.value
-    if (Object.keys($answers).length != 0) {
-      for (let object of $answers) {
-        const objList = $answers
-        if (
-          object.question == event.currentTarget.name &&
-          object.multipleAnswers == false
-        ) {
-          objList.splice(objList.indexOf(object), 1)
-          object.answer = [answerFound]
-          objList.push(object)
-          answers.set(objList)
-          return
-        } else if (
-          object.question == event.currentTarget.name &&
-          object.multipleAnswers == true
-        ) {
-          if (object.answer.includes(answerFound)) {
-            objList.splice(objList.indexOf(object, 1))
-            if (typeof object.answer != 'string') {
-              object.answer.splice(object.answer.indexOf(answerFound), 1)
+    if (answerFound != 'Yes' || answerFound != 'No') {
+      if (Object.keys($answers).length != 0) {
+        for (let object of $answers) {
+          const objList = $answers
+          if (
+            object.question == event.currentTarget.name &&
+            object.multipleAnswers == false
+          ) {
+            objList.splice(objList.indexOf(object), 1)
+            object.answer = [answerFound]
+            objList.push(object)
+            answers.set(objList)
+            return
+          } else if (
+            object.question == event.currentTarget.name &&
+            object.multipleAnswers == true
+          ) {
+            if (object.answer.includes(answerFound)) {
+              objList.splice(objList.indexOf(object, 1))
+              if (typeof object.answer != 'string') {
+                object.answer.splice(object.answer.indexOf(answerFound), 1)
+              }
+              objList.push(object)
+              answers.set(objList)
+              return
+            }
+            objList.splice(objList.indexOf(object), 1)
+            if (typeof object.answer == 'string') {
+              object.answer = [object.answer, answerFound]
+            } else {
+              object.answer.push(answerFound)
             }
             objList.push(object)
             answers.set(objList)
             return
           }
-          objList.splice(objList.indexOf(object), 1)
-          if (typeof object.answer == 'string') {
-            object.answer = [object.answer, answerFound]
-          } else {
-            object.answer.push(answerFound)
-          }
-          objList.push(object)
-          answers.set(objList)
-          return
+        }
+        answers.set([
+          ...$answers,
+          {
+            question: event.currentTarget.name,
+            answer: event.currentTarget.value,
+            multipleAnswers: questions.find(
+              (item) => item.question == event.currentTarget.name,
+            ).multipleAnswers,
+          },
+        ])
+      } else {
+        answers.set([
+          {
+            question: event.currentTarget.name,
+            answer: event.currentTarget.value,
+            multipleAnswers: questions.find(
+              (item) => item.question == event.currentTarget.name,
+            ).multipleAnswers,
+          },
+        ])
+      }
+    }
+  }
+
+  const findWatch = () => {
+    let answersList = []
+    for (let answer of $answers) {
+      if (typeof answer.answer != 'string') {
+        for (let item of answer.answer) {
+          answersList.push(item)
         }
       }
-      answers.set([
-        ...$answers,
-        {
-          question: event.currentTarget.name,
-          answer: event.currentTarget.value,
-          multipleAnswers: questions.find(
-            (item) => item.question == event.currentTarget.name,
-          ).multipleAnswers,
-        },
-      ])
-    } else {
-      answers.set([
-        {
-          question: event.currentTarget.name,
-          answer: event.currentTarget.value,
-          multipleAnswers: questions.find(
-            (item) => item.question == event.currentTarget.name,
-          ).multipleAnswers,
-        },
-      ])
+      answersList.push(answer.answer)
     }
+    navigate('/watches', { state: { answers: answersList } })
   }
 </script>
 
@@ -128,6 +144,7 @@
     {/each}
     <div class="w-full flex justify-center mt-12">
       <button
+        on:click={findWatch}
         class="px-4 py-2 border-none rounded-md bg-emerald-700 text-white font-text text-xl"
         >Find a watch</button>
     </div>

@@ -3,6 +3,7 @@ export default interface Watch {
   brand: string
   type: string
   ref: string
+  categories: string[]
   information: string
   specifications: Specification
   calibre: Calibre
