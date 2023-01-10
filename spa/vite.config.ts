@@ -15,7 +15,12 @@ export default defineConfig({
           provider: 'google',
           fonts: {
             classic: 'Quattrocento',
-            text: 'Montserrat'
+            text: [
+              {
+                name: 'Montserrat',
+                weights: [400, 500, 700],
+              },
+            ],
           },
         }),
       ],

@@ -20,9 +20,10 @@
 </script>
 
 <AppHolder>
-  <section class="flex justify-between m-20 gap-16">
+  <section
+    class="flex flex-col-reverse md:flex-row justify-between m-12 md:m-20 gap-16">
     <div
-      class="aspect-video w-1/2 rounded-md overflow-hidden flex justify-center">
+      class="aspect-square md:aspect-video w-full md:w-1/2 rounded-md overflow-hidden flex justify-center">
       <img
         src="/watches/{$watch.brand
           .replaceAll(' ', '-')
@@ -35,7 +36,7 @@
         alt=""
         class="max-h-full rounded-md" />
     </div>
-    <div class="flex flex-col font-text w-1/2">
+    <div class="flex flex-col font-text md:w-1/2">
       <h2 class="text-xl my-0">{$watch.brand}, {$watch.watch}</h2>
       <h1 class="capitalize text-3xl my-0 mb-4">{$watch.type}</h1>
       <p class="leading-6">
@@ -44,27 +45,28 @@
     </div>
   </section>
   <h3 class="text-center font-text text-3xl">Watch specifications</h3>
-  <section class="grid grid-cols-3 gap-8 mx-20 font-text">
+  <section
+    class="grid md:grid-cols-3 gap-8 mx-20 font-text text-center md:text-left">
     <div>
       <h4 class="text-2xl mb-0 pb-4">Case</h4>
       <div class="py-1">
-        <p>MATERIAL</p>
+        <p class="font-medium">MATERIAL</p>
         <p>{$watch.specifications.case.material}</p>
       </div>
       <div class="py-1">
-        <p>SIZE (MM)</p>
+        <p class="font-medium">SIZE (MM)</p>
         <p>{$watch.specifications.case.size}</p>
       </div>
       <div class="py-1">
-        <p>THICKNESS (MM)</p>
+        <p class="font-medium">THICKNESS (MM)</p>
         <p>{$watch.specifications.case.thickness}</p>
       </div>
       <div class="py-1">
         {#if $watch.specifications.case.waterResistanceM != null}
-          <p>WATER-RESISTANCE (METER)</p>
+          <p class="font-medium">WATER-RESISTANCE (METER)</p>
           <p>{$watch.specifications.case.waterResistanceM}</p>
         {:else}
-          <p>WATER-RESISTANCE (BAR)</p>
+          <p class="font-medium">WATER-RESISTANCE (BAR)</p>
           <p>{$watch.specifications.case.waterResistanceB}</p>
         {/if}
       </div>
@@ -72,16 +74,16 @@
     <div>
       <h4 class="text-2xl mb-0 pb-4">Bracelet</h4>
       <div class="py-1">
-        <p>NUMBER OF BRACELETS</p>
+        <p class="font-medium">NUMBER OF BRACELETS</p>
         <p>{$watch.specifications.bracelet.number}</p>
       </div>
       <div class="py-1">
-        <p>MATERIAL OF THE BRACELETS</p>
+        <p class="font-medium">MATERIAL OF THE BRACELETS</p>
         <p>{$watch.specifications.bracelet.material}</p>
       </div>
       {#if $watch.specifications.bracelet.size != null}
         <div class="py-1">
-          <p>SIZE</p>
+          <p class="font-medium">SIZE</p>
           <p>{$watch.specifications.bracelet.size}</p>
         </div>
       {/if}
@@ -92,13 +94,13 @@
           <h4 class="text-2xl mb-0 pb-4">Buckle</h4>
           {#if $watch.specifications.buckle.type != null}
             <div class="py-1">
-              <p>TYPE</p>
+              <p class="font-medium">TYPE</p>
               <p>{$watch.specifications.buckle.type}</p>
             </div>
           {/if}
           {#if $watch.specifications.buckle.material != null}
             <div class="py-1">
-              <p>MATERIAL</p>
+              <p class="font-medium">MATERIAL</p>
               <p>{$watch.specifications.buckle.material}</p>
             </div>
           {/if}
@@ -107,7 +109,7 @@
       <div>
         <h4 class="text-2xl mb-0 pb-4">Dial</h4>
         <div class="py-1">
-          <p>MATERIAL</p>
+          <p class="font-medium">MATERIAL</p>
           <p>{$watch.specifications.dial.material}</p>
         </div>
       </div>
@@ -115,27 +117,28 @@
         <h4 class="text-2xl mb-0 pb-4">Watch</h4>
         {#if $watch.specifications.watch.weight != null}
           <div class="py-1">
-            <p>WEIGHT (GRAMS)</p>
+            <p class="font-medium">WEIGHT (GRAMS)</p>
             <p>{$watch.specifications.watch.weight}</p>
           </div>
         {/if}
         <div class="py-1">
-          <p>ORIGIN</p>
+          <p class="font-medium">ORIGIN</p>
           <p>{$watch.specifications.watch.origin}</p>
         </div>
       </div>
     </div>
   </section>
   <h3 class="text-center font-text text-3xl">Calibre</h3>
-  <section class="grid grid-cols-3 gap-8 mx-20 font-text">
-    <div class="flex flex-col col-start-1 col-end-3">
+  <section
+    class="grid md:grid-cols-3 gap-8 mx-20 font-text text-center md:text-left">
+    <div class="flex flex-col md:col-start-1 md:col-end-2 overflow-x-hidden">
       <div class="py-1">
-        <p>NAME</p>
+        <p class="font-medium">NAME</p>
         <p>{$watch.calibre.name}</p>
       </div>
       <div class="py-1">
-        <p>FUNCTIONS</p>
-        <div class="flex gap-2">
+        <p class="font-medium">FUNCTIONS</p>
+        <div class="grid grid-cols-2 gap-x-16 text-center">
           {#each $watch.calibre.functions as f, index}
             {#if index + 1 == $watch.calibre.functions.length}
               <p>{f}</p>
@@ -146,35 +149,35 @@
         </div>
       </div>
       <div class="py-1">
-        <p>PARTS</p>
+        <p class="font-medium">PARTS</p>
         <p>{$watch.calibre.parts}</p>
       </div>
       <div class="py-1">
-        <p>FREQUENCY</p>
+        <p class="font-medium">FREQUENCY</p>
         <p>
           {$watch.calibre.frequencyHZ} Hz - {$watch.calibre.frequencyVPH} VPH
         </p>
       </div>
       <div class="py-1">
-        <p>THICKNESS (MM)</p>
+        <p class="font-medium">THICKNESS (MM)</p>
         <p>{$watch.calibre.thickness}</p>
       </div>
     </div>
-    <div class="flex flex-col">
+    <div class="flex flex-col md:col-start-3 md:col-end-4">
       <div class="py-1">
-        <p>JEWELS</p>
+        <p class="font-medium">JEWELS</p>
         <p>{$watch.calibre.jewels}</p>
       </div>
       <div class="py-1">
-        <p>MECHANISM</p>
+        <p class="font-medium">MECHANISM</p>
         <p>{$watch.calibre.mechanism}</p>
       </div>
       <div class="py-1">
-        <p>POWER RESERVE</p>
+        <p class="font-medium">POWER RESERVE</p>
         <p>{$watch.calibre.powerReserve}</p>
       </div>
       <div class="py-1">
-        <p>TOTAL DIAMETER</p>
+        <p class="font-medium">TOTAL DIAMETER</p>
         <p>{$watch.calibre.totalDiameter}</p>
       </div>
     </div>
