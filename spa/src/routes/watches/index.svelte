@@ -5,24 +5,143 @@
   import AppHolder from '../../components/holders/AppHolder.svelte'
   import watches from '../../assets/watches.json'
   import type Watch from '../../interfaces/watch.interface'
+  import { Search } from 'lucide-svelte'
 
   const watchesFilter = writable<Array<Watch>>([])
+  const searchInput = writable<string>()
+  const searchedWatches = writable<Array<Watch>>([])
 
   for (let watch of watches) {
     const categories = watch.categories
     const answers = new Set(history.state.answers)
     const res = categories.filter((ans) => answers.has(ans)).length
-    if (res == history.state.answers.length) {
-      $watchesFilter.push(watch)
+    if (history.state.answers != undefined) {
+      if (res == history.state.answers.length) {
+        $watchesFilter.push(watch)
+      }
+    }
+  }
+
+  const filterWatches = () => {
+    if ($watchesFilter.length != 0) {
+      const w = $watchesFilter.filter((watch) => {
+        return watch.watch.toLowerCase().includes($searchInput.toLowerCase())
+      })
+      const b = $watchesFilter.filter((watch) => {
+        return watch.brand.toLowerCase().includes($searchInput.toLowerCase())
+      })
+      const t = $watchesFilter.filter((watch) => {
+        return watch.type.toLowerCase().includes($searchInput.toLowerCase())
+      })
+      const res = Array.from(new Set([...w, ...b, ...t]))
+      searchedWatches.set(res)
+    } else {
+      const w = watches.filter((watch) => {
+        return watch.watch.toLowerCase().includes($searchInput.toLowerCase())
+      })
+      const b = watches.filter((watch) => {
+        return watch.brand.toLowerCase().includes($searchInput.toLowerCase())
+      })
+      const t = watches.filter((watch) => {
+        return watch.type.toLowerCase().includes($searchInput.toLowerCase())
+      })
+      const res = Array.from(new Set([...w, ...b, ...t]))
+      searchedWatches.set(res)
     }
   }
 </script>
 
 <AppHolder>
   <h1 class="text-5xl text-center font-classic">Watches</h1>
+  <div class="grid grid-cols-10 mx-12">
+    <div
+      class="col-start-4 col-end-8 w-full mx-auto flex justify-between px-4 py-2 items-center border border-solid border-neutral-200 rounded-md">
+      <input
+        bind:value={$searchInput}
+        on:change={filterWatches}
+        type="text"
+        placeholder="Search for a brand"
+        class="rounded-md outline-none border-none w-full font-text text-xl" />
+      <button
+        on:click={filterWatches}
+        class="border-none bg-transparent cursor-pointer group"
+        ><Search
+          class="relative right-0 group-hover:text-emerald-700" /></button>
+    </div>
+  </div>
   <section class="grid grid-cols-4 gap-16 m-20 font-text">
     {#if history.state.answers != undefined || history.state.answers != null}
-      {#each $watchesFilter as watch}
+      {#if $searchedWatches.length != 0}
+        {#each $searchedWatches as watch}
+          <div
+            class="border-2 border-solid border-neutral-200 bg-neutral-200 p-2 rounded-md drop-shadow-md">
+            <div
+              class="aspect-square flex overflow-hidden justify-center rounded-md">
+              <img
+                src="/watches/{watch.brand
+                  .replaceAll(' ', '-')
+                  .toLocaleLowerCase()}-{watch.watch
+                  .replaceAll(' ', '-')
+                  .replaceAll('.', ',')
+                  .toLocaleUpperCase()}-{watch.type
+                  .replaceAll(' ', '-')
+                  .toLocaleUpperCase()}.webp"
+                alt=""
+                class="max-h-full" />
+            </div>
+            <div class="flex justify-between">
+              <div>
+                <p class="text-neutral-600 mb-2">
+                  {watch.brand} - {watch.watch}
+                </p>
+                <h3 class="mt-0">{watch.type}</h3>
+              </div>
+              <Link
+                to="/watches/{watch.type
+                  .replaceAll(' ', '-')
+                  .toLocaleLowerCase()}"
+                class="no-underline outline-none self-center bg-emerald-700 text-white rounded-md px-4 py-2"
+                >View</Link>
+            </div>
+          </div>
+        {/each}
+      {:else}
+        {#each $watchesFilter as watch}
+          <div
+            class="border-2 border-solid border-neutral-200 bg-neutral-200 p-2 rounded-md drop-shadow-md">
+            <div
+              class="aspect-square flex overflow-hidden justify-center rounded-md">
+              <img
+                src="/watches/{watch.brand
+                  .replaceAll(' ', '-')
+                  .toLocaleLowerCase()}-{watch.watch
+                  .replaceAll(' ', '-')
+                  .replaceAll('.', ',')
+                  .toLocaleUpperCase()}-{watch.type
+                  .replaceAll(' ', '-')
+                  .toLocaleUpperCase()}.webp"
+                alt=""
+                class="max-h-full" />
+            </div>
+            <div class="flex justify-between">
+              <div>
+                <p class="text-neutral-600 mb-2">
+                  {watch.brand} - {watch.watch}
+                </p>
+                <h3 class="mt-0">{watch.type}</h3>
+              </div>
+              <Link
+                to="/watches/{watch.type
+                  .replaceAll(' ', '-')
+                  .toLocaleLowerCase()}"
+                class="no-underline outline-none self-center bg-emerald-700 text-white rounded-md px-4 py-2"
+                >View</Link>
+            </div>
+          </div>
+        {/each}
+      {/if}
+    {:else if $searchedWatches.length != 0}
+      {#each $searchedWatches as watch}
         <div
           class="border-2 border-solid border-neutral-200 bg-neutral-200 p-2 rounded-md drop-shadow-md">
           <div
