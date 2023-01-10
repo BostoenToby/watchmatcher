@@ -32,10 +32,11 @@
       <button
         on:click={filterBrands}
         class="border-none bg-transparent cursor-pointer group"
-        ><Search class="relative right-0 group-hover:text-emerald-700" /></button>
+        ><Search
+          class="relative right-0 group-hover:text-emerald-700" /></button>
     </div>
   </div>
-  <section class="grid grid-cols-4 gap-16 m-20 font-text">
+  <section class="grid sm:grid-cols-2 lg:grid-cols-4 gap-16 m-20 font-text">
     {#if $filteredWatches.length != 0}
       {#each $filteredWatches as brand}
         <div

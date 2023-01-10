@@ -1,10 +1,10 @@
 <script lang="ts">
-    import AppHeader from '../generic/AppHeader.svelte'
-    import AppFooter from '../generic/AppFooter.svelte'
+  import AppHeader from '../generic/AppHeader.svelte'
+  import AppFooter from '../generic/AppFooter.svelte'
 </script>
 
 <main class="scrollbar-gutter-auto">
-    <AppHeader />
-    <slot></slot>
-    <AppFooter />
+  <AppHeader />
+  <slot />
+  <AppFooter />
 </main>

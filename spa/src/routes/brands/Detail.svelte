@@ -1,5 +1,6 @@
 <script lang="ts">
   import { writable } from 'svelte/store'
+  import { onMount } from 'svelte'
 
   import AppHolder from '../../components/holders/AppHolder.svelte'
   import brands from '../../assets/brands.json'
@@ -9,11 +10,13 @@
 
   let brand = writable<Brand>()
 
-  for (let b of brands) {
-    if (b.name.replace(' ', '-').toLocaleLowerCase() == name) {
-      brand.set(b)
+  onMount(() => {
+    for (let b of brands) {
+      if (b.name.replace(' ', '-').toLocaleLowerCase() == name) {
+        brand.set(b)
+      }
     }
-  }
+  })
 </script>
 
 <AppHolder>
@@ -21,7 +24,9 @@
     <div
       class="aspect-video w-1/2 rounded-md overflow-hidden flex justify-center">
       <img
-        src="/brandsHistory/{$brand.name.replace(' ', '-').toLocaleLowerCase()}-head.webp"
+        src="/brandsHistory/{$brand.name
+          .replace(' ', '-')
+          .toLocaleLowerCase()}-head.webp"
         alt=""
         class="max-h-full rounded-md" />
     </div>
@@ -38,7 +43,8 @@
   <section class="w-4/5 mx-auto overflow-x-hidden mb-20">
     {#each $brand.history.information as information, indexH}
       <h3 class="text-center font-text text-3xl">{information.title}</h3>
-      <section class="grid grid-cols-10 mt-10 gap-16 font-text overflow-x-hidden">
+      <section
+        class="grid grid-cols-10 mt-10 gap-16 font-text overflow-x-hidden">
         {#each information.informationblocks as informationblock, index}
           {#if index % 2 != 0}
             <div
@@ -48,8 +54,9 @@
                   : 'col-start-7 col-end-11'
               } rounded-md flex justify-center`}>
               <img
-                src="/brandsHistory/{$brand.name.replace(' ', '-').toLocaleLowerCase()}-{indexH + 1}-{index +
-                  1}.webp"
+                src="/brandsHistory/{$brand.name
+                  .replace(' ', '-')
+                  .toLocaleLowerCase()}-{indexH + 1}-{index + 1}.webp"
                 alt=""
                 class="rounded-md max-w-full" />
             </div>
@@ -79,8 +86,9 @@
                   : 'col-start-7 col-end-11'
               } rounded-md flex justify-center`}>
               <img
-                src="/brandsHistory/{$brand.name.replace(' ', '-').toLocaleLowerCase()}-{indexH + 1}-{index +
-                  1}.webp"
+                src="/brandsHistory/{$brand.name
+                  .replace(' ', '-')
+                  .toLocaleLowerCase()}-{indexH + 1}-{index + 1}.webp"
                 alt=""
                 class="rounded-md" />
             </div>

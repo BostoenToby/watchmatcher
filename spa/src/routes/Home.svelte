@@ -6,24 +6,31 @@
 
 <AppHolder>
   <div class="flex items-center">
-    <img src="/watchmatcher.webp" alt="" class="w-120 mt-40 mx-auto mb-4" />
+    <img
+      src="/watchmatcher.webp"
+      alt=""
+      class="w-80 md:w-120 mt-40 mx-auto mb-4" />
   </div>
   <h1 class="text-center font-classic text-5xl mt-8">Watchmatcher</h1>
   <h1 class="text-center font-classic text-2xl mt-8">
     The place to find the perfect watch for you
   </h1>
   <div class="w-full flex justify-center w-1/2 mt-20">
-    <div class="flex items-center font-text gap-8">
-      <p class="text-lg">Find a watch that suites you with this test</p>
+    <div
+      class="flex flex-col md:flex-row items-center font-text gap-4 md:gap-8">
+      <p class="text-lg w-2/3 text-center">
+        Find a watch that suites you with this test
+      </p>
       <Link
         to="/matcher"
         class="no-underline text-white bg-emerald-700 rounded-md px-4 py-2 rounded-md"
         >Matcher</Link>
     </div>
   </div>
-  <section class="m-20 mb-40 flex justify-between gap-8 font-text">
-    <img src="/brand.webp" alt="" class="w-2/5 rounded-md" />
-    <div class="w-1/2 flex flex-col justify-between">
+  <section
+    class="mx-20 m20 flex flex-col-reverse lg:flex-row justify-between gap-8 font-text">
+    <img src="/brand.webp" alt="" class="w-full lg:w-2/5 rounded-md" />
+    <div class="w-full lg:w-1/2 flex flex-col justify-between">
       <h2 class="mt-0">Brands</h2>
       <div>
         <p class="leading-8">
@@ -46,8 +53,9 @@
         >Brands</Link>
     </div>
   </section>
-  <section class="m-20 mb-40 flex justify-between font-text">
-    <div class="w-1/2 flex flex-col justify-between">
+  <section
+    class="mx-20 lg:m-20 flex flex-col lg:flex-row justify-between gap-8 font-text">
+    <div class="w-full lg:w-1/2 flex flex-col justify-between">
       <h2 class="mt-0">Watches</h2>
       <div>
         <p class="leading-8">
@@ -70,11 +78,12 @@
         class="no-underline text-white bg-emerald-700 px-4 py-2 rounded-md w-min"
         >Watches</Link>
     </div>
-    <img src="/watch.webp" alt="" class="w-2/5 rounded-md" />
+    <img src="/watch.webp" alt="" class="w-full lg:w-2/5 rounded-md" />
   </section>
-  <section class="m-20 mb-40 flex justify-between font-text">
-    <img src="/matcher.webp" alt="" class="w-2/5 rounded-md" />
-    <div class="w-1/2 flex flex-col justify-between">
+  <section
+    class="mx-20 m-20 flex flex-col-reverse lg:flex-row justify-between gap-8 font-text">
+    <img src="/matcher.webp" alt="" class="w-full lg:w-2/5 rounded-md" />
+    <div class="w-full lg:w-1/2 flex flex-col justify-between">
       <h2 class="mt-0">Watch matcher</h2>
       <div>
         <p class="leading-8">
