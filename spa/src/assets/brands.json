@@ -70,5 +70,353 @@
         }
       ]
     }
+  },
+  {
+    "name": "Patek Philippe",
+    "country": "Switzerland",
+    "city": "Geneve",
+    "foundingDate": 1839,
+    "history": {
+      "head": "Patek Philippe SA is a Swiss luxury watch and clock manufacturer, located in the Canton of Geneva and the Vallée de Joux. Established in 1839, it is named after two of its founders, Antoni Patek and Adrien Philippe. Since 1932, the company has been owned by the Stern family in Switzerland and remains the last family-owned independent watch manufacturer in Geneva. Patek Philippe is one of the oldest watch manufacturers in the world with an uninterrupted watchmaking history since its founding. It designs and manufactures timepieces as well as movements, including some of the most complicated mechanical watches. The company maintains over 400 retail locations globally and over a dozen distribution centers across Asia, Europe, North America, and Oceania. In 2001, it opened the Patek Philippe Museum in Geneva.",
+      "information": [
+        {
+          "title": "1839-1877",
+          "informationblocks": [
+            {
+              "subtitle": "1839",
+              "information": "Patek, Czapek & Cie is founded by Antoine Norbert de Patek and François Czapek."
+            },
+            {
+              "subtitle": "1844",
+              "information": "Jean Adrien Philippe receives a bronze medal for his keyless winding and hand-setting system at the Industrial Exposition in Paris."
+            },
+            {
+              "subtitle": "1845",
+              "information": "Patent for keyless winding and hand-setting system."
+            },
+            {
+              "subtitle": "1851",
+              "information": "The Great Exhibition takes place in London. England’s Queen Victoria is among those who admire the world’s first keyless watches."
+            },
+            {
+              "subtitle": "1851",
+              "information": "The company name becomes Patek, Philippe & Cie –Fabricants à Genève."
+            },
+            {
+              "subtitle": "1868",
+              "information": "Patek Philippe creates the first Swiss wristwatch, made for Countess Koscowicz of Hungary."
+            }
+          ]
+        },
+        {
+          "title": "1878-1931",
+          "informationblocks": [
+            {
+              "subtitle": "1881",
+              "information": "Patent for precision regulator."
+            },
+            {
+              "subtitle": "1889",
+              "information": "Patent for perpetual calendar mechanism for pocket watches."
+            },
+            {
+              "subtitle": "1902",
+              "information": "Patent for first double chronograph."
+            },
+            {
+              "subtitle": "1910",
+              "information": "Patek Philippe creates the 'Duke of Regla' Westminster chime pocket watch"
+            },
+            {
+              "subtitle": "1916",
+              "information": "Patek Philippe produces the first complicated ladies’ wristwatch with a five-minute repeater, No. 174 603."
+            },
+            {
+              "subtitle": "1923",
+              "information": "Patek Philippe sells the first split-seconds chronograph wristwatch, No. 124 824."
+            },
+            {
+              "subtitle": "1925",
+              "information": "Patek Philippe creates its first wristwatch with perpetual calendar, No. 97 975."
+            },
+            {
+              "subtitle": "1927",
+              "information": "James Ward Packard collects his Patek Philippe astronomical pocket watch, the “Packard”, No. 198 023."
+            }
+          ]
+        },
+        {
+          "title": "1932-1949",
+          "informationblocks": [
+            {
+              "subtitle": "1932",
+              "information": "Brothers Jean and Charles Henri Stern invest in Patek, Philippe & Cie."
+            },
+            {
+              "subtitle": "1932",
+              "information": "Launch of the first Calatrava: Ref. 96."
+            },
+            {
+              "subtitle": "1933",
+              "information": "Patek Philippe creates the “Graves” supercomplication pocket watch, No. 198 385, for Henry Graves Jr."
+            },
+            {
+              "subtitle": "1941",
+              "information": "Patek Philippe begins regular production of perpetual calendar wristwatches (Ref. 1526 shown)."
+            },
+            {
+              "subtitle": "1944",
+              "information": "Patek Philippe wins a record number of first prizes for precision in the Geneva Observatory competition."
+            },
+            {
+              "subtitle": "1949",
+              "information": "Patents for Patek Philippe Gyromax balance."
+            }
+          ]
+        },
+        {
+          "title": "1950-1988",
+          "informationblocks": [
+            {
+              "subtitle": "1953",
+              "information": "Patent for self-winding mechanism caliber 12-600at."
+            },
+            {
+              "subtitle": "1956",
+              "information": "The company makes the first all-electronic clock."
+            },
+            {
+              "subtitle": "1958",
+              "information": "Henri Stern becomes president of Patek Philippe."
+            },
+            {
+              "subtitle": "1959",
+              "information": "Patents for time-zone watches."
+            },
+            {
+              "subtitle": "1962",
+              "information": "A Patek Philippe tourbillon movement achieves the still unbeaten world timekeeping precision record for a mechanical watch, at the Geneva Observatory."
+            },
+            {
+              "subtitle": "1968",
+              "information": "Launch of the first Golden Ellipse: Ref. 3548."
+            },
+            {
+              "subtitle": "1976",
+              "information": "Launch of the first Nautilus sports watch: Ref. 3700/1 in steel."
+            },
+            {
+              "subtitle": "1977",
+              "information": "Patent for ultra-thin automatic caliber 240."
+            },
+            {
+              "subtitle": "1985",
+              "information": "Launch of the ultra-thin Ref. 3940 perpetual calendar."
+            },
+            {
+              "subtitle": "1986",
+              "information": "Patent for secular perpetual calendar with retrograde date indication."
+            }
+          ]
+        },
+        {
+          "title": "1989-2019",
+          "informationblocks": [
+            {
+              "subtitle": "1989",
+              "information": "Launch of the Calibre 89 to mark 150 years of Patek Philippe. With 33 complications, it has the most ever in a portable timepiece."
+            },
+            {
+              "subtitle": "1993",
+              "information": "Philippe Stern becomes president of Patek Philippe."
+            },
+            {
+              "subtitle": "1993",
+              "information": "Launch of the Gondolo collection (Ref. 5024 shown)."
+            },
+            {
+              "subtitle": "1996",
+              "information": "Patent for Annual Calendar mechanism (Ref. 5035J)."
+            },
+            {
+              "subtitle": "1996",
+              "information": "Patek Philippe moves into a new production facility in Plan-les-Ouates, Geneva."
+            },
+            {
+              "subtitle": "1997",
+              "information": "Launch of the Aquanaut collection (1998’s Ref. 5065A shown)."
+            },
+            {
+              "subtitle": "1999",
+              "information": "Launch of the first Twenty~4: Ref.  4910/10A."
+            },
+            {
+              "subtitle": "2000",
+              "information": "Launch of the Star Caliber 2000 to mark the millennium."
+            },
+            {
+              "subtitle": "2001",
+              "information": "Launch of the most complicated Patek Philippe wristwatch with a double face: the Sky Moon Tourbillon, Ref. 5002."
+            },
+            {
+              "subtitle": "2001",
+              "information": "Opening of the Patek Philippe Museum in Geneva."
+            },
+            {
+              "subtitle": "2003",
+              "information": "Patek Philippe introduces the 10-Day Tourbillon, Ref. 5101P."
+            },
+            {
+              "subtitle": "2005",
+              "information": "Launch of the Annual Calendar Ref. 5250 with the first escape wheel for a Swiss lever escapement made from a revolutionary new silicon-based material."
+            },
+            {
+              "subtitle": "2006",
+              "information": "Opening of the renovated rue du Rhône salons in Geneva."
+            },
+            {
+              "subtitle": "2006",
+              "information": "Patek Philippe Advanced Research: launch of the silicon-based Spiromax balance spring."
+            },
+            {
+              "subtitle": "2008",
+              "information": "Patek Philippe Advanced Research: launch of the Pulsomax silicon-based escapement."
+            },
+            {
+              "subtitle": "2009",
+              "information": "Thierry Stern becomes president of Patek Philippe."
+            },
+            {
+              "subtitle": "2009",
+              "information": "Launch of the CH 29-535 PS movement integrated into the Ladies First Chronograph."
+            },
+            {
+              "subtitle": "2011",
+              "information": "Launch of the Oscillomax ensemble incorporating the Spiromax balance spring, the Pulsomax escapement, and the GyromaxSi balance."
+            },
+            {
+              "subtitle": "2011",
+              "information": "Launch of the Ladies First Minute Repeater (Ref. 7000R)."
+            },
+            {
+              "subtitle": "2012",
+              "information": "Patek Philippe Watch Art Grand Exhibition in Dubai."
+            },
+            {
+              "subtitle": "2013",
+              "information": "Patek Philippe Watch Art Grand Exhibition in Munich."
+            },
+            {
+              "subtitle": "2014",
+              "information": "The 175th anniversary is marked with a new collection of commemorative watches."
+            },
+            {
+              "subtitle": "2015",
+              "information": "Launch of the Calatrava Pilot Travel Time, Ref. 5524G."
+            },
+            {
+              "subtitle": "2015",
+              "information": "Patek Philippe Watch Art Grand Exhibition in London"
+            },
+            {
+              "subtitle": "2016",
+              "information": "Launch of the Patek Philippe Grandmaster Chime in the current collection, Ref. 6300G."
+            },
+            {
+              "subtitle": "2016",
+              "information": "Launch of the World Time Chronograph, Ref.  5930G."
+            },
+            {
+              "subtitle": "2017",
+              "information": "Patek Philippe Advanced Research: Aquanaut Travel Time Ref. 5650G."
+            },
+            {
+              "subtitle": "2017",
+              "information": "Patek Philippe Watch Art Grand Exhibition in New York"
+            },
+            {
+              "subtitle": "2018",
+              "information": "Launch of the World Time Minute Repeater, Ref. 5531R."
+            },
+            {
+              "subtitle": "2018",
+              "information": "Launch of the The Twenty~4 Automatic, Ref. 7300."
+            },
+            {
+              "subtitle": "2019",
+              "information": "Launch of the Alarm Travel Time, Ref. 5520P-001."
+            },
+            {
+              "subtitle": "2019",
+              "information": "Launch of the Calatrava Weekly Calendar, Ref. 5212A-001."
+            },
+            {
+              "subtitle": "2019",
+              "information": "Patek Philippe Watch Art Grand Exhibition in Singapore."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "Hublot",
+    "country": "Switzerland",
+    "city": "Nyon",
+    "foundingDate": 1980,
+    "history": {
+      "head": "The luxury watch brand Hublot (French for 'bullseye') based in Nyon, Switzerland was founded in 1980 by the Italian Carlo Crocco. The company founder was able to combine Italian design with Swiss craftsmanship and produce unconventional products. Even if the success did not start immediately, the company's history has become a success story. With the help of clever marketing strategies and unusual concepts, Hublot became the 'Rising Star' among Swiss watchmakers. When Hublot was sold to LVMH in 2008, sales were estimated at 200 million Swiss francs.",
+      "information": [
+        {
+          "title": "History",
+          "informationblocks": [
+            {
+              "subtitle": "1980",
+              "information": "Carlo Crocco creates the very first Hublot watch. Made from gold, it features the first ever black natural rubber strap to be used in watchmaking."
+            },
+            {
+              "subtitle": "2004",
+              "information": "Jean-Claude Biver takes over as CEO of Hublot. Reinterpreting the brand's DNA, he relaunches the 'fusion' concept of combining materials such as gold and ceramic, tantalum and red gold, magnesium and titanium, while faithfully preserving the instantly recognisable design of Hublot watches."
+            },
+            {
+              "subtitle": "2005",
+              "information": "Less than a month after his arrival, Jean-Claude Biver succeeds in his ambition to present a new collection at the Baselworld show, featuring a chronograph which is revolutionary both in terms of concept and design: The Big Bang. This watch wins the Best Design award in the Geneva Watch Festival's 'Grand Prix d’Horlogerie' competition. Hublot subsequently undergoes extraordinary growth, winning awards, accolades and orders alike."
+            },
+            {
+              "subtitle": "2006",
+              "information": "The birth of Hublot TV, the first internet TV channel launched by a luxury brand. The launch of the Big Bang All Black featuring the brand new Hublot concept of 'invisible visibility'."
+            },
+            {
+              "subtitle": "2007",
+              "information": "Hublot opens its first boutique in rue Saint-Honoré, Paris. The following summer sees the opening of a second boutique in the Hôtel Byblos in Saint-Tropez. An impressive Big Bang diving watch is unveiled with a beautifully balanced 48 mm oversized case. Hublot presents its first in-house-produced Big Bang reflecting the '3 M' concept: monomatière (one material), monochrome (one colour), microbillée (microblasted). This watch is voted Best Technological Innovation in Bahrain. At the same time, the spectacular One Million $ BB, a masterpiece of invisible stone setting, is voted Best Jewellery Watch in the Geneva Watch Festival's 'Grand Prix d’Horlogerie' competition."
+            },
+            {
+              "subtitle": "2008",
+              "information": "First Big Bang designed exclusively for women and the launch of the new 'Classic Fusion' collection with a more traditional, elegant sport-chic style. The French LVMH Group - the world's leading luxury goods group - acquires Hublot in April. Jean-Claude Biver is voted 'Swiss Entrepreneur of the Year' by PME Magazine, and 'CEO of the Year' at the Premier Middle East Watches awards."
+            },
+            {
+              "subtitle": "2009",
+              "information": "Jean-Claude Biver is voted 'Man of the Year 2009' by the Orologi da Polso, La revue des montres, GMT and Business Montres magazines. The One Million $ Black Caviar receives the 'Best Jewellery Watch' award in the Geneva Watch Festival's 'Grand Prix d’Horlogerie' competition. Hublot presents the new King Power collection. Remaining true to its philosophy, the watchmaker pushes the limits with a more powerful and modern 48 mm diameter case, a dial featuring several levels, an overmoulded rubber bezel and relief screws."
+            },
+            {
+              "subtitle": "2010",
+              "information": "The first King Power models equipped with the Unico movement leave the production line. A Grande Complication department is created within the Hublot manufacture, home to around thirty watchmakers, prototype designers, electroplating technicians and engineers from former Hublot supplier BNB, all specialising in Grande Complication movements. Hublot celebrates its thirty-year anniversary by launching the Manufacture Tourbillon. Launche of the new Masterpiece watch line. Hublot becomes FIFA's Official Watch, Official Time Keeper for the next two football World Cups and Official Watchmaker for the Formula1."
+            },
+            {
+              "subtitle": "2011",
+              "information": "Hublot is chosen as Official Timekeeper of the Alpine and Nordic Skiing Championships. In Bale, Hublot unveils a world premiere with a Cathedral Minute Repeater, Tourbillon, Column-wheel Chronograph in carbon fibre, which is used also for the movement bridges. Hublot presents the Oceanographic 4000 in partnership with the Oceanographic Museum of Monaco."
+            },
+            {
+              "subtitle": "2012",
+              "information": "Ricardo Guadalupe is appointed CEO of Hublot, while Jean-Claude Biver becomes Chairman of the company."
+            },
+            {
+              "subtitle": "2012",
+              "information": "Hublot becomes Ferrari's watchmaking partner. This is not just a mere derivative or sponsorship agreement. It is a comprehensive agreement that covers all activities of Ferrari and Hublot, both in terms of brand image and commercial activities of the two companies."
+            }
+          ]
+        }
+      ]
+    }
   }
 ]
