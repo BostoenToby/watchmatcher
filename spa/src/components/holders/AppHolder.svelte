@@ -3,7 +3,7 @@
   import AppFooter from '../generic/AppFooter.svelte'
 </script>
 
-<main class="scrollbar-gutter-auto">
+<main class="flex flex-col min-h-screen scrollbar-gutter-auto">
   <AppHeader />
   <slot />
   <AppFooter />

@@ -36,10 +36,10 @@
   class="grid grid-cols-10 lg:grid-cols-3 px-4 sm:px-12 py-4 items-center bg-zinc-100 m-0 text-zinc-600 font-text">
   <button
     on:click={menu}
-    class="lg:hidden border-none bg-transparent min-w-min p-0 w-8 h-8">
+    class="xl:hidden border-none bg-transparent min-w-min p-0 w-8 h-8">
     <AlignLeft class="sm:w-8 sm:h-8" />
   </button>
-  <nav class="hidden lg:flex gap-16">
+  <nav class="hidden xl:flex gap-16">
     <Link
       to="/"
       class="no-underline text-zinc-600 self-center hover:text-emerald-700 focus:text-emerald-700 hover:underline focus:underline outline-none"
@@ -59,7 +59,7 @@
   </nav>
   <Link
     to="/"
-    class="col-start-4 col-end-7 lg:col-start-2 lg:col-end-3 no-underline my-4 uppercase tracking-widest text-xl sm:text-3xl text-center text-zinc-800 font-classic">
+    class="col-start-4 col-end-8 text-center lg:col-start-2 lg:col-end-3 no-underline my-4 uppercase tracking-widest text-xl sm:text-3xl text-center text-zinc-800 font-classic">
     Watchmatcher
   </Link>
   <div class="hidden w-1/2 justify-self-end lg:flex justify-between">

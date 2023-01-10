@@ -85,7 +85,7 @@
 
 <AppHolder>
   <h1 class="text-5xl text-center font-classic">Matcher</h1>
-  <h2 class="text-2xl text-center font-text">
+  <h2 class="text-2xl text-center font-text w-3/4 mx-auto">
     Answer the following questions so we can show you what watches suite you.
   </h2>
   <section class="m-20 font-text">
@@ -95,12 +95,12 @@
           {question.question}
         </h3>
         <div
-          class="w-3/4 grid grid-cols-2 grid-rows-2 gap-x-12 gap-y-4 mx-auto mt-4">
+          class="w-3/4 grid md:grid-cols-2 md:grid-rows-2 gap-x-12 gap-y-4 mx-auto mt-4">
           {#each question.answers as answer}
             {#if question.multipleAnswers == true}
               <label
                 for="{question.question}-{answer}"
-                class={`w-full border border-solid border-neutral-200 p-4 rounded-md cursor-pointer ${
+                class={`w-full border border-solid border-neutral-200 py-4 md:p-4 rounded-md cursor-pointer flex items-center justify-center text-center ${
                   $answers
                     .find((item) => item.question === question.question)
                     ?.answer.includes(answer)
@@ -119,7 +119,7 @@
             {:else}
               <label
                 for="{question.question}-{answer}"
-                class={`w-full border border-solid border-neutral-200 p-4 rounded-md cursor-pointer ${
+                class={`w-full border border-solid border-neutral-200 py-4 md:p-4 rounded-md cursor-pointer flex items-center justify-center ${
                   answer ==
                   $answers.find((item) => item.question === question.question)
                     ?.answer

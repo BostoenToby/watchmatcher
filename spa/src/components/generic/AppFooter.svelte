@@ -2,11 +2,12 @@
   import { Link } from 'svelte-routing'
 </script>
 
-<footer class="bg-zinc-100 m-0 py-8 sm:px-12 font-text overflow-x-hidden">
+<footer
+  class="bg-zinc-100 m-0 py-8 sm:px-12 font-text overflow-x-hidden mt-auto">
   <div class="flex flex-col sm:flex-row h-full gap-12">
-    <h1 class="font-classic hidden lg:block text-6xl p-12">Watchmatcher</h1>
+    <h1 class="font-classic hidden xl:block text-6xl p-12">Watchmatcher</h1>
     <div
-      class="flex flex-col min-w-min items-start pl-4 sm:pl-0 border-0 lg:pl-12 border-l-2 lg:border-solid">
+      class="flex flex-col min-w-min items-start pl-4 sm:pl-0 border-0 xl:pl-12 border-l-2 xl:border-solid">
       <div class="flex flex-col gap-4">
         <h4>Top watches</h4>
         <Link

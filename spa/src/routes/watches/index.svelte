@@ -55,7 +55,7 @@
   <h1 class="text-5xl text-center font-classic">Watches</h1>
   <div class="grid grid-cols-10 mx-12">
     <div
-      class="col-start-4 col-end-8 w-full mx-auto flex justify-between px-4 py-2 items-center border border-solid border-neutral-200 rounded-md">
+      class="col-start-2 col-end-9 md:col-start-4 md:col-end-8 w-full mx-auto flex justify-between px-4 py-2 items-center border border-solid border-neutral-200 rounded-md">
       <input
         bind:value={$searchInput}
         on:change={filterWatches}
@@ -69,12 +69,13 @@
           class="relative right-0 group-hover:text-emerald-700" /></button>
     </div>
   </div>
-  <section class="grid grid-cols-4 gap-16 m-20 font-text">
+  <section
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-16 m-20 font-text">
     {#if history.state.answers != undefined || history.state.answers != null}
       {#if $searchedWatches.length != 0}
         {#each $searchedWatches as watch}
           <div
-            class="border-2 border-solid border-neutral-200 bg-neutral-200 p-2 rounded-md drop-shadow-md">
+            class="flex flex-col h-full border-2 border-solid border-neutral-200 bg-neutral-200 p-2 rounded-md drop-shadow-md">
             <div
               class="aspect-square flex overflow-hidden justify-center rounded-md">
               <img
@@ -89,26 +90,28 @@
                 alt=""
                 class="max-h-full" />
             </div>
-            <div class="flex justify-between">
-              <div>
+            <div class="flex flex-col flex-auto">
+              <div class="text-center">
                 <p class="text-neutral-600 mb-2">
                   {watch.brand} - {watch.watch}
                 </p>
                 <h3 class="mt-0">{watch.type}</h3>
               </div>
-              <Link
-                to="/watches/{watch.type
-                  .replaceAll(' ', '-')
-                  .toLocaleLowerCase()}"
-                class="no-underline outline-none self-center bg-emerald-700 text-white rounded-md px-4 py-2"
-                >View</Link>
+              <div class="self-center flex items-end flex-1">
+                <Link
+                  to="/watches/{watch.type
+                    .replaceAll(' ', '-')
+                    .toLocaleLowerCase()}"
+                  class="no-underline outline-none bg-emerald-700 text-white rounded-md px-4 py-2"
+                  >View</Link>
+              </div>
             </div>
           </div>
         {/each}
       {:else}
         {#each $watchesFilter as watch}
           <div
-            class="border-2 border-solid border-neutral-200 bg-neutral-200 p-2 rounded-md drop-shadow-md">
+            class="flex flex-col h-full border-2 border-solid border-neutral-200 bg-neutral-200 p-2 rounded-md drop-shadow-md">
             <div
               class="aspect-square flex overflow-hidden justify-center rounded-md">
               <img
@@ -123,19 +126,21 @@
                 alt=""
                 class="max-h-full" />
             </div>
-            <div class="flex justify-between">
-              <div>
+            <div class="flex flex-col flex-auto">
+              <div class="text-center">
                 <p class="text-neutral-600 mb-2">
                   {watch.brand} - {watch.watch}
                 </p>
                 <h3 class="mt-0">{watch.type}</h3>
               </div>
-              <Link
-                to="/watches/{watch.type
-                  .replaceAll(' ', '-')
-                  .toLocaleLowerCase()}"
-                class="no-underline outline-none self-center bg-emerald-700 text-white rounded-md px-4 py-2"
-                >View</Link>
+              <div class="self-center flex items-end flex-1">
+                <Link
+                  to="/watches/{watch.type
+                    .replaceAll(' ', '-')
+                    .toLocaleLowerCase()}"
+                  class="no-underline outline-none bg-emerald-700 text-white rounded-md px-4 py-2"
+                  >View</Link>
+              </div>
             </div>
           </div>
         {/each}
@@ -143,7 +148,7 @@
     {:else if $searchedWatches.length != 0}
       {#each $searchedWatches as watch}
         <div
-          class="border-2 border-solid border-neutral-200 bg-neutral-200 p-2 rounded-md drop-shadow-md">
+          class="flex flex-col h-full border-2 border-solid border-neutral-200 bg-neutral-200 p-2 rounded-md drop-shadow-md">
           <div
             class="aspect-square flex overflow-hidden justify-center rounded-md">
             <img
@@ -158,24 +163,28 @@
               alt=""
               class="max-h-full" />
           </div>
-          <div class="flex justify-between">
-            <div>
-              <p class="text-neutral-600 mb-2">{watch.brand} - {watch.watch}</p>
+          <div class="flex flex-col flex-auto">
+            <div class="text-center">
+              <p class="text-neutral-600 mb-2">
+                {watch.brand} - {watch.watch}
+              </p>
               <h3 class="mt-0">{watch.type}</h3>
             </div>
-            <Link
-              to="/watches/{watch.type
-                .replaceAll(' ', '-')
-                .toLocaleLowerCase()}"
-              class="no-underline outline-none self-center bg-emerald-700 text-white rounded-md px-4 py-2"
-              >View</Link>
+            <div class="self-center flex items-end flex-1">
+              <Link
+                to="/watches/{watch.type
+                  .replaceAll(' ', '-')
+                  .toLocaleLowerCase()}"
+                class="no-underline outline-none bg-emerald-700 text-white rounded-md px-4 py-2"
+                >View</Link>
+            </div>
           </div>
         </div>
       {/each}
     {:else}
       {#each watches as watch}
         <div
-          class="border-2 border-solid border-neutral-200 bg-neutral-200 p-2 rounded-md drop-shadow-md">
+          class="flex flex-col h-full border-2 border-solid border-neutral-200 bg-neutral-200 p-2 rounded-md drop-shadow-md">
           <div
             class="aspect-square flex overflow-hidden justify-center rounded-md">
             <img
@@ -190,17 +199,21 @@
               alt=""
               class="max-h-full" />
           </div>
-          <div class="flex justify-between">
-            <div>
-              <p class="text-neutral-600 mb-2">{watch.brand} - {watch.watch}</p>
+          <div class="flex flex-col flex-auto">
+            <div class="text-center">
+              <p class="text-neutral-600 mb-2">
+                {watch.brand} - {watch.watch}
+              </p>
               <h3 class="mt-0">{watch.type}</h3>
             </div>
-            <Link
-              to="/watches/{watch.type
-                .replaceAll(' ', '-')
-                .toLocaleLowerCase()}"
-              class="no-underline outline-none self-center bg-emerald-700 text-white rounded-md px-4 py-2"
-              >View</Link>
+            <div class="self-center flex items-end flex-1">
+              <Link
+                to="/watches/{watch.type
+                  .replaceAll(' ', '-')
+                  .toLocaleLowerCase()}"
+                class="no-underline outline-none bg-emerald-700 text-white rounded-md px-4 py-2"
+                >View</Link>
+            </div>
           </div>
         </div>
       {/each}
