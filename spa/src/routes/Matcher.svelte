@@ -10,64 +10,62 @@
 
   function onChange(event) {
     const answerFound = event.currentTarget.value
-    if (answerFound != 'Yes' || answerFound != 'No') {
-      if (Object.keys($answers).length != 0) {
-        for (let object of $answers) {
-          const objList = $answers
-          if (
-            object.question == event.currentTarget.name &&
-            object.multipleAnswers == false
-          ) {
-            objList.splice(objList.indexOf(object), 1)
-            object.answer = [answerFound]
-            objList.push(object)
-            answers.set(objList)
-            return
-          } else if (
-            object.question == event.currentTarget.name &&
-            object.multipleAnswers == true
-          ) {
-            if (object.answer.includes(answerFound)) {
-              objList.splice(objList.indexOf(object, 1))
-              if (typeof object.answer != 'string') {
-                object.answer.splice(object.answer.indexOf(answerFound), 1)
-              }
-              objList.push(object)
-              answers.set(objList)
-              return
-            }
-            objList.splice(objList.indexOf(object), 1)
-            if (typeof object.answer == 'string') {
-              object.answer = [object.answer, answerFound]
-            } else {
-              object.answer.push(answerFound)
+    if (Object.keys($answers).length != 0) {
+      for (let object of $answers) {
+        const objList = $answers
+        if (
+          object.question == event.currentTarget.name &&
+          object.multipleAnswers == false
+        ) {
+          objList.splice(objList.indexOf(object), 1)
+          object.answer = [answerFound]
+          objList.push(object)
+          answers.set(objList)
+          return
+        } else if (
+          object.question == event.currentTarget.name &&
+          object.multipleAnswers == true
+        ) {
+          if (object.answer.includes(answerFound)) {
+            objList.splice(objList.indexOf(object, 1))
+            if (typeof object.answer != 'string') {
+              object.answer.splice(object.answer.indexOf(answerFound), 1)
             }
             objList.push(object)
             answers.set(objList)
             return
           }
+          objList.splice(objList.indexOf(object), 1)
+          if (typeof object.answer == 'string') {
+            object.answer = [object.answer, answerFound]
+          } else {
+            object.answer.push(answerFound)
+          }
+          objList.push(object)
+          answers.set(objList)
+          return
         }
-        answers.set([
-          ...$answers,
-          {
-            question: event.currentTarget.name,
-            answer: event.currentTarget.value,
-            multipleAnswers: questions.find(
-              (item) => item.question == event.currentTarget.name,
-            ).multipleAnswers,
-          },
-        ])
-      } else {
-        answers.set([
-          {
-            question: event.currentTarget.name,
-            answer: event.currentTarget.value,
-            multipleAnswers: questions.find(
-              (item) => item.question == event.currentTarget.name,
-            ).multipleAnswers,
-          },
-        ])
       }
+      answers.set([
+        ...$answers,
+        {
+          question: event.currentTarget.name,
+          answer: event.currentTarget.value,
+          multipleAnswers: questions.find(
+            (item) => item.question == event.currentTarget.name,
+          ).multipleAnswers,
+        },
+      ])
+    } else {
+      answers.set([
+        {
+          question: event.currentTarget.name,
+          answer: event.currentTarget.value,
+          multipleAnswers: questions.find(
+            (item) => item.question == event.currentTarget.name,
+          ).multipleAnswers,
+        },
+      ])
     }
   }
 
@@ -91,8 +89,8 @@
     Answer the following questions so we can show you what watches suite you.
   </h2>
   <section class="m-20 font-text">
-    {#each questions as question}
-      <div>
+    {#each questions as question, index}
+      <div class={`${index <= $answers.length ? null : 'hidden'}`}>
         <h3 class="text-lg text-center">
           {question.question}
         </h3>

@@ -5,13 +5,9 @@
     "multipleAnswers": false
   },
   {
-    "question": "Do you have a brand you prefer?",
-    "answers": ["Yes", "No"],
-    "multipleAnswers": false
-  },
-  {
     "question": "Choose the brands you like.",
     "answers": [
+      "None",
       "Rolex",
       "Audemars Piguet",
       "Patek Philippe",
@@ -75,7 +71,17 @@
   },
   {
     "question": "What colors of dial do you like?",
-    "answers": ["Black", "White", "Blue", "Red", "Green", "Yellow", "Brown", "Grey", "Other"],
+    "answers": [
+      "Black",
+      "White",
+      "Blue",
+      "Red",
+      "Green",
+      "Yellow",
+      "Brown",
+      "Grey",
+      "Other"
+    ],
     "multipleAnswers": true
   }
 ]
