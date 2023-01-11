@@ -10,9 +10,9 @@
 <AppHolder>
   <div class="flex items-center">
     <img
-      src="/watchmatcher.webp"
+      src="/watchmatcher-big.webp"
       alt=""
-      class="aspect-auto w-80 h-auto md:w-120 mt-40 mx-auto mb-4" />
+      class="aspect-auto w-80 h-auto md:w-120 lg:w-140 mt-40 mx-auto mb-4" />
   </div>
   <h1 class="text-center font-classic text-5xl mt-8">Watchmatcher</h1>
   <h1 class="text-center font-classic text-2xl mt-8">
@@ -35,7 +35,7 @@
     <img
       src="/brand.webp"
       alt=""
-      class="aspect-auto w-full h-auto lg:w-2/5 rounded-md" />
+      class="object-contain max-w-full lg:w-2/5 rounded-md" />
     <div class="w-full lg:w-1/2 flex flex-col justify-between">
       <h2 class="mt-0">Brands</h2>
       <div>
@@ -87,14 +87,14 @@
     <img
       src="/watch.webp"
       alt=""
-      class="aspect-auto w-full h-auto lg:w-2/5 rounded-md" />
+      class="object-contain max-w-full lg:w-2/5 rounded-md" />
   </section>
   <section
     class="mx-20 m-20 flex flex-col-reverse lg:flex-row justify-between gap-8 font-text">
     <img
       src="/matcher.webp"
       alt=""
-      class="aspect-auto w-full h-auto lg:w-2/5 rounded-md" />
+      class="object-contain max-w-full lg:w-2/5 rounded-md" />
     <div class="w-full lg:w-1/2 flex flex-col justify-between">
       <h2 class="mt-0">Watch matcher</h2>
       <div>
