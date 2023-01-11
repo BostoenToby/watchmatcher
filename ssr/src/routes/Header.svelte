@@ -6,6 +6,7 @@
     Watch,
     Building2,
     PackageSearch,
+    X,
   } from 'lucide-svelte'
   import { writable } from 'svelte/store'
 
@@ -17,7 +18,7 @@
   }
 
   const menu = () => {
-    console.log('menu')
+    $showMenu = !$showMenu
   }
 </script>
 
@@ -25,7 +26,7 @@
   class="grid grid-cols-10 lg:grid-cols-3 px-4 sm:px-12 py-4 items-center bg-zinc-100 m-0 text-zinc-600 font-text">
   <button
     on:click={menu}
-    class="xl:hidden border-none bg-transparent min-w-min p-0 w-8 h-8"
+    class="xl:hidden border-none bg-transparent min-w-min p-0 w-8 h-8 z-10"
     ><AlignLeft class="sm:w-8 sm:h-8" />
   </button>
   <nav class="hidden xl:flex gap-16">
@@ -68,6 +69,14 @@
     $showMenu == false ? 'hidden' : 'absolute'
   }`}>
   <nav class="flex flex-col gap-8 sm:text-xl font-text">
+    <div class="flex justify-between items-center px-12 pt-8 pb-4">
+      <h2 class="font-text font-semibold my-0">Menu</h2>
+      <button
+        on:click={menu}
+        class="xl:hidden border-none bg-transparent min-w-min w-8 h-8 z-10 self end"
+        ><X class="sm:w-8 sm:h-8" />
+      </button>
+    </div>
     <a
       href="/"
       class="hover:text-emerald-700 hover:no-underline focus-within:text-emerald-700 active:text-emerald-700 focus-visible:text-emerald-700 mr-auto ml-4 sm:ml-12 flex items-center gap-4 no-underline text-zinc-600 self-center hover:text-emerald-700 focus:text-emerald-700 hover:underline focus:underline outline-none">

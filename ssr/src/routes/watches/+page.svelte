@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Search } from 'lucide-svelte'
+  import { Search, X } from 'lucide-svelte'
   import { writable } from 'svelte/store'
 
   /** @type {import('./$types').PageData} */
@@ -43,6 +43,11 @@
       searchedWatches.set(res)
     }
   }
+
+  const removeFilters = () => {
+    $watchesFilter = []
+    localStorage.removeItem('answers')
+  }
 </script>
 
 <main>
@@ -62,10 +67,16 @@
         ><Search
           class="relative right-0 group-hover:text-emerald-700" /></button>
     </div>
+    <button
+      on:click={removeFilters}
+      class="cursor-pointer bg-transparent p-0 col-start-10 min-w-min col-end-11 px-4 py-2 border border-solid border-neutral-200 rounded-md flex items-center font-text group">
+      <p class="m-0 group-hover:text-emerald-700 text-xsm">Remove filter</p>
+      <X class="text-neutral-600 group-hover:text-emerald-700" />
+    </button>
   </div>
   <section
     class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-16 m-20 font-text">
-    {#if data.watches != undefined && data.watches.length > 0}
+    {#if $watchesFilter != undefined && $watchesFilter.length > 0}
       {#if $searchedWatches.length != 0}
         {#each $searchedWatches as watch}
           <div

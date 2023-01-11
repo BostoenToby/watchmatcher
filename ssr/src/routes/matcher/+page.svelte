@@ -74,9 +74,11 @@
         for (let item of answer.answer) {
           answersList.push(item)
         }
+      } else {
+        answersList.push(answer.answer)
       }
-      answersList.push(answer.answer)
     }
+    answersList = Array.from(new Set(answersList))
     localStorage.setItem('answers', JSON.stringify(answersList))
     goto('/watches')
   }

@@ -76,8 +76,9 @@
         for (let item of answer.answer) {
           answersList.push(item)
         }
+      } else {
+        answersList.push(answer.answer)
       }
-      answersList.push(answer.answer)
     }
     navigate('/watches', { state: { answers: answersList } })
   }
