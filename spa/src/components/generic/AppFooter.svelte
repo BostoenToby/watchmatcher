@@ -9,7 +9,7 @@
     <div
       class="flex flex-col min-w-min items-start pl-4 sm:pl-0 border-0 xl:pl-12 border-l-2 xl:border-solid">
       <div class="flex flex-col gap-4">
-        <h4>Top watches</h4>
+        <h1 class="text-xl">Top watches</h1>
         <Link
           to="/brands/rolex"
           class="no-underline text-black hover:text-emerald-700 hover:underline"
@@ -31,7 +31,7 @@
     <div class="flex-auto" />
     <div class="flex flex-col items-start pl-4 sm:pl-0">
       <div class="flex flex-col gap-4">
-        <h4>Contact</h4>
+        <h1 class="text-xl">Contact</h1>
         <a
           class="no-underline text-black hover:text-emerald-700 hover:underline"
           href="mailto:toby.bostoen@student.howest.be"

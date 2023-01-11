@@ -71,8 +71,9 @@
       class="w-full border-none outline-none bg-transparent text-zinc-600" />
     <button
       on:click={search}
-      class="text-zinc-600 outline-none border-none hover:text-emerald-700 focus:text-emerald-700"
-      ><Search /></button>
+      class="bg-transparent text-zinc-600 outline-none border-none hover:text-emerald-700 focus:text-emerald-700 flex"
+      ><Search />
+      <p class="text-transparent w-0 h-0">Search</p></button>
   </div>
 </header>
 <section

@@ -1,15 +1,18 @@
 <script lang="ts">
   import { Link } from 'svelte-routing'
+  import { MetaTags } from 'svelte-meta-tags'
 
   import AppHolder from '../components/holders/AppHolder.svelte'
 </script>
+
+<MetaTags title="Home" description="Find your ideal watch with Watchmatcher." />
 
 <AppHolder>
   <div class="flex items-center">
     <img
       src="/watchmatcher.webp"
       alt=""
-      class="w-80 md:w-120 mt-40 mx-auto mb-4" />
+      class="aspect-auto w-80 h-auto md:w-120 mt-40 mx-auto mb-4" />
   </div>
   <h1 class="text-center font-classic text-5xl mt-8">Watchmatcher</h1>
   <h1 class="text-center font-classic text-2xl mt-8">
@@ -29,7 +32,10 @@
   </div>
   <section
     class="mx-20 m20 flex flex-col-reverse lg:flex-row justify-between gap-8 font-text">
-    <img src="/brand.webp" alt="" class="w-full lg:w-2/5 rounded-md" />
+    <img
+      src="/brand.webp"
+      alt=""
+      class="aspect-auto w-full h-auto lg:w-2/5 rounded-md" />
     <div class="w-full lg:w-1/2 flex flex-col justify-between">
       <h2 class="mt-0">Brands</h2>
       <div>
@@ -78,11 +84,17 @@
         class="no-underline text-white bg-emerald-700 px-4 py-2 rounded-md w-min"
         >Watches</Link>
     </div>
-    <img src="/watch.webp" alt="" class="w-full lg:w-2/5 rounded-md" />
+    <img
+      src="/watch.webp"
+      alt=""
+      class="aspect-auto w-full h-auto lg:w-2/5 rounded-md" />
   </section>
   <section
     class="mx-20 m-20 flex flex-col-reverse lg:flex-row justify-between gap-8 font-text">
-    <img src="/matcher.webp" alt="" class="w-full lg:w-2/5 rounded-md" />
+    <img
+      src="/matcher.webp"
+      alt=""
+      class="aspect-auto w-full h-auto lg:w-2/5 rounded-md" />
     <div class="w-full lg:w-1/2 flex flex-col justify-between">
       <h2 class="mt-0">Watch matcher</h2>
       <div>
