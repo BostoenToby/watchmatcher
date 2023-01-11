@@ -1,129 +1,105 @@
-<script>
-	import { page } from '$app/stores';
-	import logo from '$lib/images/svelte-logo.svg';
-	import github from '$lib/images/github.svg';
+<script lang="ts">
+  import {
+    AlignLeft,
+    Search,
+    Home,
+    Watch,
+    Building2,
+    PackageSearch,
+    X,
+  } from 'lucide-svelte'
+  import { writable } from 'svelte/store'
+
+  const searchTerm = writable<string>()
+  const showMenu = writable<boolean>(false)
+
+  const search = () => {
+    console.log('search')
+  }
+
+  const menu = () => {
+    $showMenu = !$showMenu
+  }
 </script>
 
-<header>
-	<div class="corner">
-		<a href="https://kit.svelte.dev">
-			<img src={logo} alt="SvelteKit" />
-		</a>
-	</div>
-
-	<nav>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
-		</svg>
-		<ul>
-			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-				<a href="/">Home</a>
-			</li>
-			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
-				<a href="/about">About</a>
-			</li>
-			<li aria-current={$page.url.pathname.startsWith('/sverdle') ? 'page' : undefined}>
-				<a href="/sverdle">Sverdle</a>
-			</li>
-		</ul>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-		</svg>
-	</nav>
-
-	<div class="corner">
-		<a href="https://github.com/sveltejs/kit">
-			<img src={github} alt="GitHub" />
-		</a>
-	</div>
+<header
+  class="grid grid-cols-10 lg:grid-cols-3 px-4 sm:px-12 py-4 items-center bg-zinc-100 m-0 text-zinc-600 font-text">
+  <button
+    on:click={menu}
+    class="xl:hidden border-none bg-transparent min-w-min p-0 w-8 h-8 z-10"
+    ><AlignLeft class="sm:w-8 sm:h-8" />
+  </button>
+  <nav class="hidden xl:flex gap-16">
+    <a
+      href="/"
+      class="no-underline text-zinc-600 self-center hover:text-emerald-700 focus:text-emerald-700 hover:underline focus:underline outline-none"
+      >Home</a>
+    <a
+      href="/brands"
+      class="no-underline text-zinc-600 self-center hover:text-emerald-700 focus:text-emerald-700 hover:underline focus:underline outline-none"
+      >Brands</a>
+    <a
+      href="/watches"
+      class="no-underline text-zinc-600 self-center hover:text-emerald-700 focus:text-emerald-700 hover:underline focus:underline outline-none"
+      >Watches</a>
+    <a
+      href="/matcher"
+      class="no-underline text-zinc-600 self-center hover:text-emerald-700 focus:text-emerald-700 hover:underline focus:underline outline-none"
+      >Matcher</a>
+  </nav>
+  <a
+    href="/"
+    class="col-start-4 col-end-8 text-center lg:col-start-2 lg:col-end-3 no-underline my-4 uppercase tracking-widest text-xl sm:text-3xl text-center text-zinc-800 font-classic"
+    >Watchmatcher</a>
+  <div class="hidden w-1/2 justify-self-end lg:flex justify-between">
+    <input
+      type="text"
+      bind:value={$searchTerm}
+      placeholder="Search by brand or model"
+      class="w-full border-none outline-none bg-transparent text-zinc-600" />
+    <button
+      on:click={search}
+      class="text-zinc-600 outline-none border-none hover:text-emerald-700 focus:text-emerald-700">
+      <Search />
+    </button>
+  </div>
 </header>
-
-<style>
-	header {
-		display: flex;
-		justify-content: space-between;
-	}
-
-	.corner {
-		width: 3em;
-		height: 3em;
-	}
-
-	.corner a {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 100%;
-	}
-
-	.corner img {
-		width: 2em;
-		height: 2em;
-		object-fit: contain;
-	}
-
-	nav {
-		display: flex;
-		justify-content: center;
-		--background: rgba(255, 255, 255, 0.7);
-	}
-
-	svg {
-		width: 2em;
-		height: 3em;
-		display: block;
-	}
-
-	path {
-		fill: var(--background);
-	}
-
-	ul {
-		position: relative;
-		padding: 0;
-		margin: 0;
-		height: 3em;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		list-style: none;
-		background: var(--background);
-		background-size: contain;
-	}
-
-	li {
-		position: relative;
-		height: 100%;
-	}
-
-	li[aria-current='page']::before {
-		--size: 6px;
-		content: '';
-		width: 0;
-		height: 0;
-		position: absolute;
-		top: 0;
-		left: calc(50% - var(--size));
-		border: var(--size) solid transparent;
-		border-top: var(--size) solid var(--color-theme-1);
-	}
-
-	nav a {
-		display: flex;
-		height: 100%;
-		align-items: center;
-		padding: 0 0.5rem;
-		color: var(--color-text);
-		font-weight: 700;
-		font-size: 0.8rem;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		text-decoration: none;
-		transition: color 0.2s linear;
-	}
-
-	a:hover {
-		color: var(--color-theme-1);
-	}
-</style>
+<section
+  class={`z-10 w-1/2 sm:w-1/3 h-screen bg-zinc-100 ${
+    $showMenu == false ? 'hidden' : 'absolute'
+  }`}>
+  <nav class="flex flex-col gap-8 sm:text-xl font-text">
+    <div class="flex justify-between items-center px-12 pt-8 pb-4">
+      <h2 class="font-text font-semibold my-0">Menu</h2>
+      <button
+        on:click={menu}
+        class="xl:hidden border-none bg-transparent min-w-min w-8 h-8 z-10 self end"
+        ><X class="sm:w-8 sm:h-8" />
+      </button>
+    </div>
+    <a
+      href="/"
+      class="hover:text-emerald-700 hover:no-underline focus-within:text-emerald-700 active:text-emerald-700 focus-visible:text-emerald-700 mr-auto ml-4 sm:ml-12 flex items-center gap-4 no-underline text-zinc-600 self-center hover:text-emerald-700 focus:text-emerald-700 hover:underline focus:underline outline-none">
+      <Home />
+      <p>Home</p>
+    </a>
+    <a
+      href="/brands"
+      class="hover:text-emerald-700 hover:no-underline focus-within:text-emerald-700 active:text-emerald-700 focus-visible:text-emerald-700 mr-auto ml-4 sm:ml-12 flex items-center gap-4 no-underline text-zinc-600 self-center hover:text-emerald-700 focus:text-emerald-700 hover:underline focus:underline outline-none">
+      <Building2 />
+      <p>Brands</p>
+    </a>
+    <a
+      href="/watches"
+      class="hover:text-emerald-700 hover:no-underline focus-within:text-emerald-700 active:text-emerald-700 focus-visible:text-emerald-700 mr-auto ml-4 sm:ml-12 flex items-center gap-4 no-underline text-zinc-600 self-center hover:text-emerald-700 focus:text-emerald-700 hover:underline focus:underline outline-none">
+      <Watch />
+      <p>Watches</p>
+    </a>
+    <a
+      href="/matcher"
+      class="hover:text-emerald-700 hover:no-underline focus-within:text-emerald-700 active:text-emerald-700 focus-visible:text-emerald-700 mr-auto ml-4 sm:ml-12 flex items-center gap-4 no-underline text-zinc-600 self-center hover:text-emerald-700 focus:text-emerald-700 hover:underline focus:underline outline-none">
+      <PackageSearch />
+      <p>Matcher</p>
+    </a>
+  </nav>
+</section>
