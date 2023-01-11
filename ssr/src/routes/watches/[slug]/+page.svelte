@@ -1,25 +1,23 @@
 <script lang="ts">
   import { writable } from 'svelte/store'
+  import { page } from '$app/stores'
 
-  import AppHolder from '../../components/holders/AppHolder.svelte'
-  import watches from '../../assets/watches.json'
-  import type Watch from '../../interfaces/watch.interface'
-
-  export let name
+  import watches from '$lib/data/watches.json'
+  import type Watch from '$lib/interfaces/watch.interface'
 
   const watch = writable<Watch>()
 
   for (let w of watches) {
     if (
       w.type.replaceAll('-', ' ').toLocaleLowerCase() ==
-      name.replaceAll('-', ' ').toLocaleLowerCase()
+      $page.params.slug.replaceAll('-', ' ').toLocaleLowerCase()
     ) {
       watch.set(w)
     }
   }
 </script>
 
-<AppHolder>
+<main>
   <section
     class="flex flex-col-reverse md:flex-row justify-between m-12 md:m-20 gap-16">
     <div
@@ -250,4 +248,4 @@
       {/each}
     </section>
   {/if}
-</AppHolder>
+</main>

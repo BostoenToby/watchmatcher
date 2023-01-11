@@ -14,7 +14,6 @@
       class="w-80 md:w-120 mt-40 mx-auto mb-4" />
   </div>
   <h1 class="text-center font-classic text-5xl mt-8">Watchmatcher</h1>
-  µ
   <h1 class="text-center font-classic text-2xl mt-8">
     The place to find the perfect watch for you
   </h1>
