@@ -1,5 +1,11 @@
 <script lang="ts">
   import { Link } from 'svelte-routing'
+  
+  import sites from '../../assets/sites.json'
+  let count = -1
+  for (let site of sites) {
+    count += 1
+  }
 </script>
 
 <footer
@@ -42,4 +48,24 @@
       </div>
     </div>
   </div>
+  <ul
+    class="mt-12 w-full grid grid-cols-3 md:grid-cols-5 gap-y-2 lg:flex items-center justify-center list-none lg:gap-4 text-xs text-neutral-500">
+    {#each sites as site, index}
+      {#if index != count}
+        <li>
+          <a href={site.url} class="no-underline text-neutral-500"
+            >{site.name},
+          </a>
+        </li>
+      {:else}
+        <li>
+          <a href={site.url} class="no-underline text-neutral-500"
+            >{site.name}</a>
+        </li>
+      {/if}
+    {/each}
+    <li class="col-span-2">
+      is a protected trademark used under educational copyright
+    </li>
+  </ul>
 </footer>
