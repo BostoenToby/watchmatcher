@@ -1,6 +1,7 @@
 <script lang="ts">
   import { Search, X } from 'lucide-svelte'
   import { writable } from 'svelte/store'
+  import { answersList } from '$lib/stores'
 
   /** @type {import('./$types').PageData} */
   export let data: any
@@ -46,7 +47,7 @@
 
   const removeFilters = () => {
     $watchesFilter = []
-    localStorage.removeItem('answers')
+    $answersList = []
   }
 </script>
 

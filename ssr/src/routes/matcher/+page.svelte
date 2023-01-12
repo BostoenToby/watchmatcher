@@ -1,5 +1,7 @@
 <script lang="ts">
   import { writable } from 'svelte/store'
+  import { browser } from '$app/environment'
+  import { answersList } from '$lib/stores'
   import { goto } from '$app/navigation'
   import type { Answer } from '$lib/interfaces/questions.interface'
   import questions from '$lib/data/questions.json'
@@ -68,18 +70,18 @@
   }
 
   const findWatch = () => {
-    let answersList = []
+    let ansList = []
     for (let answer of $answers) {
       if (typeof answer.answer != 'string') {
         for (let item of answer.answer) {
-          answersList.push(item)
+          ansList.push(item)
         }
       } else {
-        answersList.push(answer.answer)
+        ansList.push(answer.answer)
       }
     }
-    answersList = Array.from(new Set(answersList))
-    localStorage.setItem('answers', JSON.stringify(answersList))
+    ansList = Array.from(new Set(ansList))
+    $answersList = ansList
     goto('/watches')
   }
 </script>
