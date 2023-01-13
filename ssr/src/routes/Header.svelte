@@ -26,8 +26,9 @@
   class="grid grid-cols-10 lg:grid-cols-3 px-4 sm:px-12 py-4 items-center bg-zinc-100 m-0 text-zinc-600 font-text">
   <button
     on:click={menu}
-    class="xl:hidden border-none bg-transparent min-w-min p-0 w-8 h-8 z-10"
+    class="xl:hidden border-none bg-transparent min-w-min p-0 w-8 h-8 z-10 flex"
     ><AlignLeft class="sm:w-8 sm:h-8" />
+    <p class="w-0 h-0 text-transparent">Menu</p>
   </button>
   <nav class="hidden xl:flex gap-16">
     <a
@@ -59,8 +60,9 @@
       class="w-full border-none outline-none bg-transparent text-zinc-600" />
     <button
       on:click={search}
-      class="text-zinc-600 outline-none border-none hover:text-emerald-700 focus:text-emerald-700">
+      class="text-zinc-600 outline-none border-none hover:text-emerald-700 focus:text-emerald-700 flex">
       <Search />
+      <p class="w-0 h-0 text-transparent">Search</p>
     </button>
   </div>
 </header>
@@ -77,25 +79,25 @@
         ><X class="sm:w-8 sm:h-8" />
       </button>
     </div>
-    <a
+    <a on:click={menu}
       href="/"
       class="hover:text-emerald-700 hover:no-underline focus-within:text-emerald-700 active:text-emerald-700 focus-visible:text-emerald-700 mr-auto ml-4 sm:ml-12 flex items-center gap-4 no-underline text-zinc-600 self-center hover:text-emerald-700 focus:text-emerald-700 hover:underline focus:underline outline-none">
       <Home />
       <p>Home</p>
     </a>
-    <a
+    <a on:click={menu}
       href="/brands"
       class="hover:text-emerald-700 hover:no-underline focus-within:text-emerald-700 active:text-emerald-700 focus-visible:text-emerald-700 mr-auto ml-4 sm:ml-12 flex items-center gap-4 no-underline text-zinc-600 self-center hover:text-emerald-700 focus:text-emerald-700 hover:underline focus:underline outline-none">
       <Building2 />
       <p>Brands</p>
     </a>
-    <a
+    <a on:click={menu}
       href="/watches"
       class="hover:text-emerald-700 hover:no-underline focus-within:text-emerald-700 active:text-emerald-700 focus-visible:text-emerald-700 mr-auto ml-4 sm:ml-12 flex items-center gap-4 no-underline text-zinc-600 self-center hover:text-emerald-700 focus:text-emerald-700 hover:underline focus:underline outline-none">
       <Watch />
       <p>Watches</p>
     </a>
-    <a
+    <a on:click={menu}
       href="/matcher"
       class="hover:text-emerald-700 hover:no-underline focus-within:text-emerald-700 active:text-emerald-700 focus-visible:text-emerald-700 mr-auto ml-4 sm:ml-12 flex items-center gap-4 no-underline text-zinc-600 self-center hover:text-emerald-700 focus:text-emerald-700 hover:underline focus:underline outline-none">
       <PackageSearch />

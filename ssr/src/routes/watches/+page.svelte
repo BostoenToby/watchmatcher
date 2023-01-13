@@ -1,6 +1,7 @@
 <script lang="ts">
   import { Search, X } from 'lucide-svelte'
   import { writable } from 'svelte/store'
+  import { answersList } from '$lib/stores'
 
   /** @type {import('./$types').PageData} */
   export let data: any
@@ -46,9 +47,14 @@
 
   const removeFilters = () => {
     $watchesFilter = []
-    localStorage.removeItem('answers')
+    $answersList = []
   }
 </script>
+
+<svelte:head>
+  <title>Watches</title>
+  <meta name="description" content="Collection of all the watches" />
+</svelte:head>
 
 <main>
   <h1 class="text-5xl text-center font-classic">Watches</h1>
@@ -63,9 +69,12 @@
         class="rounded-md outline-none border-none w-full font-text text-xl" />
       <button
         on:click={filterWatches}
-        class="border-none bg-transparent cursor-pointer group"
+        class="border-none bg-transparent cursor-pointer group flex"
         ><Search
-          class="relative right-0 group-hover:text-emerald-700" /></button>
+          class="relative right-0 group-hover:text-emerald-700" />
+          <p class="w-0 h-0 text-transparent">
+            Search
+          </p></button>
     </div>
     <button
       on:click={removeFilters}
@@ -100,7 +109,7 @@
                 <p class="text-neutral-600 mb-2">
                   {watch.brand} - {watch.watch}
                 </p>
-                <h3 class="mt-0">{watch.type}</h3>
+                <h2 class="mt-0">{watch.type}</h2>
               </div>
               <div class="self-center flex items-end flex-1">
                 <a
@@ -136,7 +145,7 @@
                 <p class="text-neutral-600 mb-2">
                   {watch.brand} - {watch.watch}
                 </p>
-                <h3 class="mt-0">{watch.type}</h3>
+                <h2 class="mt-0">{watch.type}</h2>
               </div>
               <div class="self-center flex items-end flex-1">
                 <a
@@ -173,7 +182,7 @@
               <p class="text-neutral-600 mb-2">
                 {watch.brand} - {watch.watch}
               </p>
-              <h3 class="mt-0">{watch.type}</h3>
+              <h2 class="mt-0">{watch.type}</h2>
             </div>
             <div class="self-center flex items-end flex-1">
               <a
@@ -209,7 +218,7 @@
               <p class="text-neutral-600 mb-2">
                 {watch.brand} - {watch.watch}
               </p>
-              <h3 class="mt-0">{watch.type}</h3>
+              <h2 class="mt-0">{watch.type}</h2>
             </div>
             <div class="self-center flex items-end flex-1">
               <a

@@ -18,6 +18,11 @@
   }
 </script>
 
+<svelte:head>
+  <title>Brands</title>
+  <meta name="description" content="Collection of all the brands" />
+</svelte:head>
+
 <AppHolder>
   <h1 class="text-5xl text-center font-classic">Brands</h1>
   <div class="grid grid-cols-10 mx-12">
@@ -31,9 +36,10 @@
         class="rounded-md outline-none border-none w-full font-text text-xl" />
       <button
         on:click={filterBrands}
-        class="border-none bg-transparent cursor-pointer group"
+        class="border-none bg-transparent cursor-pointer group flex"
         ><Search
-          class="relative right-0 group-hover:text-emerald-700" /></button>
+          class="relative right-0 group-hover:text-emerald-700" />
+        <p class="w-0 h-0 text-transparent">Search</p></button>
     </div>
   </div>
   <section
@@ -56,7 +62,7 @@
               <p class="text-neutral-600 mb-2">
                 {brand.foundingDate}, {brand.country}
               </p>
-              <h3 class="mt-0">{brand.name}</h3>
+              <h2 class="mt-0 text-lg text-center">{brand.name}</h2>
             </div>
             <Link
               to="/brands/{brand.name.replace(' ', '-').toLocaleLowerCase()}"
@@ -83,7 +89,7 @@
               <p class="text-neutral-600 mb-2">
                 {brand.foundingDate}, {brand.country}
               </p>
-              <h3 class="mt-0">{brand.name}</h3>
+              <h2 class="mt-0 text-lg text-center">{brand.name}</h2>
             </div>
             <Link
               to="/brands/{brand.name.replace(' ', '-').toLocaleLowerCase()}"

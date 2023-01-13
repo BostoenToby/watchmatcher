@@ -19,6 +19,11 @@
   }
 </script>
 
+<svelte:head>
+  <title>Watch</title>
+  <meta name="description" content="Specific information about a watch" />
+</svelte:head>
+
 <AppHolder>
   <section
     class="flex flex-col-reverse md:flex-row justify-between m-12 md:m-20 gap-16">
@@ -44,11 +49,11 @@
       </p>
     </div>
   </section>
-  <h3 class="text-center font-text text-3xl">Watch specifications</h3>
+  <h2 class="text-center font-text text-3xl">Watch specifications</h2>
   <section
     class="grid md:grid-cols-3 gap-8 mx-20 font-text text-center md:text-left">
     <div>
-      <h4 class="text-2xl mb-0 pb-4">Case</h4>
+      <h3 class="text-2xl mb-0 pb-4">Case</h3>
       <div class="py-1">
         <p class="font-medium">MATERIAL</p>
         <p>{$watch.specifications.case.material}</p>
@@ -72,7 +77,7 @@
       </div>
     </div>
     <div>
-      <h4 class="text-2xl mb-0 pb-4">Bracelet</h4>
+      <h3 class="text-2xl mb-0 pb-4">Bracelet</h3>
       <div class="py-1">
         <p class="font-medium">NUMBER OF BRACELETS</p>
         <p>{$watch.specifications.bracelet.number}</p>
@@ -91,7 +96,7 @@
     <div class="flex flex-col gap-4">
       {#if $watch.specifications.buckle.type != null && $watch.specifications.buckle.material != null}
         <div>
-          <h4 class="text-2xl mb-0 pb-4">Buckle</h4>
+          <h3 class="text-2xl mb-0 pb-4">Buckle</h3>
           {#if $watch.specifications.buckle.type != null}
             <div class="py-1">
               <p class="font-medium">TYPE</p>
@@ -107,14 +112,14 @@
         </div>
       {/if}
       <div>
-        <h4 class="text-2xl mb-0 pb-4">Dial</h4>
+        <h3 class="text-2xl mb-0 pb-4">Dial</h3>
         <div class="py-1">
           <p class="font-medium">MATERIAL</p>
           <p>{$watch.specifications.dial.material}</p>
         </div>
       </div>
       <div>
-        <h4 class="text-2xl mb-0 pb-4">Watch</h4>
+        <h3 class="text-2xl mb-0 pb-4">Watch</h3>
         {#if $watch.specifications.watch.weight != null}
           <div class="py-1">
             <p class="font-medium">WEIGHT (GRAMS)</p>
@@ -204,7 +209,7 @@
                   .replace(' ', '-')
                   .toLocaleUpperCase()}-{index + 1}.webp"
                 alt=""
-                class="rounded-md w-full md:w-1/2 lg:w-full aspect-video" />
+                class="rounded-md w-full md:w-1/2 lg:w-full" />
             </div>
             <div
               class={`${
@@ -243,7 +248,7 @@
                   .replace(' ', '-')
                   .toLocaleUpperCase()}-{index + 1}.webp"
                 alt=""
-                class="rounded-md w-full md:w-1/2 lg:w-full aspect-video" />
+                class="rounded-md w-full md:w-1/2 lg:w-full" />
             </div>
           </section>
         {/if}

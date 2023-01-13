@@ -14,6 +14,11 @@
   }
 </script>
 
+<svelte:head>
+  <title>Brand</title>
+  <meta name="description" content="Specific information about a brand" />
+</svelte:head>
+
 {#if $brand != undefined && $brand.history != undefined}
   <main>
     <section
@@ -55,7 +60,7 @@
                     .replace(' ', '-')
                     .toLocaleLowerCase()}-{indexH + 1}-{index + 1}.webp"
                   alt=""
-                  class="rounded-md w-full md:w-1/2 lg:w-full aspect-video" />
+                  class="rounded-md w-full md:w-1/2 lg:w-full" />
               </div>
               <div
                 class={`${

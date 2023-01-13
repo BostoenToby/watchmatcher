@@ -16,6 +16,11 @@
   }
 </script>
 
+<svelte:head>
+  <title>Brand</title>
+  <meta name="description" content="Specific information about a brand" />
+</svelte:head>
+
 <AppHolder>
   <section
     class="flex flex-col-reverse lg:flex-row justify-between m-20 gap-16">
@@ -56,7 +61,7 @@
                   .replace(' ', '-')
                   .toLocaleLowerCase()}-{indexH + 1}-{index + 1}.webp"
                 alt=""
-                class="rounded-md w-full md:w-1/2 lg:w-full aspect-video" />
+                class="rounded-md w-full md:w-1/2 lg:w-full" />
             </div>
             <div
               class={`${

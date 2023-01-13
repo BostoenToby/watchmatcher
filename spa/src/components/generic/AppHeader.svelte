@@ -37,8 +37,9 @@
   class="grid grid-cols-10 lg:grid-cols-3 px-4 sm:px-12 py-4 items-center bg-zinc-100 m-0 text-zinc-600 font-text">
   <button
     on:click={menu}
-    class="xl:hidden border-none bg-transparent min-w-min p-0 w-8 h-8">
+    class="xl:hidden border-none bg-transparent min-w-min p-0 w-8 h-8 flex">
     <AlignLeft class="sm:w-8 sm:h-8" />
+    <p class="text-transparent h-0 w-0">Menu</p>
   </button>
   <nav class="hidden xl:flex gap-16">
     <Link
@@ -71,8 +72,9 @@
       class="w-full border-none outline-none bg-transparent text-zinc-600" />
     <button
       on:click={search}
-      class="text-zinc-600 outline-none border-none hover:text-emerald-700 focus:text-emerald-700"
-      ><Search /></button>
+      class="bg-transparent text-zinc-600 outline-none border-none hover:text-emerald-700 focus:text-emerald-700 flex"
+      ><Search />
+      <p class="text-transparent w-0 h-0">Search</p></button>
   </div>
 </header>
 <section
