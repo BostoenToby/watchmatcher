@@ -86,6 +86,11 @@
   }
 </script>
 
+<svelte:head>
+  <title>Matcher</title>
+  <meta name="description" content="The matcher to find the watch that suites you" />
+</svelte:head>
+
 <main>
   <h1 class="text-5xl text-center font-classic">Matcher</h1>
   <h2 class="text-2xl text-center font-text w-3/4 mx-auto">
