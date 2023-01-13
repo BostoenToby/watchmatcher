@@ -12,12 +12,14 @@
   const searchedWatches = writable<Array<Watch>>([])
 
   for (let watch of watches) {
-    const categories = watch.categories
-    const answers = new Set(history.state.answers)
-    const res = categories.filter((ans) => answers.has(ans)).length
-    if (history.state.answers != undefined) {
-      if (res == history.state.answers.length) {
-        $watchesFilter.push(watch)
+    if (history.state != null) {
+      if ('answers' in history.state) {
+        const categories = watch.categories
+        const answers = new Set(history.state.answers)
+        const res = categories.filter((ans) => answers.has(ans)).length
+        if (res == history.state.answers.length) {
+          $watchesFilter.push(watch)
+        }
       }
     }
   }
@@ -51,6 +53,11 @@
   }
 </script>
 
+<svelte:head>
+  <title>Watches</title>
+  <meta name="description" content="Collection of all the watches" />
+</svelte:head>
+
 <AppHolder>
   <h1 class="text-5xl text-center font-classic">Watches</h1>
   <div class="grid grid-cols-10 mx-12">
@@ -64,14 +71,14 @@
         class="rounded-md outline-none border-none w-full font-text text-xl" />
       <button
         on:click={filterWatches}
-        class="border-none bg-transparent cursor-pointer group"
-        ><Search
-          class="relative right-0 group-hover:text-emerald-700" /></button>
+        class="border-none bg-transparent cursor-pointer group flex"
+        ><Search class="relative right-0 group-hover:text-emerald-700" />
+        <p class="w-0 h-0 text-transparent">Search</p></button>
     </div>
   </div>
   <section
     class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-16 m-20 font-text">
-    {#if history.state.answers != undefined || history.state.answers != null}
+    {#if (history.state != undefined || history.state != null) && 'answers' in history.state}
       {#if $searchedWatches.length != 0}
         {#each $searchedWatches as watch}
           <div
@@ -95,7 +102,7 @@
                 <p class="text-neutral-600 mb-2">
                   {watch.brand} - {watch.watch}
                 </p>
-                <h3 class="mt-0">{watch.type}</h3>
+                <h2 class="mt-0 text-lg">{watch.type}</h2>
               </div>
               <div class="self-center flex items-end flex-1">
                 <Link
@@ -131,7 +138,7 @@
                 <p class="text-neutral-600 mb-2">
                   {watch.brand} - {watch.watch}
                 </p>
-                <h3 class="mt-0">{watch.type}</h3>
+                <h2 class="mt-0 text-lg">{watch.type}</h2>
               </div>
               <div class="self-center flex items-end flex-1">
                 <Link
@@ -168,7 +175,7 @@
               <p class="text-neutral-600 mb-2">
                 {watch.brand} - {watch.watch}
               </p>
-              <h3 class="mt-0">{watch.type}</h3>
+              <h2 class="mt-0 text-lg">{watch.type}</h2>
             </div>
             <div class="self-center flex items-end flex-1">
               <Link
@@ -204,7 +211,7 @@
               <p class="text-neutral-600 mb-2">
                 {watch.brand} - {watch.watch}
               </p>
-              <h3 class="mt-0">{watch.type}</h3>
+              <h2 class="mt-0 text-lg">{watch.type}</h2>
             </div>
             <div class="self-center flex items-end flex-1">
               <Link

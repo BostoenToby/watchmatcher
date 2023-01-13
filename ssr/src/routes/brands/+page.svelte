@@ -62,7 +62,7 @@
               <p class="text-neutral-600 mb-2">
                 {brand.foundingDate}, {brand.country}
               </p>
-              <h2 class="mt-0">{brand.name}</h2>
+              <h2 class="mt-0 text-lg text-center">{brand.name}</h2>
             </div>
             <a
               href="/brands/{brand.name.replace(' ', '-').toLocaleLowerCase()}"
@@ -89,7 +89,7 @@
               <p class="text-neutral-600 mb-2">
                 {brand.foundingDate}, {brand.country}
               </p>
-              <h2 class="mt-0 text-lg">{brand.name}</h2>
+              <h2 class="mt-0 text-lg text-center">{brand.name}</h2>
             </div>
             <a
               href="/brands/{brand.name.replace(' ', '-').toLocaleLowerCase()}"

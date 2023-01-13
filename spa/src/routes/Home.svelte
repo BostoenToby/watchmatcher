@@ -5,7 +5,10 @@
   import AppHolder from '../components/holders/AppHolder.svelte'
 </script>
 
-<MetaTags title="Home" description="Find your ideal watch with Watchmatcher." />
+<svelte:head>
+  <title>Home</title>
+  <meta name="description" content="Home of Watchmatcher" />
+</svelte:head>
 
 <AppHolder>
   <div class="flex items-center">
