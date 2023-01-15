@@ -6,7 +6,8 @@
   "scripts": {
     "dev:spa": "npm run dev -w spa",
     "dev:ssr": "npm run dev -w ssr",
-    "dev": "run-p dev:spa dev:ssr"
+    "dev:ssg": "npm run dev -w ssg",
+    "dev": "run-p dev:spa dev:ssr dev:ssg"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   },
   "workspaces": [
     "spa",
-    "ssr"
+    "ssr",
+    "ssg"
   ]
 }

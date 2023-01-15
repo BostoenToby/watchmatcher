@@ -1,0 +1,138 @@
+[
+  {
+    "watch": "Code 11.59",
+    "brand": "Audemars Piguet",
+    "type": "Grande Sonnerie Carillon Supersonnerie",
+    "ref": "26397BC.00.D324VE.01",
+    "categories": [
+      "€2500 +",
+      "Audemars Piguet",
+      "Rubber",
+      "Men",
+      "39mm - 42mm",
+      "Black"
+    ],
+    "information": "The two-tone case of the limited edition of 50 pieces interlacing 18-carat pink gold and black ceramic is echoed by the architectural movement in black and pink-gold-toned hues that can be admired on both sides of the watch.",
+    "specifications": {
+      "case": {
+        "info": "18-carat white gold case, glareproofed sapphire crystal",
+        "size": 41,
+        "thickness": 13.5,
+        "waterResistanceM": 20,
+        "waterResistanceB": null,
+        "material": "White gold"
+      },
+      "glass": {
+        "material": "Sapphire crystal",
+        "info": "The Manufacture has created a contemporary double curved sapphire crystal, whose tense, arched profile plays with depth, perspective and light for a unique optic experience. While its internal surface is shaped like a dome, it is vertically curved from 6 to 12 o’clock."
+      },
+      "dial": {
+        "material": "Blue “guilloché and flinqué” enamel dial, 18-carat white gold hands, blue lacquered inner bezel."
+      },
+      "bracelet": {
+        "number": 1,
+        "material": "Textured blue leather strap with 18-carrat white gold AP folding clasp.",
+        "size": null
+      },
+      "buckle": {
+        "type": null,
+        "material": null
+      },
+      "watch": {
+        "weight": null,
+        "origin": "Swiss made"
+      }
+    },
+    "calibre": {
+      "name": "Calibre 2956",
+      "functions": [
+        "Grande Sonnerie Supersonnerie",
+        "Petite Sonnerie",
+        "Minute Repeater",
+        "Hours",
+        "Minutes",
+        "Small seconds"
+      ],
+      "jewels": 53,
+      "mechanism": "Hand-wound",
+      "powerReserve": 48,
+      "totalDiameter": 29.9,
+      "parts": 498,
+      "frequencyHZ": 3,
+      "frequencyVPH": 21.6,
+      "thickness": 5.9
+    },
+    "history": null
+  },
+  {
+    "watch": "Fiftysix",
+    "brand": "Vacheron Constantin",
+    "type": "Tourbillon",
+    "ref": "6000E/000R-B488",
+    "categories": [
+      "€2500 +",
+      "Vacheron Constantin",
+      "Leather",
+      "Men",
+      "39mm - 42mm",
+      "White"
+    ],
+    "information": "A tribute to a model from 1956, this 18K pink gold watch is the first tourbillon from the Fiftysix collection. The Maltese cross – a Vacheron Constantin icon – is found on the tourbillon cage, the crown, and more subtly, on the horns. Its movement, fitted with a power reserve of more than 3 days, is equipped with a 22K gold peripheral mass revealing the entire movement through the openworked caseback.",
+    "specifications": {
+      "case": {
+        "info": "Pink gold",
+        "size": 41,
+        "thickness": 10.94,
+        "waterResistanceM": null,
+        "waterResistanceB": 3,
+        "material": "Transparent caseback, sapphire glass"
+      },
+      "glass": {
+        "material": "sapphire glass",
+        "info": "The Manufacture has created a contemporary double curved sapphire crystal, whose tense, arched profile plays with depth, perspective and light for a unique optic experience. While its internal surface is shaped like a dome, it is vertically curved from 6 to 12 o’clock."
+      },
+      "dial": {
+        "material": "Metal"
+      },
+      "bracelet": {
+        "number": 1,
+        "material": "Mississippiensis alligator (dark brown)",
+        "size": "20/18"
+      },
+      "buckle": {
+        "type": "Deployant buckle",
+        "material": "Pink gold"
+      },
+      "watch": {
+        "weight": 100,
+        "origin": "Swiss made"
+      }
+    },
+    "calibre": {
+      "name": "Calibre 2160/1",
+      "functions": ["Hours", "Minutes", "Tourbillon", "Small seconds"],
+      "jewels": 30,
+      "mechanism": "Self-winding",
+      "powerReserve": 80,
+      "totalDiameter": 30.4,
+      "parts": 188,
+      "frequencyHZ": 2.5,
+      "frequencyVPH": 18000,
+      "thickness": 5.65
+    },
+    "history": [
+      {
+        "subtitle": "At the origin of the tourbillon",
+        "text": "Patented in 1801, the tourbillon was developed to combat the harmful effects of earth’s gravity on the escapements of pocket watches held in a vertical position. While the arrival of wristwatches makes the tourbillon's role less clear, its creation requires greater expertise. Whatever the position of the watch, it is vital to achieve absolute precision in the rotating escapement."
+      },
+      {
+        "subtitle": "Design",
+        "text": "Featuring a cage in the shape of the Maltese cross, the tourbillon performs one full rotation per minute. Both a technical and aesthetic feat, the tourbillon also fulfills its practical function of indicating the seconds."
+      },
+      {
+        "subtitle": "About the collection",
+        "text": "Circular perfection, a quest for essentials: the Patrimony collection is the epitome of stylistic pureness. Reflecting a deliberately minimalist approach striking a beautiful balance between taut lines and curves, it asserts its personality through slender cases radiating an elegance inspired by 1950s Vacheron Constantin models."
+      }
+    ]
+  }
+]

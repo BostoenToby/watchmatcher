@@ -1,7 +1,8 @@
 <script lang="ts">
-  import { Link } from 'svelte-routing'
-
-  import AppHolder from '../components/holders/AppHolder.svelte'
+  import Watchmatcher from '$lib/images/watchmatcher.webp'
+  import Brand from '$lib/images/brand.webp'
+  import Watch from '$lib/images/watch.webp'
+  import Matcher from '$lib/images/matcher.webp'
 </script>
 
 <svelte:head>
@@ -9,12 +10,12 @@
   <meta name="description" content="Home of Watchmatcher" />
 </svelte:head>
 
-<AppHolder>
+<main>
   <div class="flex items-center">
     <img
-      src="/watchmatcher-big.webp"
+      src={Watchmatcher}
       alt=""
-      class="aspect-auto w-80 h-auto md:w-120 lg:w-140 mt-40 mx-auto mb-4" />
+      class="w-80 md:w-120 mt-40 mx-auto mb-4" />
   </div>
   <h1 class="text-center font-classic text-5xl mt-8">Watchmatcher</h1>
   <h1 class="text-center font-classic text-2xl mt-8">
@@ -26,18 +27,15 @@
       <p class="text-lg w-2/3 text-center">
         Find a watch that suites you with this test
       </p>
-      <Link
-        to="/matcher"
+      <a
+        href="/matcher"
         class="no-underline text-white bg-emerald-700 rounded-md px-4 py-2 rounded-md"
-        >Matcher</Link>
+        >Matcher</a>
     </div>
   </div>
   <section
     class="mx-20 m20 flex flex-col-reverse lg:flex-row justify-between gap-8 font-text">
-    <img
-      src="/brand.webp"
-      alt=""
-      class="object-contain max-w-full lg:w-2/5 rounded-md" />
+    <img src={Brand} alt="" class="w-full lg:w-2/5 rounded-md" />
     <div class="w-full lg:w-1/2 flex flex-col justify-between">
       <h2 class="mt-0">Brands</h2>
       <div>
@@ -55,10 +53,10 @@
           the button to choose get a selection of brands.
         </p>
       </div>
-      <Link
-        to="/brands"
+      <a
+        href="/brands"
         class="no-underline text-white bg-emerald-700 px-4 py-2 rounded-md w-min"
-        >Brands</Link>
+        >Brands</a>
     </div>
   </section>
   <section
@@ -81,22 +79,16 @@
           get a selection of watches.
         </p>
       </div>
-      <Link
-        to="/watches"
+      <a
+        href="/watches"
         class="no-underline text-white bg-emerald-700 px-4 py-2 rounded-md w-min"
-        >Watches</Link>
+        >Watches</a>
     </div>
-    <img
-      src="/watch.webp"
-      alt=""
-      class="object-contain max-w-full lg:w-2/5 rounded-md" />
+    <img src={Watch} alt="" class="w-full lg:w-2/5 rounded-md" />
   </section>
   <section
     class="mx-20 m-20 flex flex-col-reverse lg:flex-row justify-between gap-8 font-text">
-    <img
-      src="/matcher.webp"
-      alt=""
-      class="object-contain max-w-full lg:w-2/5 rounded-md" />
+    <img src={Matcher} alt="" class="w-full lg:w-2/5 rounded-md" />
     <div class="w-full lg:w-1/2 flex flex-col justify-between">
       <h2 class="mt-0">Watch matcher</h2>
       <div>
@@ -111,10 +103,10 @@
         </p>
         <p class="leading-8">Click the button to start the test.</p>
       </div>
-      <Link
-        to="/matcher"
+      <a
+        href="/matcher"
         class="no-underline text-white bg-emerald-700 px-4 py-2 rounded-md w-min"
-        >Matcher</Link>
+        >Matcher</a>
     </div>
   </section>
-</AppHolder>
+</main>
