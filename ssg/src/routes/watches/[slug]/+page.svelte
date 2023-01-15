@@ -40,22 +40,24 @@
     )
     headImage.set(head.default)
     let count = 0
-    for (let h of $watch.history!) {
-      count += 1
-      const image = await import(
-        /* @vite-ignore */ `/src/lib/images/watches/${$watch.brand
-          .replace(' ', '-')
-          .toLocaleLowerCase()}-${$watch.watch
-          .replace(' ', '-')
-          .toLocaleUpperCase()}-${$watch.type
-          .replace(' ', '-')
-          .toLocaleUpperCase()}-${count}.webp`
-      )
-      imagesList.push(image.default)
-    }
-    images.set(imagesList)
-    if ($images.length != 0) {
-      return $images
+    if($watch.history != undefined){
+      for (let h of $watch.history!) {
+        count += 1
+        const image = await import(
+          /* @vite-ignore */ `/src/lib/images/watches/${$watch.brand
+            .replace(' ', '-')
+            .toLocaleLowerCase()}-${$watch.watch
+            .replace(' ', '-')
+            .toLocaleUpperCase()}-${$watch.type
+            .replace(' ', '-')
+            .toLocaleUpperCase()}-${count}.webp`
+        )
+        imagesList.push(image.default)
+      }
+      images.set(imagesList)
+      if ($images.length != 0) {
+        return $images
+      }
     }
   }
 
