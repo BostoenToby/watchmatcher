@@ -6,15 +6,73 @@
   import type Watch from '$lib/interfaces/watch.interface'
 
   const watch = writable<Watch>()
+  const headImage = writable<any>()
+  const images = writable<Array<any>>()
 
-  for (let w of watches) {
-    if (
-      w.type.replaceAll('-', ' ').toLocaleLowerCase() ==
-      $page.params.slug.replaceAll('-', ' ').toLocaleLowerCase()
-    ) {
-      watch.set(w)
-    }
+  const getValue = async (mods: any[]): Promise<any[]> => {
+    return new Promise(async (resolve, reject) => {
+      const modDefault = []
+      let modDefaultHead
+      while (mods.length == 0) {
+        await new Promise((resolve) => setTimeout(resolve, 100))
+      }
+      for (let m of mods) {
+        while (m.default === undefined) {
+          await new Promise((resolve) => setTimeout(resolve, 100))
+        }
+        if (m.default != undefined) {
+          if (m.default.includes('head')) {
+            modDefaultHead = m.default
+            headImage.set(modDefaultHead)
+          } else {
+            modDefault.push(m.default)
+          }
+        }
+      }
+      if ($watch.history != null && modDefault.length > 0) {
+        resolve(modDefault)
+      } else if ($watch.history == null) {
+        resolve(modDefault)
+      }
+    })
   }
+
+  const getMods = (watch: Watch) => {
+    return new Promise(async (resolve, reject) => {
+      const modules = await import.meta.glob('$lib/images/watches/*.webp')
+      const modList: any[] = []
+      for (const path in modules) {
+        modules[path]().then(async (mod: any) => {
+          if (path.includes(watch.type.replaceAll(' ', '-').toUpperCase())) {
+            await modList.push(mod)
+          }
+        })
+      }
+      resolve(modList)
+    })
+  }
+
+  const getImages = async () => {
+    let watchFound: Watch | undefined
+    for (let w of watches) {
+      if (
+        w.type.replaceAll('-', ' ').toLocaleLowerCase() ==
+        $page.params.slug.replaceAll('-', ' ').toLocaleLowerCase()
+      ) {
+        watchFound = w
+        watch.set(w)
+      }
+    }
+    if (typeof watchFound == 'undefined') {
+      return
+    }
+    const modList: any = await getMods(watchFound)
+    const res = await getValue(modList)
+    images.set(res)
+    return res
+  }
+
+  let promise = getImages()
 </script>
 
 <svelte:head>
@@ -26,27 +84,24 @@
   <section
     class="flex flex-col-reverse md:flex-row justify-between m-12 md:m-20 gap-16">
     <div
-      class="aspect-square md:aspect-video w-full md:w-1/2 rounded-md overflow-hidden flex justify-center">
-      <img
-        src="/watches/{$watch.brand
-          .replaceAll(' ', '-')
-          .toLocaleLowerCase()}-{$watch.watch
-          .replaceAll(' ', '-')
-          .replaceAll('.', ',')
-          .toLocaleUpperCase()}-{$watch.type
-          .replaceAll(' ', '-')
-          .toLocaleUpperCase()}.webp"
-        alt=""
-        class="max-h-full rounded-md" />
+      class="aspect-square md:aspect-video w-full md:w-1/2 rounded-md
+      overflow-hidden flex justify-center">
+      {#await promise}
+        <p>Loading...</p>
+      {:then}
+        <img
+          src={$headImage}
+          alt="The {$watch.brand}
+          {$watch.type} watch."
+          class="max-h-full rounded-md" />
+      {/await}
     </div>
     <div class="flex flex-col font-text md:w-1/2">
       <div class="flex flex-col-reverse">
         <h2 class="text-xl my-0">{$watch.brand}, {$watch.watch}</h2>
         <h1 class="capitalize text-3xl my-0 mb-4">{$watch.type}</h1>
       </div>
-      <p class="leading-6">
-        {$watch.information}
-      </p>
+      <p class="leading-6">{$watch.information}</p>
     </div>
   </section>
   <h2 class="text-center font-text text-3xl">Watch specifications</h2>
@@ -193,62 +248,48 @@
       {#each $watch.history as h, index}
         {#if index % 2 == 0}
           <section
-            class="flex flex-col-reverse lg:grid lg:grid-cols-10 mt-10 gap-16 font-text overflow-x-hidden">
+            class="flex flex-col-reverse lg:grid lg:grid-cols-10 mt-10 gap-16
+            font-text overflow-x-hidden">
             <div
-              class={`self-center aspect-auto ${
-                index % 2 == 0
-                  ? 'col-start-1 col-end-5'
-                  : 'col-start-7 col-end-11'
-              } rounded-md flex justify-center`}>
-              <img
-                src="/watches/{$watch.brand
-                  .replace(' ', '-')
-                  .toLocaleLowerCase()}-{$watch.watch
-                  .replace(' ', '-')
-                  .toLocaleUpperCase()}-{$watch.type
-                  .replace(' ', '-')
-                  .toLocaleUpperCase()}-{index + 1}.webp"
-                alt=""
-                class="rounded-md w-full md:w-1/2 lg:w-full" />
+              class={`self-center aspect-auto ${index % 2 == 0 ? 'col-start-1 col-end-5' : 'col-start-7 col-end-11'} rounded-md flex justify-center`}>
+              {#await promise}
+                <p>Loading...</p>
+              {:then images}
+                {#if images != undefined}
+                  <img
+                    src={images[index]}
+                    alt={h.altImage}
+                    class="rounded-md w-full md:w-1/2 lg:w-full" />
+                {/if}
+              {/await}
             </div>
             <div
-              class={`${
-                index % 2 == 0
-                  ? 'col-start-5 col-end-11'
-                  : 'col-start-1 col-end-7'
-              } lg:elf-center`}>
+              class={`${index % 2 == 0 ? 'col-start-5 col-end-11' : 'col-start-1 col-end-7'} lg:elf-center`}>
               <h3 class="text-2xl">{h.subtitle}</h3>
               <p class="leading-8">{h.text}</p>
             </div>
           </section>
         {:else}
           <section
-            class="flex flex-col lg:grid lg:grid-cols-10 mt-10 gap-16 font-text overflow-x-hidden">
+            class="flex flex-col lg:grid lg:grid-cols-10 mt-10 gap-16 font-text
+            overflow-x-hidden">
             <div
-              class={`${
-                index % 2 == 0
-                  ? 'col-start-5 col-end-11'
-                  : 'col-start-1 col-end-7'
-              } lg:elf-center`}>
+              class={`${index % 2 == 0 ? 'col-start-5 col-end-11' : 'col-start-1 col-end-7'} lg:elf-center`}>
               <h3 class="text-2xl">{h.subtitle}</h3>
               <p class="leading-8">{h.text}</p>
             </div>
             <div
-              class={`self-center aspect-auto ${
-                index % 2 == 0
-                  ? 'col-start-1 col-end-5'
-                  : 'col-start-7 col-end-11'
-              } rounded-md flex justify-center`}>
-              <img
-                src="/watches/{$watch.brand
-                  .replace(' ', '-')
-                  .toLocaleLowerCase()}-{$watch.watch
-                  .replace(' ', '-')
-                  .toLocaleUpperCase()}-{$watch.type
-                  .replace(' ', '-')
-                  .toLocaleUpperCase()}-{index + 1}.webp"
-                alt=""
-                class="rounded-md w-full md:w-1/2 lg:w-full" />
+              class={`self-center aspect-auto ${index % 2 == 0 ? 'col-start-1 col-end-5' : 'col-start-7 col-end-11'} rounded-md flex justify-center`}>
+              {#await promise}
+                <p>Loading...</p>
+              {:then images}
+                {#if images != undefined}
+                  <img
+                    src={images[index]}
+                    alt={h.altImage}
+                    class="rounded-md w-full md:w-1/2 lg:w-full" />
+                {/if}
+              {/await}
             </div>
           </section>
         {/if}

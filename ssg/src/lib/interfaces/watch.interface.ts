@@ -68,5 +68,6 @@ interface Calibre {
 
 interface History {
   subtitle: string
+  altImage?: string
   text: string
 }

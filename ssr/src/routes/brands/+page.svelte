@@ -7,6 +7,52 @@
 
   const searchInput = writable<string>()
   const filteredBrands = writable<Array<Brand>>([])
+  const images = writable<any>([])
+
+  const getValue = async (mods: any[]): Promise<any[]> => {
+    return new Promise(async (resolve, reject) => {
+      const modDefault = []
+      for (let m of mods) {
+        while (m.default === undefined) {
+          await new Promise((resolve) => setTimeout(resolve, 100))
+        }
+        if (m.default != undefined) {
+          modDefault.push(m.default)
+        }
+      }
+      if (modDefault.length > 0) {
+        resolve(modDefault)
+      }
+    })
+  }
+
+  const getMods = async () => {
+    return new Promise(async (resolve, reject) => {
+      const modules = await import.meta.glob('$lib/images/brands/*.webp')
+      const modList: any[] = []
+      for (let brand of brands) {
+        for (const path in modules) {
+          modules[path]().then((mod: any) => {
+            if (
+              path.includes(brand.name.replace(' ', '-').toLocaleLowerCase())
+            ) {
+              modList.push(mod)
+            }
+            if (modList.length == brands.length) {
+              resolve(modList)
+            }
+          })
+        }
+      }
+    })
+  }
+
+  const getImages = async () => {
+    const modList: any = await getMods()
+    const res = await getValue(modList)
+    images.set(res)
+    return res
+  }
 
   const filterBrands = () => {
     const res = brands.filter((brand) => {
@@ -14,6 +60,8 @@
     })
     filteredBrands.set(res)
   }
+
+  let promise = getImages()
 </script>
 
 <svelte:head>
@@ -25,7 +73,9 @@
   <h1 class="text-5xl text-center font-classic">Brands</h1>
   <div class="grid grid-cols-10 mx-12">
     <div
-      class="col-start-2 col-end-9 md:col-start-4 md:col-end-8 w-full mx-auto flex justify-between px-4 py-2 items-center border border-solid border-neutral-200 rounded-md">
+      class="col-start-2 col-end-9 md:col-start-4 md:col-end-8 w-full mx-auto
+      flex justify-between px-4 py-2 items-center border border-solid
+      border-neutral-200 rounded-md">
       <input
         bind:value={$searchInput}
         on:change={filterBrands}
@@ -34,28 +84,34 @@
         class="rounded-md outline-none border-none w-full font-text text-xl" />
       <button
         on:click={filterBrands}
-        class="border-none bg-transparent cursor-pointer group flex"
-        ><Search
-          class="relative right-0 group-hover:text-emerald-700" />
-        <p class="w-0 h-0 text-transparent">
-          Search
-        </p></button>
+        class="border-none bg-transparent cursor-pointer group flex">
+        <Search class="relative right-0 group-hover:text-emerald-700" />
+        <p class="hidden">Search</p>
+      </button>
     </div>
   </div>
   <section
-    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-16 m-20 font-text">
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-16
+    m-20 font-text">
     {#if $filteredBrands.length != 0}
-      {#each $filteredBrands as brand}
+      {#each $filteredBrands as brand, index}
         <div
-          class="border-2 border-solid border-neutral-200 bg-neutral-200 p-2 rounded-md drop-shadow-md">
+          class="border-2 border-solid border-neutral-200 bg-neutral-200 p-2
+          rounded-md drop-shadow-md">
           <div
             class="aspect-square flex overflow-hidden justify-center rounded-md">
-            <img
-              src="/brands/{brand.name
-                .replace(' ', '-')
-                .toLocaleLowerCase()}.webp"
-              alt=""
-              class="object-scale-down w-4/5" />
+            {#await promise}
+              <p>Loading...</p>
+            {:then img}
+              <img
+                src={img.find((images) => {
+                  return images.includes(brand.name
+                      .replaceAll(' ', '-')
+                      .toLocaleLowerCase())
+                })}
+                alt="The logo of {brand.name}"
+                class="object-scale-down w-4/5" />
+            {/await}
           </div>
           <div class="flex flex-col justify-between">
             <div class="text-center">
@@ -66,23 +122,32 @@
             </div>
             <a
               href="/brands/{brand.name.replace(' ', '-').toLocaleLowerCase()}"
-              class="no-underline outline-none self-center bg-emerald-700 text-white rounded-md px-4 py-2"
-              >View</a>
+              class="no-underline outline-none self-center bg-emerald-700
+              text-white rounded-md px-4 py-2">
+              View
+            </a>
           </div>
         </div>
       {/each}
     {:else}
-      {#each brands as brand}
+      {#each brands as brand, index}
         <div
-          class="border-2 border-solid border-neutral-200 bg-neutral-200 p-2 rounded-md drop-shadow-md">
+          class="border-2 border-solid border-neutral-200 bg-neutral-200 p-2
+          rounded-md drop-shadow-md">
           <div
             class="aspect-square flex overflow-hidden justify-center rounded-md">
-            <img
-              src="/brands/{brand.name
-                .replace(' ', '-')
-                .toLocaleLowerCase()}.webp"
-              alt=""
-              class="object-scale-down w-4/5" />
+            {#await promise}
+              <p>Loading...</p>
+            {:then img}
+              <img
+                src={img.find((images) => {
+                  return images.includes(brand.name
+                      .replaceAll(' ', '-')
+                      .toLocaleLowerCase())
+                })}
+                alt="The logo of {brand.name}"
+                class="object-scale-down w-4/5" />
+            {/await}
           </div>
           <div class="flex flex-col">
             <div class="text-center">
@@ -93,8 +158,10 @@
             </div>
             <a
               href="/brands/{brand.name.replace(' ', '-').toLocaleLowerCase()}"
-              class="no-underline outline-none self-center bg-emerald-700 text-white rounded-md px-4 py-2"
-              >View</a>
+              class="no-underline outline-none self-center bg-emerald-700
+              text-white rounded-md px-4 py-2">
+              View
+            </a>
           </div>
         </div>
       {/each}

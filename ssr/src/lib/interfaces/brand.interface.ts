@@ -8,6 +8,7 @@ export default interface Brand {
 
 interface History {
   head: string
+  altImage?: string
   information: Information[]
 }
 
@@ -18,5 +19,6 @@ interface Information {
 
 interface InformationBlock {
   subtitle: string
+  altImage?: string
   information: string
 }

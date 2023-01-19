@@ -14,7 +14,7 @@
   <div class="flex items-center">
     <img
       src={Watchmatcher}
-      alt=""
+      alt="The logo of Watchmatcher"
       class="w-80 md:w-120 mt-40 mx-auto mb-4" />
   </div>
   <h1 class="text-center font-classic text-5xl mt-8">Watchmatcher</h1>
@@ -29,13 +29,19 @@
       </p>
       <a
         href="/matcher"
-        class="no-underline text-white bg-emerald-700 rounded-md px-4 py-2 rounded-md"
-        >Matcher</a>
+        class="no-underline text-white bg-emerald-700 rounded-md px-4 py-2
+        rounded-md">
+        Matcher
+      </a>
     </div>
   </div>
   <section
-    class="mx-20 m20 flex flex-col-reverse lg:flex-row justify-between gap-8 font-text">
-    <img src={Brand} alt="" class="w-full lg:w-2/5 rounded-md" />
+    class="mx-20 m20 flex flex-col-reverse lg:flex-row justify-between gap-8
+    font-text">
+    <img
+      src={Brand}
+      alt="Different watches next to eachother"
+      class="w-full lg:w-2/5 rounded-md" />
     <div class="w-full lg:w-1/2 flex flex-col justify-between">
       <h2 class="mt-0">Brands</h2>
       <div>
@@ -55,12 +61,14 @@
       </div>
       <a
         href="/brands"
-        class="no-underline text-white bg-emerald-700 px-4 py-2 rounded-md w-min"
-        >Brands</a>
+        class="no-underline text-white bg-emerald-700 px-4 py-2 rounded-md w-min">
+        Brands
+      </a>
     </div>
   </section>
   <section
-    class="mx-20 lg:m-20 flex flex-col lg:flex-row justify-between gap-8 font-text">
+    class="mx-20 lg:m-20 flex flex-col lg:flex-row justify-between gap-8
+    font-text">
     <div class="w-full lg:w-1/2 flex flex-col justify-between">
       <h2 class="mt-0">Watches</h2>
       <div>
@@ -81,14 +89,22 @@
       </div>
       <a
         href="/watches"
-        class="no-underline text-white bg-emerald-700 px-4 py-2 rounded-md w-min"
-        >Watches</a>
+        class="no-underline text-white bg-emerald-700 px-4 py-2 rounded-md w-min">
+        Watches
+      </a>
     </div>
-    <img src={Watch} alt="" class="w-full lg:w-2/5 rounded-md" />
+    <img
+      src={Watch}
+      alt="A close-up of a watch"
+      class="w-full lg:w-2/5 rounded-md" />
   </section>
   <section
-    class="mx-20 m-20 flex flex-col-reverse lg:flex-row justify-between gap-8 font-text">
-    <img src={Matcher} alt="" class="w-full lg:w-2/5 rounded-md" />
+    class="mx-20 m-20 flex flex-col-reverse lg:flex-row justify-between gap-8
+    font-text">
+    <img
+      src={Matcher}
+      alt="A lot of watches presented for sale"
+      class="w-full lg:w-2/5 rounded-md" />
     <div class="w-full lg:w-1/2 flex flex-col justify-between">
       <h2 class="mt-0">Watch matcher</h2>
       <div>
@@ -105,8 +121,9 @@
       </div>
       <a
         href="/matcher"
-        class="no-underline text-white bg-emerald-700 px-4 py-2 rounded-md w-min"
-        >Matcher</a>
+        class="no-underline text-white bg-emerald-700 px-4 py-2 rounded-md w-min">
+        Matcher
+      </a>
     </div>
   </section>
 </main>

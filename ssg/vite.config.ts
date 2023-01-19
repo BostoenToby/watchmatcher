@@ -5,6 +5,9 @@ import presetUno from '@unocss/preset-uno'
 import presetWebFonts from '@unocss/preset-web-fonts'
 
 const config: UserConfig = {
+  build: {
+    assetsInlineLimit: 0,
+  },
   plugins: [
     sveltekit(),
     Unocss({
