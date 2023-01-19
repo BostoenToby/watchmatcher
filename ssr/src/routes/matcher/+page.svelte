@@ -1,6 +1,5 @@
 <script lang="ts">
   import { writable } from 'svelte/store'
-  import { browser } from '$app/environment'
   import { answersList } from '$lib/stores'
   import { goto } from '$app/navigation'
   import type { Answer } from '$lib/interfaces/questions.interface'

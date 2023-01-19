@@ -100,10 +100,19 @@
           rounded-md drop-shadow-md">
           <div
             class="aspect-square flex overflow-hidden justify-center rounded-md">
-            <img
-              src={$images[index]}
-              alt="The logo of {brand.name}"
-              class="object-scale-down w-4/5" />
+            {#await promise}
+              <div
+                class="w-4/5 h-full bg-neutral-300 rounded-md animate-pulse" />
+            {:then img}
+              <img
+                src={img.find((images) => {
+                  return images.includes(brand.name
+                      .replaceAll(' ', '-')
+                      .toLocaleLowerCase())
+                })}
+                alt="The logo of {brand.name}"
+                class="object-scale-down w-4/5" />
+            {/await}
           </div>
           <div class="flex flex-col justify-between">
             <div class="text-center">
@@ -128,10 +137,19 @@
           rounded-md drop-shadow-md">
           <div
             class="aspect-square flex overflow-hidden justify-center rounded-md">
-            <img
-              src={$images[index]}
-              alt="The logo of {brand.name}"
-              class="object-scale-down w-4/5" />
+            {#await promise}
+              <div
+                class="w-4/5 h-full bg-neutral-300 rounded-md animate-pulse" />
+            {:then img}
+              <img
+                src={img.find((images) => {
+                  return images.includes(brand.name
+                      .replaceAll(' ', '-')
+                      .toLocaleLowerCase())
+                })}
+                alt="The logo of {brand.name}"
+                class="object-scale-down w-4/5" />
+            {/await}
           </div>
           <div class="flex flex-col">
             <div class="text-center">

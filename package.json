@@ -26,5 +26,8 @@
     "spa",
     "ssr",
     "ssg"
-  ]
+  ],
+  "devDependencies": {
+    "@zerodevx/svelte-img": "^1.2.3"
+  }
 }

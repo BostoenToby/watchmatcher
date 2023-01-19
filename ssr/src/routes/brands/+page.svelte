@@ -101,7 +101,7 @@
           <div
             class="aspect-square flex overflow-hidden justify-center rounded-md">
             {#await promise}
-              <p>Loading...</p>
+            <div class="w-4/5 h-full bg-neutral-300 rounded-md animate-pulse" />
             {:then img}
               <img
                 src={img.find((images) => {
@@ -137,7 +137,7 @@
           <div
             class="aspect-square flex overflow-hidden justify-center rounded-md">
             {#await promise}
-              <p>Loading...</p>
+              <div class="w-4/5 h-full bg-neutral-300 rounded-md animate-pulse" />
             {:then img}
               <img
                 src={img.find((images) => {

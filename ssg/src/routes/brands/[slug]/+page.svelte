@@ -91,10 +91,15 @@
       <div
         class="aspect-video w-full lg:w-1/2 rounded-md overflow-hidden flex
         justify-center">
-        <img
-          src={$headImage}
-          alt={$brand.history.altImage}
-          class="max-h-full rounded-md" />
+        {#await promise}
+          <div
+            class="max-h-full rounded-md bg-neutral-200 animate-pulse w-full" />
+        {:then}
+          <img
+            src={$headImage}
+            alt={$brand.history.altImage}
+            class="max-h-full rounded-md" />
+        {/await}
       </div>
       <div class="flex flex-col font-text lg:w-1/2">
         <h1 class="capitalize text-3xl my-0 mb-4">{$brand.name}</h1>
@@ -113,15 +118,17 @@
               class="flex flex-col-reverse lg:grid lg:grid-cols-10 mt-10 gap-16
               font-text overflow-x-hidden">
               <div
-                class={`self-center aspect-auto ${index % 2 != 0 ? 'lg:col-start-1 lg:col-end-5' : 'lg:col-start-7 lg:col-end-11'} rounded-md flex justify-center`}>
+                class={`h-full self-center aspect-auto ${index % 2 != 0 ? 'lg:col-start-1 lg:col-end-5' : 'lg:col-start-7 lg:col-end-11'} rounded-md flex justify-center`}>
                 {#await promise}
-                  <p>Loading...</p>
+                  <div
+                    class="rounded-md md:w-1/2 lg:w-full h-full bg-neutral-200
+                    animate-pulse" />
                 {:then images}
                   {#if images != undefined}
                     <img
-                    src={images.find((image) =>
-                      image.includes(`-${indexH + 1}-${index + 1}`),
-                    )}
+                      src={images.find((image) =>
+                        image.includes(`-${indexH + 1}-${index + 1}`),
+                      )}
                       alt={informationblock.altImage}
                       class="rounded-md w-full md:w-1/2 lg:w-full" />
                   {/if}
@@ -143,15 +150,17 @@
                 <p class="leading-8">{informationblock.information}</p>
               </div>
               <div
-                class={`self-center aspect-auto ${index % 2 != 0 ? 'lg:col-start-1 lg:col-end-5' : 'lg:col-start-7 lg:col-end-11'} rounded-md flex justify-center`}>
+                class={`h-full self-center aspect-auto ${index % 2 != 0 ? 'lg:col-start-1 lg:col-end-5' : 'lg:col-start-7 lg:col-end-11'} rounded-md flex justify-center`}>
                 {#await promise}
-                  <p>Loading...</p>
+                  <div
+                    class="rounded-md md:w-1/2 lg:w-full h-full bg-neutral-200
+                    animate-pulse" />
                 {:then images}
                   {#if images != undefined}
                     <img
-                    src={images.find((image) =>
-                      image.includes(`-${indexH + 1}-${index + 1}`),
-                    )}
+                      src={images.find((image) =>
+                        image.includes(`-${indexH + 1}-${index + 1}`),
+                      )}
                       alt={informationblock.altImage}
                       class="rounded-md w-full md:w-1/2 lg:w-full" />
                   {/if}

@@ -38,7 +38,7 @@
           .toLocaleUpperCase()}-{$watch.type
           .replaceAll(' ', '-')
           .toLocaleUpperCase()}.webp"
-        alt=""
+        alt="The {$watch.brand}"
         class="max-h-full rounded-md" />
     </div>
     <div class="flex flex-col font-text md:w-1/2">
@@ -208,7 +208,7 @@
                   .toLocaleUpperCase()}-{$watch.type
                   .replace(' ', '-')
                   .toLocaleUpperCase()}-{index + 1}.webp"
-                alt=""
+                alt={h.altImage}
                 class="rounded-md w-full md:w-1/2 lg:w-full" />
             </div>
             <div
@@ -247,7 +247,7 @@
                   .toLocaleUpperCase()}-{$watch.type
                   .replace(' ', '-')
                   .toLocaleUpperCase()}-{index + 1}.webp"
-                alt=""
+                alt={h.altImage}
                 class="rounded-md w-full md:w-1/2 lg:w-full" />
             </div>
           </section>

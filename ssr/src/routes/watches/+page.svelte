@@ -151,7 +151,8 @@
               class="aspect-square flex overflow-hidden justify-center
               rounded-md">
               {#await promise}
-                <p>Loading...</p>
+                <div
+                  class="w-full h-full rounded-md bg-neutral-300 animate-pulse" />
               {:then images}
                 <img
                   src={images.find((img) =>
@@ -193,7 +194,8 @@
               class="aspect-square flex overflow-hidden justify-center
               rounded-md">
               {#await promise}
-                <p>Loading...</p>
+                <div
+                  class="w-full h-full rounded-md bg-neutral-300 animate-pulse" />
               {:then images}
                 <img
                   src={images.find((img) =>
@@ -235,7 +237,8 @@
           <div
             class="aspect-square flex overflow-hidden justify-center rounded-md">
             {#await promise}
-              <p>Loading...</p>
+              <div
+                class="w-full h-full rounded-md bg-neutral-300 animate-pulse" />
             {:then images}
               <img
                 src={images.find((img) =>
@@ -274,7 +277,8 @@
           <div
             class="aspect-square flex overflow-hidden justify-center rounded-md">
             {#await promise}
-              <p>Loading...</p>
+              <div
+                class="w-full h-full bg-neutral-300 animate-pulse rounded-md" />
             {:then images}
               <img
                 src={images.find((img) =>

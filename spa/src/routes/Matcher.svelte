@@ -5,6 +5,7 @@
   import AppHolder from '../components/holders/AppHolder.svelte'
   import type { Answer } from '../interfaces/questions.interface'
   import questions from '../assets/questions.json'
+  import { answersList } from '../stores'
 
   let answers = writable<Array<Answer>>([])
 
@@ -70,17 +71,19 @@
   }
 
   const findWatch = () => {
-    let answersList = []
+    let ansList = []
     for (let answer of $answers) {
       if (typeof answer.answer != 'string') {
         for (let item of answer.answer) {
-          answersList.push(item)
+          ansList.push(item)
         }
       } else {
-        answersList.push(answer.answer)
+        ansList.push(answer.answer)
       }
     }
-    navigate('/watches', { state: { answers: answersList } })
+    ansList = Array.from(new Set(ansList))
+    $answersList = ansList
+    navigate('/watches', { state: { answers: ansList } })
   }
 </script>
 

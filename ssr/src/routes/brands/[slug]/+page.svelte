@@ -92,7 +92,7 @@
         class="aspect-video w-full lg:w-1/2 rounded-md overflow-hidden flex
         justify-center">
         {#await promise}
-          <p>Loading...</p>
+          <div class="h-full w-full rounded-md bg-neutral-200 animate-pulse" />
         {:then images}
           <img
             src={$headImage}
@@ -117,9 +117,11 @@
               class="flex flex-col-reverse lg:grid lg:grid-cols-10 mt-10 gap-16
               font-text overflow-x-hidden">
               <div
-                class={`self-center aspect-auto ${index % 2 != 0 ? 'lg:col-start-1 lg:col-end-5' : 'lg:col-start-7 lg:col-end-11'} rounded-md flex justify-center`}>
+                class={`h-full self-center aspect-auto ${index % 2 != 0 ? 'lg:col-start-1 lg:col-end-5' : 'lg:col-start-7 lg:col-end-11'} rounded-md flex justify-center`}>
                 {#await promise}
-                  <p>Loading...</p>
+                  <div
+                    class="h-full w-full md:w-1/2 lg:w-full rounded-md
+                    bg-neutral-200 animate-pulse" />
                 {:then images}
                   {#if images != undefined}
                     <img
@@ -147,9 +149,11 @@
                 <p class="leading-8">{informationblock.information}</p>
               </div>
               <div
-                class={`self-center aspect-auto ${index % 2 != 0 ? 'lg:col-start-1 lg:col-end-5' : 'lg:col-start-7 lg:col-end-11'} rounded-md flex justify-center`}>
+                class={`h-full self-center aspect-auto ${index % 2 != 0 ? 'lg:col-start-1 lg:col-end-5' : 'lg:col-start-7 lg:col-end-11'} rounded-md flex justify-center`}>
                 {#await promise}
-                  <p>Loading...</p>
+                  <div
+                    class="h-full w-full md:w-1/2 lg:w-full rounded-md
+                    bg-neutral-200 animate-pulse" />
                 {:then images}
                   {#if images != undefined}
                     <img

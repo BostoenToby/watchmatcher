@@ -86,11 +86,15 @@
     <div
       class="aspect-square md:aspect-video w-full md:w-1/2 rounded-md
       overflow-hidden flex justify-center">
-      <img
-        src={$headImage}
-        alt="The {$watch.brand}
-        {$watch.type} watch."
-        class="max-h-full rounded-md" />
+      {#await promise}
+        <div class="w-full h-full rounded-md bg-neutral-200 animate-pulse" />
+      {:then}
+        <img
+          src={$headImage}
+          alt="The {$watch.brand}
+          {$watch.type} watch."
+          class="max-h-full rounded-md" />
+      {/await}
     </div>
     <div class="flex flex-col font-text md:w-1/2">
       <div class="flex flex-col-reverse">
@@ -247,9 +251,11 @@
             class="flex flex-col-reverse lg:grid lg:grid-cols-10 mt-10 gap-16
             font-text overflow-x-hidden">
             <div
-              class={`self-center aspect-auto ${index % 2 == 0 ? 'col-start-1 col-end-5' : 'col-start-7 col-end-11'} rounded-md flex justify-center`}>
+              class={`h-full self-center aspect-auto ${index % 2 == 0 ? 'col-start-1 col-end-5' : 'col-start-7 col-end-11'} rounded-md flex justify-center`}>
               {#await promise}
-                <p>Loading...</p>
+                <div
+                  class="rounded-md w-full md:w-1/2 lg:w-full h-full
+                  bg-neutral-200 animate-pulse" />
               {:then images}
                 {#if images != undefined}
                   <img
@@ -275,9 +281,11 @@
               <p class="leading-8">{h.text}</p>
             </div>
             <div
-              class={`self-center aspect-auto ${index % 2 == 0 ? 'col-start-1 col-end-5' : 'col-start-7 col-end-11'} rounded-md flex justify-center`}>
+              class={`h-full self-center aspect-auto ${index % 2 == 0 ? 'col-start-1 col-end-5' : 'col-start-7 col-end-11'} rounded-md flex justify-center`}>
               {#await promise}
-                <p>Loading...</p>
+                <div
+                  class="rounded-md w-full md:w-1/2 lg:w-full h-full
+                  bg-neutral-200 animate-pulse" />
               {:then images}
                 {#if images != undefined}
                   <img

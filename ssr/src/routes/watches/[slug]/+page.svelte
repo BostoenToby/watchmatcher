@@ -87,7 +87,7 @@
       class="aspect-square md:aspect-video w-full md:w-1/2 rounded-md
       overflow-hidden flex justify-center">
       {#await promise}
-        <p>Loading...</p>
+        <div class="w-full h-full rounded-md bg-neutral-200 animate-pulse" />
       {:then}
         <img
           src={$headImage}
@@ -249,11 +249,12 @@
         {#if index % 2 == 0}
           <section
             class="flex flex-col-reverse lg:grid lg:grid-cols-10 mt-10 gap-16
-            font-text overflow-x-hidden">
+            font-text overflow-x-hidden items-center">
             <div
-              class={`self-center aspect-auto ${index % 2 == 0 ? 'col-start-1 col-end-5' : 'col-start-7 col-end-11'} rounded-md flex justify-center`}>
+              class={`h-full self-center aspect-auto ${index % 2 == 0 ? 'col-start-1 col-end-5' : 'col-start-7 col-end-11'} rounded-md flex justify-center`}>
               {#await promise}
-                <p>Loading...</p>
+                <div
+                  class="rounded-md w-full h-full bg-neutral-200 animate-pulse" />
               {:then images}
                 {#if images != undefined}
                   <img
@@ -272,16 +273,17 @@
         {:else}
           <section
             class="flex flex-col lg:grid lg:grid-cols-10 mt-10 gap-16 font-text
-            overflow-x-hidden">
+            overflow-x-hidden items-center">
             <div
               class={`${index % 2 == 0 ? 'col-start-5 col-end-11' : 'col-start-1 col-end-7'} lg:elf-center`}>
               <h3 class="text-2xl">{h.subtitle}</h3>
               <p class="leading-8">{h.text}</p>
             </div>
             <div
-              class={`self-center aspect-auto ${index % 2 == 0 ? 'col-start-1 col-end-5' : 'col-start-7 col-end-11'} rounded-md flex justify-center`}>
+              class={`h-full self-center aspect-auto ${index % 2 == 0 ? 'col-start-1 col-end-5' : 'col-start-7 col-end-11'} rounded-md flex justify-center`}>
               {#await promise}
-                <p>Loading...</p>
+                <div
+                  class="rounded-md w-full h-full bg-neutral-200 animate-pulse" />
               {:then images}
                 {#if images != undefined}
                   <img
