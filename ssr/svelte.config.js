@@ -11,7 +11,7 @@ const config = {
   kit: {
     adapter: adapter(),
     csp: {
-      mode: 'auto'
+      mode: 'auto',
     }
   },
 }

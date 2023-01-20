@@ -24,6 +24,9 @@ const config = {
     prerender: {
       crawl: true,
       entries: routes
+    },
+    csp: {
+      mode: 'auto',
     }
   },
 }
