@@ -11,7 +11,8 @@ const config = {
   kit: {
     adapter: adapter(),
     csp: {
-      mode: 'auto'
+      mode: 'auto',
+      directives: {'style-src': ['sha256-MH7r7zXSZBceJvx3XvkhrApPa5zaRD9uT+MfWo9Wrhs=', 'sha256-tcbDxjMo+xKqM21aCGYbs/QAJqB7yUXC06oPWDapBgc='], 'script-src': ['sha256-17sa32YYSCvs9Nz9rkm24JeRNwImNHhSIswd8Jlu2Uo=']}
     }
   },
 }
