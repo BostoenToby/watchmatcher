@@ -16,9 +16,13 @@
     if ($answersList.length > 0) {
       const categories = watch.categories
       const answers = new Set($answersList)
-      const res = categories.filter((ans) => answers.has(ans)).length
-      if (res == $answersList.length) {
-        $watchesFilter.push(watch)
+      try {
+        const res = categories.filter((ans) => answers.has(ans)).length
+        if (res == $answersList.length) {
+          $watchesFilter.push(watch)
+        }
+      } catch (e) {
+        console.log(e)
       }
     }
   }
