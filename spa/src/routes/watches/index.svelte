@@ -13,14 +13,12 @@
   const searchedWatches = writable<Array<Watch>>([])
 
   for (let watch of watches) {
-    if (history.state != null) {
-      if ('answers' in history.state) {
-        const categories = watch.categories
-        const answers = new Set(history.state.answers)
-        const res = categories.filter((ans) => answers.has(ans)).length
-        if (res == history.state.answers.length) {
-          $watchesFilter.push(watch)
-        }
+    if ($answersList.length > 0) {
+      const categories = watch.categories
+      const answers = new Set($answersList)
+      const res = categories.filter((ans) => answers.has(ans)).length
+      if (res == $answersList.length) {
+        $watchesFilter.push(watch)
       }
     }
   }
@@ -53,11 +51,11 @@
     }
   }
 
-    const removeFilters = () => {
-      $watchesFilter = []
-      $answersList = []
-      $searchedWatches = []
-    }
+  const removeFilters = () => {
+    $watchesFilter = []
+    $answersList = []
+    $searchedWatches = []
+  }
 </script>
 
 <svelte:head>
