@@ -3,3 +3,6 @@
 **/.env.production
 **/dist/
 **/.svelte-kit
+**/build
+**/.netlify
+cheerio/data

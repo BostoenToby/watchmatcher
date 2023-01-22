@@ -30,7 +30,7 @@
         src="/brandsHistory/{$brand.name
           .replace(' ', '-')
           .toLocaleLowerCase()}-head.webp"
-        alt=""
+        alt={$brand.history.altImage}
         class="max-h-full rounded-md" />
     </div>
     <div class="flex flex-col font-text lg:w-1/2">
@@ -60,7 +60,7 @@
                 src="/brandsHistory/{$brand.name
                   .replace(' ', '-')
                   .toLocaleLowerCase()}-{indexH + 1}-{index + 1}.webp"
-                alt=""
+                alt={informationblock.altImage}
                 class="rounded-md w-full md:w-1/2 lg:w-full" />
             </div>
             <div
@@ -95,7 +95,7 @@
                 src="/brandsHistory/{$brand.name
                   .replace(' ', '-')
                   .toLocaleLowerCase()}-{indexH + 1}-{index + 1}.webp"
-                alt=""
+                alt={informationblock.altImage}
                 class="rounded-md w-full md:w-1/2 lg:w-full" />
             </div>
           </section>

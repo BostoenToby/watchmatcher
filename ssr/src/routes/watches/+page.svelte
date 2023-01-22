@@ -16,9 +16,57 @@
   const watchesFilter = writable<Array<Watch>>([])
   const searchInput = writable<string>()
   const searchedWatches = writable<Array<Watch>>([])
+  const images = writable<Array<any>>([])
+
+  const getValue = async (mods: any[]): Promise<any[]> => {
+    return new Promise(async (resolve, reject) => {
+      const modDefault = []
+      for (let m of mods) {
+        while (m.default === undefined) {
+          await new Promise((resolve) => setTimeout(resolve, 100))
+        }
+        if (m.default != undefined) {
+          modDefault.push(m.default)
+        }
+      }
+      if (modDefault.length > 0) {
+        resolve(modDefault)
+      }
+    })
+  }
+
+  const getMods = async () => {
+    return new Promise(async (resolve, reject) => {
+      const modules = await import.meta.glob('$lib/images/watches/*.webp')
+      const modList: any[] = []
+      for (let watch of watches) {
+        for (const path in modules) {
+          modules[path]().then((mod: any) => {
+            if (
+              path.includes(watch.type.replaceAll(' ', '-').toLocaleUpperCase())
+            ) {
+              if (path.includes('head')) {
+                modList.push(mod)
+              }
+            }
+            if (modList.length === watches.length) {
+              resolve(modList)
+            }
+          })
+        }
+      }
+    })
+  }
+
+  const getImages = async () => {
+    const modList: any = await getMods()
+    const res = await getValue(modList)
+    images.set(res)
+    return res
+  }
 
   const filterWatches = () => {
-    if ($watchesFilter.length != 0) {
+    if ($watchesFilter != undefined && $watchesFilter.length > 0) {
       const w = $watchesFilter.filter((watch) => {
         return watch.watch.toLowerCase().includes($searchInput.toLowerCase())
       })
@@ -48,7 +96,10 @@
   const removeFilters = () => {
     $watchesFilter = []
     $answersList = []
+    $searchedWatches = []
   }
+
+  let promise = getImages()
 </script>
 
 <svelte:head>
@@ -60,7 +111,9 @@
   <h1 class="text-5xl text-center font-classic">Watches</h1>
   <div class="grid grid-cols-10 mx-12">
     <div
-      class="col-start-2 col-end-9 md:col-start-4 md:col-end-8 w-full mx-auto flex justify-between px-4 py-2 items-center border border-solid border-neutral-200 rounded-md">
+      class="col-start-2 col-end-9 md:col-start-4 md:col-end-8 w-full mx-auto
+      flex justify-between px-4 py-2 items-center border border-solid
+      border-neutral-200 rounded-md">
       <input
         bind:value={$searchInput}
         on:change={filterWatches}
@@ -69,40 +122,48 @@
         class="rounded-md outline-none border-none w-full font-text text-xl" />
       <button
         on:click={filterWatches}
-        class="border-none bg-transparent cursor-pointer group flex"
-        ><Search
-          class="relative right-0 group-hover:text-emerald-700" />
-          <p class="w-0 h-0 text-transparent">
-            Search
-          </p></button>
+        class="border-none bg-transparent cursor-pointer group flex">
+        <Search class="relative right-0 group-hover:text-emerald-700" />
+        <p class="w-0 h-0 text-transparent">Search</p>
+      </button>
     </div>
-    <button
-      on:click={removeFilters}
-      class="cursor-pointer bg-transparent p-0 col-start-10 min-w-min col-end-11 px-4 py-2 border border-solid border-neutral-200 rounded-md flex items-center font-text group">
-      <p class="m-0 group-hover:text-emerald-700 text-xsm">Remove filter</p>
-      <X class="text-neutral-600 group-hover:text-emerald-700" />
-    </button>
+    {#if $answersList.length > 0 || $searchedWatches.length > 0}
+      <button
+        on:click={removeFilters}
+        class="cursor-pointer bg-transparent p-0 col-start-10 min-w-min
+        col-end-11 px-4 py-2 border border-solid border-neutral-200 rounded-md
+        flex items-center font-text group">
+        <p class="m-0 group-hover:text-emerald-700 text-xsm">Remove filter</p>
+        <X class="text-neutral-600 group-hover:text-emerald-700" />
+      </button>
+    {/if}
   </div>
   <section
-    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-16 m-20 font-text">
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-16
+    m-20 font-text">
     {#if $watchesFilter != undefined && $watchesFilter.length > 0}
       {#if $searchedWatches.length != 0}
-        {#each $searchedWatches as watch}
+        {#each $searchedWatches as watch, index}
           <div
-            class="flex flex-col h-full border-2 border-solid border-neutral-200 bg-neutral-200 p-2 rounded-md drop-shadow-md">
+            class="flex flex-col h-full border-2 border-solid border-neutral-200
+            bg-neutral-200 p-2 rounded-md drop-shadow-md">
             <div
-              class="aspect-square flex overflow-hidden justify-center rounded-md">
-              <img
-                src="/watches/{watch.brand
-                  .replaceAll(' ', '-')
-                  .toLocaleLowerCase()}-{watch.watch
-                  .replaceAll(' ', '-')
-                  .replaceAll('.', ',')
-                  .toLocaleUpperCase()}-{watch.type
-                  .replaceAll(' ', '-')
-                  .toLocaleUpperCase()}.webp"
-                alt=""
-                class="max-h-full" />
+              class="aspect-square flex overflow-hidden justify-center
+              rounded-md">
+              {#await promise}
+                <div
+                  class="w-full h-full rounded-md bg-neutral-300 animate-pulse" />
+              {:then images}
+                <img
+                  src={images.find((img) =>
+                    img.includes(
+                      watch.type.replaceAll(' ', '-').toLocaleUpperCase(),
+                    ),
+                  )}
+                  alt="The {watch.brand}
+                  {watch.type} watch."
+                  class="max-h-full" />
+              {/await}
             </div>
             <div class="flex flex-col flex-auto">
               <div class="text-center">
@@ -116,29 +177,36 @@
                   href="/watches/{watch.type
                     .replaceAll(' ', '-')
                     .toLocaleLowerCase()}"
-                  class="no-underline outline-none bg-emerald-700 text-white rounded-md px-4 py-2"
-                  >View</a>
+                  class="no-underline outline-none bg-emerald-700 text-white
+                  rounded-md px-4 py-2">
+                  View
+                </a>
               </div>
             </div>
           </div>
         {/each}
       {:else}
-        {#each $watchesFilter as watch}
+        {#each $watchesFilter as watch, index}
           <div
-            class="flex flex-col h-full border-2 border-solid border-neutral-200 bg-neutral-200 p-2 rounded-md drop-shadow-md">
+            class="flex flex-col h-full border-2 border-solid border-neutral-200
+            bg-neutral-200 p-2 rounded-md drop-shadow-md">
             <div
-              class="aspect-square flex overflow-hidden justify-center rounded-md">
-              <img
-                src="/watches/{watch.brand
-                  .replaceAll(' ', '-')
-                  .toLocaleLowerCase()}-{watch.watch
-                  .replaceAll(' ', '-')
-                  .replaceAll('.', ',')
-                  .toLocaleUpperCase()}-{watch.type
-                  .replaceAll(' ', '-')
-                  .toLocaleUpperCase()}.webp"
-                alt=""
-                class="max-h-full" />
+              class="aspect-square flex overflow-hidden justify-center
+              rounded-md">
+              {#await promise}
+                <div
+                  class="w-full h-full rounded-md bg-neutral-300 animate-pulse" />
+              {:then images}
+                <img
+                  src={images.find((img) =>
+                    img.includes(
+                      watch.type.replaceAll(' ', '-').toLocaleUpperCase(),
+                    ),
+                  )}
+                  alt="The {watch.brand}
+                  {watch.type} watch."
+                  class="max-h-full" />
+              {/await}
             </div>
             <div class="flex flex-col flex-auto">
               <div class="text-center">
@@ -152,36 +220,40 @@
                   href="/watches/{watch.type
                     .replaceAll(' ', '-')
                     .toLocaleLowerCase()}"
-                  class="no-underline outline-none bg-emerald-700 text-white rounded-md px-4 py-2"
-                  >View</a>
+                  class="no-underline outline-none bg-emerald-700 text-white
+                  rounded-md px-4 py-2">
+                  View
+                </a>
               </div>
             </div>
           </div>
         {/each}
       {/if}
     {:else if $searchedWatches.length != 0}
-      {#each $searchedWatches as watch}
+      {#each $searchedWatches as watch, index}
         <div
-          class="flex flex-col h-full border-2 border-solid border-neutral-200 bg-neutral-200 p-2 rounded-md drop-shadow-md">
+          class="flex flex-col h-full border-2 border-solid border-neutral-200
+          bg-neutral-200 p-2 rounded-md drop-shadow-md">
           <div
             class="aspect-square flex overflow-hidden justify-center rounded-md">
-            <img
-              src="/watches/{watch.brand
-                .replaceAll(' ', '-')
-                .toLocaleLowerCase()}-{watch.watch
-                .replaceAll(' ', '-')
-                .replaceAll('.', ',')
-                .toLocaleUpperCase()}-{watch.type
-                .replaceAll(' ', '-')
-                .toLocaleUpperCase()}.webp"
-              alt=""
-              class="max-h-full" />
+            {#await promise}
+              <div
+                class="w-full h-full rounded-md bg-neutral-300 animate-pulse" />
+            {:then images}
+              <img
+                src={images.find((img) =>
+                  img.includes(
+                    watch.type.replaceAll(' ', '-').toLocaleUpperCase(),
+                  ),
+                )}
+                alt="The {watch.brand}
+                {watch.type} watch."
+                class="max-h-full" />
+            {/await}
           </div>
           <div class="flex flex-col flex-auto">
             <div class="text-center">
-              <p class="text-neutral-600 mb-2">
-                {watch.brand} - {watch.watch}
-              </p>
+              <p class="text-neutral-600 mb-2">{watch.brand} - {watch.watch}</p>
               <h2 class="mt-0">{watch.type}</h2>
             </div>
             <div class="self-center flex items-end flex-1">
@@ -189,35 +261,39 @@
                 href="/watches/{watch.type
                   .replaceAll(' ', '-')
                   .toLocaleLowerCase()}"
-                class="no-underline outline-none bg-emerald-700 text-white rounded-md px-4 py-2"
-                >View</a>
+                class="no-underline outline-none bg-emerald-700 text-white
+                rounded-md px-4 py-2">
+                View
+              </a>
             </div>
           </div>
         </div>
       {/each}
     {:else}
-      {#each watches as watch}
+      {#each watches as watch, index}
         <div
-          class="flex flex-col h-full border-2 border-solid border-neutral-200 bg-neutral-200 p-2 rounded-md drop-shadow-md">
+          class="flex flex-col h-full border-2 border-solid border-neutral-200
+          bg-neutral-200 p-2 rounded-md drop-shadow-md">
           <div
             class="aspect-square flex overflow-hidden justify-center rounded-md">
-            <img
-              src="/watches/{watch.brand
-                .replaceAll(' ', '-')
-                .toLocaleLowerCase()}-{watch.watch
-                .replaceAll(' ', '-')
-                .replaceAll('.', ',')
-                .toLocaleUpperCase()}-{watch.type
-                .replaceAll(' ', '-')
-                .toLocaleUpperCase()}.webp"
-              alt=""
-              class="max-h-full" />
+            {#await promise}
+              <div
+                class="w-full h-full bg-neutral-300 animate-pulse rounded-md" />
+            {:then images}
+              <img
+                src={images.find((img) =>
+                  img.includes(
+                    watch.type.replaceAll(' ', '-').toLocaleUpperCase(),
+                  ),
+                )}
+                alt="The {watch.brand}
+                {watch.type} watch."
+                class="max-h-full" />
+            {/await}
           </div>
           <div class="flex flex-col flex-auto">
             <div class="text-center">
-              <p class="text-neutral-600 mb-2">
-                {watch.brand} - {watch.watch}
-              </p>
+              <p class="text-neutral-600 mb-2">{watch.brand} - {watch.watch}</p>
               <h2 class="mt-0">{watch.type}</h2>
             </div>
             <div class="self-center flex items-end flex-1">
@@ -225,8 +301,10 @@
                 href="/watches/{watch.type
                   .replaceAll(' ', '-')
                   .toLocaleLowerCase()}"
-                class="no-underline outline-none bg-emerald-700 text-white rounded-md px-4 py-2"
-                >View</a>
+                class="no-underline outline-none bg-emerald-700 text-white
+                rounded-md px-4 py-2">
+                View
+              </a>
             </div>
           </div>
         </div>

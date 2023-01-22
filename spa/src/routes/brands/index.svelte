@@ -54,7 +54,7 @@
               src="/brands/{brand.name
                 .replace(' ', '-')
                 .toLocaleLowerCase()}.webp"
-              alt=""
+              alt="The logo of {brand.name}"
               class="object-scale-down w-4/5" />
           </div>
           <div class="flex flex-col justify-between">
@@ -81,7 +81,7 @@
               src="/brands/{brand.name
                 .replace(' ', '-')
                 .toLocaleLowerCase()}.webp"
-              alt=""
+              alt="The logo of {brand.name}"
               class="object-scale-down w-4/5" />
           </div>
           <div class="flex flex-col">

@@ -1,7 +1,5 @@
 <script lang="ts">
   import { Link } from 'svelte-routing'
-  import { MetaTags } from 'svelte-meta-tags'
-
   import AppHolder from '../components/holders/AppHolder.svelte'
 </script>
 
@@ -13,8 +11,9 @@
 <AppHolder>
   <div class="flex items-center">
     <img
-      src="/watchmatcher-big.webp"
-      alt=""
+      src="watchmatcher-big.webp"
+      type="image/webp"
+      alt="The logo of Watchmatcher"
       class="aspect-auto w-80 h-auto md:w-120 lg:w-140 mt-40 mx-auto mb-4" />
   </div>
   <h1 class="text-center font-classic text-5xl mt-8">Watchmatcher</h1>
@@ -29,16 +28,22 @@
       </p>
       <Link
         to="/matcher"
-        class="no-underline text-white bg-emerald-700 rounded-md px-4 py-2 rounded-md"
-        >Matcher</Link>
+        class="no-underline text-white bg-emerald-700 rounded-md px-4 py-2
+        rounded-md">
+        Matcher
+      </Link>
     </div>
   </div>
   <section
-    class="mx-20 m20 flex flex-col-reverse lg:flex-row justify-between gap-8 font-text">
-    <img
-      src="/brand.webp"
-      alt=""
-      class="object-contain max-w-full lg:w-2/5 rounded-md" />
+    class="mx-20 m20 flex flex-col-reverse lg:flex-row justify-between gap-8
+    font-text">
+    <div class="max-w-full lg:w-2/5 flex flex-col justify-center">
+      <img
+        src='brand.webp'
+        type="image/webp"
+        alt="Different watches next to eachother testing"
+        class="object-contain max-w-full rounded-md" />
+    </div>
     <div class="w-full lg:w-1/2 flex flex-col justify-between">
       <h2 class="mt-0">Brands</h2>
       <div>
@@ -58,12 +63,14 @@
       </div>
       <Link
         to="/brands"
-        class="no-underline text-white bg-emerald-700 px-4 py-2 rounded-md w-min"
-        >Brands</Link>
+        class="no-underline text-white bg-emerald-700 px-4 py-2 rounded-md w-min">
+        Brands
+      </Link>
     </div>
   </section>
   <section
-    class="mx-20 lg:m-20 flex flex-col lg:flex-row justify-between gap-8 font-text">
+    class="mx-20 lg:m-20 flex flex-col lg:flex-row justify-between gap-8
+    font-text">
     <div class="w-full lg:w-1/2 flex flex-col justify-between">
       <h2 class="mt-0">Watches</h2>
       <div>
@@ -84,20 +91,30 @@
       </div>
       <Link
         to="/watches"
-        class="no-underline text-white bg-emerald-700 px-4 py-2 rounded-md w-min"
-        >Watches</Link>
+        class="no-underline text-white bg-emerald-700 px-4 py-2 rounded-md w-min">
+        Watches
+      </Link>
     </div>
-    <img
-      src="/watch.webp"
-      alt=""
-      class="object-contain max-w-full lg:w-2/5 rounded-md" />
+    <div class="max-w-full lg:w-2/5 flex flex-col justify-center">
+      <img
+        src='watch.webp'
+        type="image/webp"
+        alt="A close-up of a watch"
+        class="max-w-full object-contain rounded-md" />
+    </div>
   </section>
   <section
-    class="mx-20 m-20 flex flex-col-reverse lg:flex-row justify-between gap-8 font-text">
-    <img
-      src="/matcher.webp"
-      alt=""
-      class="object-contain max-w-full lg:w-2/5 rounded-md" />
+    class="mx-20 m-20 flex flex-col-reverse lg:flex-row justify-between gap-8
+    font-text">
+
+    <div class="max-w-full lg:w-2/5 flex flex-col justify-center">
+      <img
+        src="matcher.webp"
+        type="image/webp"
+        alt="A lot of watches presented for sale"
+        class="max-w-full object-contain rounded-md" />
+    </div>
+
     <div class="w-full lg:w-1/2 flex flex-col justify-between">
       <h2 class="mt-0">Watch matcher</h2>
       <div>
@@ -114,8 +131,9 @@
       </div>
       <Link
         to="/matcher"
-        class="no-underline text-white bg-emerald-700 px-4 py-2 rounded-md w-min"
-        >Matcher</Link>
+        class="no-underline text-white bg-emerald-700 px-4 py-2 rounded-md w-min">
+        Matcher
+      </Link>
     </div>
   </section>
 </AppHolder>
