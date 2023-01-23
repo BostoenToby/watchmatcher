@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build && node ./generate-headers.ts",
+    "build": "vite build && node-ts ./generate-headers.ts",
     "preview": "vite preview",
     "stage": "vite build & vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
