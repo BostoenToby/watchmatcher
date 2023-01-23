@@ -9,7 +9,9 @@ const buildDir = path.join(__dirname, 'build')
 const removeCSP = (input: fs.PathOrFileDescriptor) => {
   const content = fs.readFileSync(input, { encoding: 'utf-8' })
   const root = parse(content)
-  const element = root.querySelector('head meta[http-equiv="content-security-policy"]')
+  const element = root.querySelector(
+    'head meta[http-equiv="content-security-policy"]',
+  )
   const elemContent = element?.getAttribute('content')
   // @ts-ignore
   root.remove(element)
@@ -43,6 +45,7 @@ const createHead = () => {
     X-XSS-Protection: 1; mode=block
     X-Content-Type-Options: nosniff
     Referrer-Policy: strict-origin-when-cross-origin
+    Permissions-Policy: accelerometer=(), camera=(), document-domain=(), encrypted-media=(), gyroscope=(), interest-cohort=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), sync-xhr=(), usb=(), xr-spatial-tracking=(), geolocation=()
     Strict-Transport-Security: max-age=31536000; includeSubDomains; preload`
   const cspList: string[] = []
   csp.forEach((csp, path) => {
