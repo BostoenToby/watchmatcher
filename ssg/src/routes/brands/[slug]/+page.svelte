@@ -82,7 +82,9 @@
 <svelte:head>
   <title>Brand</title>
   <meta name="description" content="Specific information about a brand" />
-  <link rel="canonical" href="https://watchmatcherssr.tobybostoen.be/brands/{$page.params.slug}" />
+  <link
+    rel="canonical"
+    href="https://watchmatcherssr.tobybostoen.be/brands/{$page.params.slug}" />
 </svelte:head>
 
 {#if $brand != undefined && $brand.history != undefined}
@@ -90,8 +92,7 @@
     <section
       class="flex flex-col-reverse lg:flex-row justify-between m-20 gap-16">
       <div
-        class="aspect-video w-full lg:w-1/2 rounded-md overflow-hidden flex
-        justify-center">
+        class="relative lg:w-1/2 rounded-md overflow-hidden flex justify-center">
         {#await promise}
           <div
             class="max-h-full rounded-md bg-neutral-200 animate-pulse w-full" />
@@ -99,7 +100,9 @@
           <img
             src={$headImage}
             alt={$brand.history.altImage}
-            class="max-h-full rounded-md" />
+            height="100%"
+            width="100%"
+            class="rounded-md object-cover h-auto" />
         {/await}
       </div>
       <div class="flex flex-col font-text lg:w-1/2">
@@ -151,7 +154,7 @@
                 <p class="leading-8">{informationblock.information}</p>
               </div>
               <div
-                class={`h-full self-center aspect-auto ${index % 2 != 0 ? 'lg:col-start-1 lg:col-end-5' : 'lg:col-start-7 lg:col-end-11'} rounded-md flex justify-center`}>
+                class={`self-center aspect-auto ${index % 2 != 0 ? 'lg:col-start-1 lg:col-end-5' : 'lg:col-start-7 lg:col-end-11'} rounded-md flex justify-center`}>
                 {#await promise}
                   <div
                     class="rounded-md md:w-1/2 lg:w-full h-full bg-neutral-200
@@ -163,6 +166,8 @@
                         image.includes(`-${indexH + 1}-${index + 1}`),
                       )}
                       alt={informationblock.altImage}
+                      width="100%"
+                      height="100%"
                       class="rounded-md w-full md:w-1/2 lg:w-full" />
                   {/if}
                 {/await}

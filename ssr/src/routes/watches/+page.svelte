@@ -163,7 +163,9 @@
                   )}
                   alt="The {watch.brand}
                   {watch.type} watch."
-                  class="max-h-full" />
+                  width="100%"
+                  height="100%"
+                  class="object-scale-down" />
               {/await}
             </div>
             <div class="flex flex-col flex-auto">
@@ -206,7 +208,9 @@
                   )}
                   alt="The {watch.brand}
                   {watch.type} watch."
-                  class="max-h-full" />
+                  width="100%"
+                  height="100%"
+                  class="object-scale-down" />
               {/await}
             </div>
             <div class="flex flex-col flex-auto">
@@ -249,7 +253,9 @@
                 )}
                 alt="The {watch.brand}
                 {watch.type} watch."
-                class="max-h-full" />
+                width="100%"
+                height="100%"
+                class="object-scale-down" />
             {/await}
           </div>
           <div class="flex flex-col flex-auto">
@@ -289,7 +295,9 @@
                 )}
                 alt="The {watch.brand}
                 {watch.type} watch."
-                class="max-h-full" />
+                width="100%"
+                height="100%"
+                class="object-scale-down" />
             {/await}
           </div>
           <div class="flex flex-col flex-auto">

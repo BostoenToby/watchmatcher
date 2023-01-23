@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Watchmatcher from '$lib/images/watchmatcher.webp?w=374&h=176&webp'
-  import Brand from '$lib/images/brand.webp?w=8192&h=5461&webp'
-  import Watch from '$lib/images/watch.webp?w=3543&h=2356&webp'
-  import Matcher from '$lib/images/matcher.webp?w=4048&h=2700&webp'
+  import Watchmatcher from '$lib/images/watchmatcher.webp'
+  import Brand from '$lib/images/brand.webp'
+  import Watch from '$lib/images/watch.webp'
+  import Matcher from '$lib/images/matcher.webp'
 </script>
 
 <svelte:head>
@@ -12,22 +12,24 @@
 </svelte:head>
 
 <main>
-  <div class="flex items-center">
+  <picture
+    class="w-full mt-20 mb-4 overflow-hidden grid items-center justify-center">
     <img
       src={Watchmatcher}
       alt="The logo of Watchmatcher"
-      loading="lazy"
-      decoding="async"
-      class="w-80 md:w-120 mt-40 mx-auto mb-4" />
-  </div>
+      width="100%"
+      height="100%"
+      class="object-cover h-80" />
+  </picture>
   <h1 class="text-center font-classic text-5xl mt-8">Watchmatcher</h1>
   <h1 class="text-center font-classic text-2xl mt-8">
     The place to find the perfect watch for you
   </h1>
-  <div class="w-full flex justify-center w-1/2 mt-20">
+  <div class="w-full flex justify-center items-center w-1/2 mt-20">
     <div
-      class="flex flex-col md:flex-row items-center font-text gap-4 md:gap-8">
-      <p class="text-lg w-2/3 text-center">
+      class="flex flex-col md:flex-row items-center justify-between font-text
+      gap-4 md:gap-0">
+      <p class="text-lg w-2/3 text-center md:mr-8">
         Find a watch that suites you with this test
       </p>
       <a
@@ -39,14 +41,16 @@
     </div>
   </div>
   <section
-    class="mx-20 m20 flex flex-col-reverse lg:flex-row justify-between gap-8
-    font-text">
+    class="relative overflow-hidden mx-20 m20 flex flex-col-reverse lg:flex-row
+    justify-between gap-8 font-text">
     <img
       src={Brand}
       alt="Different watches next to eachother"
       loading="lazy"
       decoding="async"
-      class="w-full lg:w-2/5 rounded-md" />
+      width="100%"
+      height="100%"
+      class="w-full lg:w-2/5 rounded-md self-center" />
     <div class="w-full lg:w-1/2 flex flex-col justify-between">
       <h2 class="mt-0">Brands</h2>
       <div>
@@ -103,7 +107,9 @@
       alt="A close-up of a watch"
       loading="lazy"
       decoding="async"
-      class="w-full lg:w-2/5 rounded-md" />
+      width="100%"
+      height="100%"
+      class="w-full lg:w-2/5 rounded-md self-center" />
   </section>
   <section
     class="mx-20 m-20 flex flex-col-reverse lg:flex-row justify-between gap-8
@@ -113,7 +119,9 @@
       alt="A lot of watches presented for sale"
       loading="lazy"
       decoding="async"
-      class="w-full lg:w-2/5 rounded-md" />
+      width="100%"
+      height="100%"
+      class="w-full lg:w-2/5 rounded-md self-center" />
     <div class="w-full lg:w-1/2 flex flex-col justify-between">
       <h2 class="mt-0">Watch matcher</h2>
       <div>
