@@ -82,23 +82,27 @@
 <svelte:head>
   <title>Brand</title>
   <meta name="description" content="Specific information about a brand" />
-  <link rel="canonical" href="https://watchmatcherssr.tobybostoen.be/brands/{$page.params.slug}" />
+  <link
+    rel="canonical"
+    href="https://watchmatcherssr.tobybostoen.be/brands/{$page.params.slug}" />
 </svelte:head>
 
 {#if $brand != undefined && $brand.history != undefined}
   <main>
     <section
-      class="flex flex-col-reverse lg:grid lg:grid-cols-10 justify-between m-20 gap-16">
+      class="flex flex-col-reverse lg:grid lg:grid-cols-10 justify-between m-20
+      gap-16">
       <picture
-        class="relative aspect-auto lg:col-start-1 lg:col-end-4 overflow-hidden flex flex-wrap justify-center items-center">
+        class="relative aspect-auto lg:col-start-1 lg:col-end-4 overflow-hidden
+        flex flex-wrap justify-center items-center">
         {#await promise}
           <div class="h-full w-full rounded-md bg-neutral-200 animate-pulse" />
         {:then images}
           <img
             src={$headImage}
             alt={$brand.history.altImage}
-            width=100%
-            height=100%
+            width="100%"
+            height="100%"
             class="relative h-[90%] object-cover rounded-md" />
         {/await}
       </picture>
@@ -131,7 +135,9 @@
                         image.includes(`-${indexH + 1}-${index + 1}`),
                       )}
                       alt={informationblock.altImage}
-                      class="relative w-full object-cover rounded-md" />
+                      width="100%"
+                      height="100%"
+                      class="relative object-cover rounded-md" />
                   {/if}
                 {/await}
               </picture>
@@ -153,9 +159,9 @@
               <picture
                 class={`relative overflow-hidden self-center ${index % 2 != 0 ? 'lg:col-start-1 lg:col-end-5' : 'lg:col-start-7 lg:col-end-11'} rounded-md flex flex-wrap justify-center`}>
                 {#await promise}
-                <div
-                class="h-full w-full md:w-1/2 lg:w-full rounded-md
-                bg-neutral-200 animate-pulse" />
+                  <div
+                    class="h-full w-full md:w-1/2 lg:w-full rounded-md
+                    bg-neutral-200 animate-pulse" />
                 {:then images}
                   {#if images != undefined}
                     <img
@@ -163,8 +169,8 @@
                         image.includes(`-${indexH + 1}-${index + 1}`),
                       )}
                       alt={informationblock.altImage}
-                      width=100%
-                      height=100%
+                      width="100%"
+                      height="100%"
                       class="relative object-cover rounded-md" />
                   {/if}
                 {/await}
