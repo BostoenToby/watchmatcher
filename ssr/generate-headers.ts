@@ -9,9 +9,7 @@ const buildDir = path.join(__dirname, 'build')
 const removeCSP = (input: fs.PathOrFileDescriptor) => {
   const content = fs.readFileSync(input, { encoding: 'utf-8' })
   const root = parse(content)
-  const element = root.querySelector(
-    'head meta [http-equiv="content-security-policy"]',
-  )
+  const element = root.querySelector('head meta[http-equiv="content-security-policy"]')
   const elemContent = element?.getAttribute('content')
   // @ts-ignore
   root.remove(element)
@@ -58,6 +56,7 @@ const createHead = () => {
 const main = async () => {
   findCSP(buildDir)
   createHead()
+  console.log(csp)
 }
 
 main()
