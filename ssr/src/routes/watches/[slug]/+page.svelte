@@ -78,7 +78,7 @@
 <svelte:head>
   <title>Watch</title>
   <meta name="description" content="Specific information about a watch" />
-  <link rel="canonical" href="https://watchmatcherssr.tobybostoen.be/watches/{$watch.type}" />
+  <link rel="canonical" href="https://watchmatcherssr.tobybostoen.be/watches/{$page.params.slug}" />
 </svelte:head>
 
 <main>

@@ -82,7 +82,7 @@
 <svelte:head>
   <title>Brand</title>
   <meta name="description" content="Specific information about a brand" />
-  <link rel="canonical" href="https://watchmatcherssr.tobybostoen.be/brands/{$brand.name}" />
+  <link rel="canonical" href="https://watchmatcherssr.tobybostoen.be/brands/{$page.params.slug}" />
 </svelte:head>
 
 {#if $brand != undefined && $brand.history != undefined}
