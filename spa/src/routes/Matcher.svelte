@@ -92,6 +92,7 @@
   <meta
     name="description"
     content="The matcher to find the watch that suites you" />
+    <link rel="canonical" href="https://watchmatcherssr.tobybostoen.be/matcher" />
 </svelte:head>
 
 <AppHolder>

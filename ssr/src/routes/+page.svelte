@@ -8,6 +8,7 @@
 <svelte:head>
   <title>Home</title>
   <meta name="description" content="Home of Watchmatcher" />
+  <link rel="canonical" href="https://watchmatcherssr.tobybostoen.be/" />
 </svelte:head>
 
 <main>
