@@ -11,7 +11,8 @@ const config = {
   kit: {
     adapter: adapter(),
     csp: {
-      mode: 'auto',
+      mode: 'hash',
+      directives: {"script-src": ["self"]}
     }
   },
 }
