@@ -12,9 +12,12 @@ const removeCSP = (input: fs.PathOrFileDescriptor) => {
   const element = root.querySelector(
     'head meta[http-equiv="content-security-policy"]',
   )
+  const elemCT = root.querySelector('head meta[http-equiv="expect-ct"]')
   const elemContent = element?.getAttribute('content')
   // @ts-ignore
   root.remove(element)
+  // @ts-ignore
+  root.remove(elemCT)
   return elemContent
 }
 
