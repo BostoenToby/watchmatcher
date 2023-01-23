@@ -4,7 +4,7 @@ import path from 'path'
 import { parse } from 'node-html-parser'
 
 const __dirname = path.resolve()
-const buildDir = path.join(__dirname, 'build')
+const buildDir = path.join(__dirname, 'dist')
 
 const removeCSP = (input: fs.PathOrFileDescriptor) => {
   const content = fs.readFileSync(input, { encoding: 'utf-8' })

@@ -5,11 +5,11 @@ import watches from './src/lib/data/watches.json' assert { type: 'json' }
 
 const routes = ['*']
 
-for(let b of brands) {
+for (let b of brands) {
   routes.push(`/brands/${b.name}`)
 }
 
-for(let w of watches) {
+for (let w of watches) {
   routes.push(`/watches/${w.type}`)
 }
 
@@ -23,11 +23,23 @@ const config = {
     adapter: adapter({ precompress: false }),
     prerender: {
       crawl: true,
-      entries: routes
+      entries: routes,
     },
     csp: {
-      mode: 'auto',
-    }
+      mode: 'hash',
+      directives: {
+        'script-src': ['self'],
+        'base-uri': ['self'],
+        'font-src': [
+          'self',
+          'https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Ew-.ttf',
+          'https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtZ6Ew-.ttf',
+          'https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCuM70w-.ttf',
+          'https://fonts.gstatic.com/s/quattrocento/v17/OZpEg_xvsDZQL_LKIF7q4jPHxA.ttf',
+        ],
+        'script-src': ['self'],
+      },
+    },
   },
 }
 
