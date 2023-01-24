@@ -90,7 +90,7 @@
 {#if $brand != undefined && $brand.history != undefined}
   <main>
     <section
-      class="flex flex-col-reverse lg:flex-row justify-between m-20 gap-16">
+      class="flex flex-col-reverse lg:flex-row justify-between mx-5 md:mx-12 lg:mx-20 py-12 gap-16">
       <div
         class="relative lg:w-1/2 rounded-md overflow-hidden flex justify-center">
         {#await promise}

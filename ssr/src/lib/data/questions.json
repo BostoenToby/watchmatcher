@@ -7,7 +7,6 @@
   {
     "question": "Choose the brands you like.",
     "answers": [
-      "None",
       "Rolex",
       "Audemars Piguet",
       "Patek Philippe",
@@ -65,7 +64,7 @@
   },
   {
     "question": "What material of bracelet do you like?",
-    "answers": ["Leather", "Metal", "Rubber", "Fabric", "Other"],
+    "answers": ["Leather", "Metal", "Rubber", "Fabric"],
     "multipleAnswers": true
   },
   {

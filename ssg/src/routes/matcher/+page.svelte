@@ -97,9 +97,8 @@
   <h2 class="text-2xl text-center font-text w-3/4 mx-auto">
     Answer the following questions so we can show you what watches suite you.
   </h2>
-  <section class="m-20 font-text">
+  <section class="mx-5 md:mx-12 lg:mx-20 py-12 font-text">
     {#each questions as question, index}
-      <div class={`${index <= $answers.length ? null : 'hidden'}`}>
         <h3 class="text-lg text-center">
           {question.question}
         </h3>
@@ -147,7 +146,6 @@
             {/if}
           {/each}
         </div>
-      </div>
     {/each}
     <div class="w-full flex justify-center mt-12">
       <button

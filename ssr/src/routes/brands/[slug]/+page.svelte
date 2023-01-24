@@ -90,7 +90,7 @@
 {#if $brand != undefined && $brand.history != undefined}
   <main>
     <section
-      class="flex flex-col-reverse lg:grid lg:grid-cols-10 justify-between m-20
+      class="flex flex-col-reverse lg:grid lg:grid-cols-10 justify-between mx-5 md:mx-12 lg:mx-20 py-12
       gap-16">
       <picture
         class="relative aspect-auto lg:col-start-1 lg:col-end-4 overflow-hidden

@@ -41,7 +41,7 @@
     </div>
   </div>
   <section
-    class="relative overflow-hidden mx-20 m20 flex flex-col-reverse lg:flex-row
+    class="relative overflow-hidden mx-5 md:mx-12 lg:mx-20 py-12 flex flex-col-reverse lg:flex-row
     justify-between gap-8 font-text">
     <img
       src={Brand}
@@ -76,7 +76,7 @@
     </div>
   </section>
   <section
-    class="mx-20 lg:m-20 flex flex-col lg:flex-row justify-between gap-8
+    class="mx-5 md:mx-12 lg:mx-20 py-12 flex flex-col lg:flex-row justify-between gap-8
     font-text">
     <div class="w-full lg:w-1/2 flex flex-col justify-between">
       <h2 class="mt-0">Watches</h2>
@@ -112,7 +112,7 @@
       class="w-full lg:w-2/5 rounded-md self-center" />
   </section>
   <section
-    class="mx-20 m-20 flex flex-col-reverse lg:flex-row justify-between gap-8
+    class="mx-5 md:mx-12 lg:mx-20 py-12 flex flex-col-reverse lg:flex-row justify-between gap-8
     font-text">
     <img
       src={Matcher}

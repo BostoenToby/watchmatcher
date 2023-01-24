@@ -83,7 +83,7 @@
 
 <main>
   <section
-    class="flex flex-col-reverse md:flex-row justify-between m-12 md:m-20 gap-16">
+    class="flex flex-col-reverse md:flex-row justify-between mx-5 md:mx-12 lg:mx-20 py-12 gap-16">
     <div
       class="aspect-square md:aspect-video w-full md:w-1/2 rounded-md
       overflow-hidden flex justify-center">
