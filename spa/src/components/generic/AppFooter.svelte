@@ -59,13 +59,13 @@
       {#if index != count}
         <li>
           <a href={site.url} class="no-underline text-neutral-600 h-12 w-12"
-            >{site.name},
+            ><p class="my-0 py-4">{site.name}, </p>
           </a>
         </li>
       {:else}
         <li>
           <a href={site.url} class="no-underline text-neutral-600 h-12 w-12"
-            >{site.name}</a>
+            ><p class="my-0 py-4">{site.name} </p></a>
         </li>
       {/if}
     {/each}
