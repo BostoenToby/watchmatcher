@@ -19,14 +19,18 @@
 <svelte:head>
   <title>Brand</title>
   <meta name="description" content="Specific information about a brand" />
-  <link rel="canonical" href="https://watchmatcherssr.tobybostoen.be/brands/{$brand.name}" />
+  <link
+    rel="canonical"
+    href="https://watchmatcherssr.tobybostoen.be/brands/{$brand.name}" />
 </svelte:head>
 
 <AppHolder>
   <section
-    class="flex flex-col-reverse lg:flex-row justify-between m-20 gap-16">
+    class="flex flex-col-reverse lg:flex-row justify-between mx-5 md:mx-12
+    lg:mx-20 py-12 gap-16">
     <div
-      class="aspect-video w-full lg:w-1/2 rounded-md overflow-hidden flex justify-center">
+      class="aspect-video w-full lg:w-1/2 rounded-md overflow-hidden flex
+      justify-center">
       <img
         src="/brandsHistory/{$brand.name
           .replace(' ', '-')
@@ -39,9 +43,7 @@
       <h2 class="text-xl mt-0">
         {$brand.foundingDate}, {$brand.city}, {$brand.country}
       </h2>
-      <p class="leading-6">
-        {$brand.history.head}
-      </p>
+      <p class="leading-6">{$brand.history.head}</p>
     </div>
   </section>
   <section class="w-4/5 mx-auto overflow-x-hidden mb-20">
@@ -50,13 +52,10 @@
       {#each information.informationblocks as informationblock, index}
         {#if index % 2 != 0}
           <section
-            class="flex flex-col-reverse lg:grid lg:grid-cols-10 mt-10 gap-16 font-text overflow-x-hidden">
+            class="flex flex-col-reverse lg:grid lg:grid-cols-10 mt-10 gap-16
+            font-text overflow-x-hidden">
             <div
-              class={`self-center aspect-auto ${
-                index % 2 != 0
-                  ? 'lg:col-start-1 lg:col-end-5'
-                  : 'lg:col-start-7 lg:col-end-11'
-              } rounded-md flex justify-center`}>
+              class={`self-center aspect-auto ${index % 2 != 0 ? 'lg:col-start-1 lg:col-end-5' : 'lg:col-start-7 lg:col-end-11'} rounded-md flex justify-center`}>
               <img
                 src="/brandsHistory/{$brand.name
                   .replace(' ', '-')
@@ -65,33 +64,22 @@
                 class="rounded-md w-full md:w-1/2 lg:w-full" />
             </div>
             <div
-              class={`${
-                index % 2 != 0
-                  ? 'lg:col-start-5 lg:col-end-11'
-                  : 'lg:col-start-1 lg:col-end-5'
-              } lg:self-center`}>
+              class={`${index % 2 != 0 ? 'lg:col-start-5 lg:col-end-11' : 'lg:col-start-1 lg:col-end-5'} lg:self-center`}>
               <h3 class="text-2xl">{informationblock.subtitle}</h3>
               <p class="leading-8">{informationblock.information}</p>
             </div>
           </section>
         {:else}
           <section
-            class="flex flex-col lg:grid lg:grid-cols-10 mt-10 gap-16 font-text overflow-x-hidden">
+            class="flex flex-col lg:grid lg:grid-cols-10 mt-10 gap-16 font-text
+            overflow-x-hidden">
             <div
-              class={`${
-                index % 2 != 0
-                  ? 'lg:col-start-5 lg:col-end-11'
-                  : 'lg:col-start-1 lg:col-end-5'
-              } lg:self-center`}>
+              class={`${index % 2 != 0 ? 'lg:col-start-5 lg:col-end-11' : 'lg:col-start-1 lg:col-end-5'} lg:self-center`}>
               <h3 class="text-2xl">{informationblock.subtitle}</h3>
               <p class="leading-8">{informationblock.information}</p>
             </div>
             <div
-              class={`self-center aspect-auto ${
-                index % 2 != 0
-                  ? 'lg:col-start-1 lg:col-end-5'
-                  : 'lg:col-start-7 lg:col-end-11'
-              } rounded-md flex justify-center`}>
+              class={`self-center aspect-auto ${index % 2 != 0 ? 'lg:col-start-1 lg:col-end-5' : 'lg:col-start-7 lg:col-end-11'} rounded-md flex justify-center`}>
               <img
                 src="/brandsHistory/{$brand.name
                   .replace(' ', '-')
