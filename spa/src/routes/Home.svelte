@@ -15,7 +15,8 @@
       src="watchmatcher-big.webp"
       type="image/webp"
       alt="The logo of Watchmatcher"
-      class="aspect-auto w-80 h-auto md:w-120 lg:w-140 mt-40 mx-auto mb-4" />
+      class="aspect-auto w-80 h-auto md:w-120 lg:w-140 mt-20 md:mt-20 lg:mt-40
+      mx-auto mb-4" />
   </div>
   <h1 class="text-center font-classic text-5xl mt-8">Watchmatcher</h1>
   <h1 class="text-center font-classic text-2xl mt-8">
@@ -36,11 +37,11 @@
     </div>
   </div>
   <section
-    class="mx-20 m20 flex flex-col-reverse lg:flex-row justify-between gap-8
-    font-text">
+    class="mx-5 md:mx-12 lg:mx-20 py-12 flex flex-col-reverse lg:flex-row
+    justify-between gap-8 font-text">
     <div class="max-w-full lg:w-2/5 flex flex-col justify-center">
       <img
-        src='brand.webp'
+        src="brand.webp"
         type="image/webp"
         alt="Different watches next to eachother testing"
         class="object-contain max-w-full rounded-md" />
@@ -70,8 +71,8 @@
     </div>
   </section>
   <section
-    class="mx-20 lg:m-20 flex flex-col lg:flex-row justify-between gap-8
-    font-text">
+    class="mx-5 md:mx-12 lg:mx-20 py-12 flex flex-col lg:flex-row
+    justify-between gap-8 font-text">
     <div class="w-full lg:w-1/2 flex flex-col justify-between">
       <h2 class="mt-0">Watches</h2>
       <div>
@@ -98,15 +99,15 @@
     </div>
     <div class="max-w-full lg:w-2/5 flex flex-col justify-center">
       <img
-        src='watch.webp'
+        src="watch.webp"
         type="image/webp"
         alt="A close-up of a watch"
         class="max-w-full object-contain rounded-md" />
     </div>
   </section>
   <section
-    class="mx-20 m-20 flex flex-col-reverse lg:flex-row justify-between gap-8
-    font-text">
+    class="mx-5 md:mx-12 lg:mx-20 py-12 flex flex-col-reverse lg:flex-row
+    justify-between gap-8 font-text">
 
     <div class="max-w-full lg:w-2/5 flex flex-col justify-center">
       <img
