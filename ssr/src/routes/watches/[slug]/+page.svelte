@@ -78,11 +78,12 @@
 <svelte:head>
   <title>Watch</title>
   <meta name="description" content="Specific information about a watch" />
+  <link rel="canonical" href="https://watchmatcherssr.tobybostoen.be/watches/{$page.params.slug}" />
 </svelte:head>
 
 <main>
   <section
-    class="flex flex-col-reverse md:flex-row justify-between m-12 md:m-20 gap-16">
+    class="flex flex-col-reverse md:flex-row justify-between mx-5 md:mx-12 lg:mx-20 py-12 gap-16">
     <div
       class="aspect-square md:aspect-video w-full md:w-1/2 rounded-md
       overflow-hidden flex justify-center">
@@ -251,7 +252,7 @@
             class="flex flex-col-reverse lg:grid lg:grid-cols-10 mt-10 gap-16
             font-text overflow-x-hidden items-center">
             <div
-              class={`h-full self-center aspect-auto ${index % 2 == 0 ? 'col-start-1 col-end-5' : 'col-start-7 col-end-11'} rounded-md flex justify-center`}>
+              class={`self-center aspect-auto ${index % 2 == 0 ? 'col-start-1 col-end-5' : 'col-start-7 col-end-11'} rounded-md flex justify-center`}>
               {#await promise}
                 <div
                   class="rounded-md w-full h-full bg-neutral-200 animate-pulse" />
@@ -260,12 +261,14 @@
                   <img
                     src={images[index]}
                     alt={h.altImage}
+                    width="100%"
+                    height="100%"
                     class="rounded-md w-full md:w-1/2 lg:w-full" />
                 {/if}
               {/await}
             </div>
             <div
-              class={`${index % 2 == 0 ? 'col-start-5 col-end-11' : 'col-start-1 col-end-7'} lg:elf-center`}>
+              class={`${index % 2 == 0 ? 'col-start-5 col-end-11' : 'col-start-1 col-end-7'} lg:self-center`}>
               <h3 class="text-2xl">{h.subtitle}</h3>
               <p class="leading-8">{h.text}</p>
             </div>
@@ -275,12 +278,12 @@
             class="flex flex-col lg:grid lg:grid-cols-10 mt-10 gap-16 font-text
             overflow-x-hidden items-center">
             <div
-              class={`${index % 2 == 0 ? 'col-start-5 col-end-11' : 'col-start-1 col-end-7'} lg:elf-center`}>
+              class={`${index % 2 == 0 ? 'col-start-5 col-end-11' : 'col-start-1 col-end-7'} lg:self-center`}>
               <h3 class="text-2xl">{h.subtitle}</h3>
               <p class="leading-8">{h.text}</p>
             </div>
             <div
-              class={`h-full self-center aspect-auto ${index % 2 == 0 ? 'col-start-1 col-end-5' : 'col-start-7 col-end-11'} rounded-md flex justify-center`}>
+              class={`self-center aspect-auto ${index % 2 == 0 ? 'col-start-1 col-end-5' : 'col-start-7 col-end-11'} rounded-md flex justify-center`}>
               {#await promise}
                 <div
                   class="rounded-md w-full h-full bg-neutral-200 animate-pulse" />
@@ -289,6 +292,8 @@
                   <img
                     src={images[index]}
                     alt={h.altImage}
+                    width="100%"
+                    height="100%"
                     class="rounded-md w-full md:w-1/2 lg:w-full" />
                 {/if}
               {/await}

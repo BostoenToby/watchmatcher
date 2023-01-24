@@ -67,6 +67,7 @@
 <svelte:head>
   <title>Brands</title>
   <meta name="description" content="Collection of all the brands" />
+  <link rel="canonical" href="https://watchmatcherssr.tobybostoen.be/brands" />
 </svelte:head>
 
 <main>
@@ -110,8 +111,10 @@
                       .replaceAll(' ', '-')
                       .toLocaleLowerCase())
                 })}
+                height="100%"
+                width="100%"
                 alt="The logo of {brand.name}"
-                class="object-scale-down w-4/5" />
+                class="object-scale-down" />
             {/await}
           </div>
           <div class="flex flex-col justify-between">
@@ -147,8 +150,10 @@
                       .replaceAll(' ', '-')
                       .toLocaleLowerCase())
                 })}
+                height="100%"
+                width="100%"
                 alt="The logo of {brand.name}"
-                class="object-scale-down w-4/5" />
+                class="object-scale-down" />
             {/await}
           </div>
           <div class="flex flex-col">

@@ -15,6 +15,10 @@
     "checkJs": true,
     "isolatedModules": true
   },
+  "ts-node": {
+		"esm": true,
+		"experimentalSpecifierResolution": "node"
+	},
   "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.js", "src/**/*.svelte"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

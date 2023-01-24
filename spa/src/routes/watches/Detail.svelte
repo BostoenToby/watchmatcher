@@ -22,13 +22,18 @@
 <svelte:head>
   <title>Watch</title>
   <meta name="description" content="Specific information about a watch" />
+  <link
+    rel="canonical"
+    href="https://watchmatcherssr.tobybostoen.be/watches/{$watch.type}" />
 </svelte:head>
 
 <AppHolder>
   <section
-    class="flex flex-col-reverse md:flex-row justify-between m-12 md:m-20 gap-16">
+    class="flex flex-col-reverse md:flex-row justify-between mx-5 md:mx-12
+    lg:mx-20 py-12 gap-16">
     <div
-      class="aspect-square md:aspect-video w-full md:w-1/2 rounded-md overflow-hidden flex justify-center">
+      class="aspect-square md:aspect-video w-full md:w-1/2 rounded-md
+      overflow-hidden flex justify-center">
       <img
         src="/watches/{$watch.brand
           .replaceAll(' ', '-')
@@ -44,9 +49,7 @@
     <div class="flex flex-col font-text md:w-1/2">
       <h2 class="text-xl my-0">{$watch.brand}, {$watch.watch}</h2>
       <h1 class="capitalize text-3xl my-0 mb-4">{$watch.type}</h1>
-      <p class="leading-6">
-        {$watch.information}
-      </p>
+      <p class="leading-6">{$watch.information}</p>
     </div>
   </section>
   <h2 class="text-center font-text text-3xl">Watch specifications</h2>
@@ -193,13 +196,10 @@
       {#each $watch.history as h, index}
         {#if index % 2 == 0}
           <section
-            class="flex flex-col-reverse lg:grid lg:grid-cols-10 mt-10 gap-16 font-text overflow-x-hidden">
+            class="flex flex-col-reverse lg:grid lg:grid-cols-10 mt-10 gap-16
+            font-text overflow-x-hidden">
             <div
-              class={`self-center aspect-auto ${
-                index % 2 == 0
-                  ? 'col-start-1 col-end-5'
-                  : 'col-start-7 col-end-11'
-              } rounded-md flex justify-center`}>
+              class={`self-center aspect-auto ${index % 2 == 0 ? 'col-start-1 col-end-5' : 'col-start-7 col-end-11'} rounded-md flex justify-center`}>
               <img
                 src="/watches/{$watch.brand
                   .replace(' ', '-')
@@ -212,33 +212,22 @@
                 class="rounded-md w-full md:w-1/2 lg:w-full" />
             </div>
             <div
-              class={`${
-                index % 2 == 0
-                  ? 'col-start-5 col-end-11'
-                  : 'col-start-1 col-end-7'
-              } lg:elf-center`}>
+              class={`self-center ${index % 2 == 0 ? 'col-start-5 col-end-11' : 'col-start-1 col-end-7'} lg:elf-center`}>
               <h3 class="text-2xl">{h.subtitle}</h3>
               <p class="leading-8">{h.text}</p>
             </div>
           </section>
         {:else}
           <section
-            class="flex flex-col lg:grid lg:grid-cols-10 mt-10 gap-16 font-text overflow-x-hidden">
+            class="flex flex-col lg:grid lg:grid-cols-10 mt-10 gap-16 font-text
+            overflow-x-hidden">
             <div
-              class={`${
-                index % 2 == 0
-                  ? 'col-start-5 col-end-11'
-                  : 'col-start-1 col-end-7'
-              } lg:elf-center`}>
+              class={`self-center ${index % 2 == 0 ? 'col-start-5 col-end-11' : 'col-start-1 col-end-7'} lg:elf-center`}>
               <h3 class="text-2xl">{h.subtitle}</h3>
               <p class="leading-8">{h.text}</p>
             </div>
             <div
-              class={`self-center aspect-auto ${
-                index % 2 == 0
-                  ? 'col-start-1 col-end-5'
-                  : 'col-start-7 col-end-11'
-              } rounded-md flex justify-center`}>
+              class={`self-center aspect-auto ${index % 2 == 0 ? 'col-start-1 col-end-5' : 'col-start-7 col-end-11'} rounded-md flex justify-center`}>
               <img
                 src="/watches/{$watch.brand
                   .replace(' ', '-')

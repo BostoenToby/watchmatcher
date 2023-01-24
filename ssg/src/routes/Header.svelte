@@ -52,19 +52,7 @@
     href="/"
     class="col-start-4 col-end-8 text-center lg:col-start-2 lg:col-end-3 no-underline my-4 uppercase tracking-widest text-xl sm:text-3xl text-center text-zinc-800 font-classic"
     >Watchmatcher</a>
-  <div class="hidden w-1/2 justify-self-end lg:flex justify-between">
-    <input
-      type="text"
-      bind:value={$searchTerm}
-      placeholder="Search by brand or model"
-      class="w-full border-none outline-none bg-transparent text-zinc-600" />
-    <button
-      on:click={search}
-      class="text-zinc-600 outline-none border-none hover:text-emerald-700 focus:text-emerald-700 flex">
-      <Search />
-      <p class="w-0 h-0 text-transparent">Search</p>
-    </button>
-  </div>
+  <div class="hidden w-1/2 justify-self-end lg:flex justify-between" />
 </header>
 <section
   class={`z-10 w-1/2 sm:w-1/3 h-screen bg-zinc-100 ${

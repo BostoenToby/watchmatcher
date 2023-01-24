@@ -49,9 +49,9 @@
   <ul class="mt-12 w-full grid grid-cols-3 md:grid-cols-5 gap-y-2 lg:flex items-center justify-center list-none lg:gap-4 text-xs text-neutral-500">
     {#each sites as site, index}
       {#if index != count}
-      <li><a href={site.url} class="no-underline text-neutral-600">{site.name}, </a></li>
+      <li><a href={site.url} class="no-underline text-neutral-600 h-12 w-12"><p class="my-0 py-4">{site.name}, </p></a></li>
       {:else}
-      <li><a href={site.url} class="no-underline text-neutral-600">{site.name}</a></li>
+      <li><a href={site.url} class="no-underline text-neutral-600 h-12 w-12"><p class="my-0 py-4">{site.name} </p></a></li>
       {/if}
     {/each}
     <li class="col-span-2 text-neutral-600">is a protected trademark used under educational copyright</li>

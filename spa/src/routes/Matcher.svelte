@@ -92,6 +92,7 @@
   <meta
     name="description"
     content="The matcher to find the watch that suites you" />
+    <link rel="canonical" href="https://watchmatcherssr.tobybostoen.be/matcher" />
 </svelte:head>
 
 <AppHolder>
@@ -99,57 +100,55 @@
   <h2 class="text-2xl text-center font-text w-3/4 mx-auto">
     Answer the following questions so we can show you what watches suite you.
   </h2>
-  <section class="m-20 font-text">
+  <section class="mx-5 md:mx-12 lg:mx-20 py-12 font-text">
     {#each questions as question, index}
-      <div class={`${index <= $answers.length ? null : 'hidden'}`}>
-        <h3 class="text-lg text-center">
-          {question.question}
-        </h3>
-        <div
-          class="w-3/4 grid md:grid-cols-2 md:grid-rows-2 gap-x-12 gap-y-4 mx-auto mt-4">
-          {#each question.answers as answer}
-            {#if question.multipleAnswers == true}
-              <label
-                for="{question.question}-{answer}"
-                class={`w-full border border-solid border-neutral-200 py-4 md:p-4 rounded-md cursor-pointer flex items-center justify-center text-center ${
-                  $answers
-                    .find((item) => item.question === question.question)
-                    ?.answer.includes(answer)
-                    ? 'bg-emerald-700 text-white'
-                    : null
-                }`}>
-                <input
-                  type="checkbox"
-                  id="{question.question}-{answer}"
-                  name={question.question}
-                  value={answer}
-                  on:change={onChange}
-                  class="appearance-none" />
-                {answer}
-              </label>
-            {:else}
-              <label
-                for="{question.question}-{answer}"
-                class={`w-full border border-solid border-neutral-200 py-4 md:p-4 rounded-md cursor-pointer flex items-center justify-center ${
-                  answer ==
-                  $answers.find((item) => item.question === question.question)
-                    ?.answer
-                    ? 'bg-emerald-700 text-white'
-                    : null
-                }`}>
-                <input
-                  type="radio"
-                  id="{question.question}-{answer}"
-                  name={question.question}
-                  value={answer}
-                  on:change={onChange}
-                  class="appearance-none" />
-                {answer}
-              </label>
-            {/if}
-          {/each}
-        </div>
-      </div>
+    <h3 class="text-lg text-center">
+      {question.question}
+    </h3>
+    <div
+      class="w-3/4 grid md:grid-cols-2 md:grid-rows-2 gap-x-12 gap-y-4 mx-auto mt-4">
+      {#each question.answers as answer}
+        {#if question.multipleAnswers == true}
+          <label
+            for="{question.question}-{answer}"
+            class={`w-full border border-solid border-neutral-200 py-4 md:p-4 rounded-md cursor-pointer flex items-center justify-center text-center ${
+              $answers
+                .find((item) => item.question === question.question)
+                ?.answer.includes(answer)
+                ? 'bg-emerald-700 text-white'
+                : null
+            }`}>
+            <input
+              type="checkbox"
+              id="{question.question}-{answer}"
+              name={question.question}
+              value={answer}
+              on:change={onChange}
+              class="appearance-none" />
+            {answer}
+          </label>
+        {:else}
+          <label
+            for="{question.question}-{answer}"
+            class={`w-full border border-solid border-neutral-200 py-4 md:p-4 rounded-md cursor-pointer flex items-center justify-center ${
+              answer ==
+              $answers.find((item) => item.question === question.question)
+                ?.answer
+                ? 'bg-emerald-700 text-white'
+                : null
+            }`}>
+            <input
+              type="radio"
+              id="{question.question}-{answer}"
+              name={question.question}
+              value={answer}
+              on:change={onChange}
+              class="appearance-none" />
+            {answer}
+          </label>
+        {/if}
+      {/each}
+    </div>
     {/each}
     <div class="w-full flex justify-center mt-12">
       <button

@@ -8,23 +8,28 @@
 <svelte:head>
   <title>Home</title>
   <meta name="description" content="Home of Watchmatcher" />
+  <link rel="canonical" href="https://watchmatcherssr.tobybostoen.be/" />
 </svelte:head>
 
 <main>
-  <div class="flex items-center">
+  <picture
+    class="w-full mt-20 mb-4 overflow-hidden grid items-center justify-center">
     <img
       src={Watchmatcher}
       alt="The logo of Watchmatcher"
-      class="w-80 md:w-120 mt-40 mx-auto mb-4" />
-  </div>
+      width="100%"
+      height="100%"
+      class="object-cover h-80" />
+  </picture>
   <h1 class="text-center font-classic text-5xl mt-8">Watchmatcher</h1>
   <h1 class="text-center font-classic text-2xl mt-8">
     The place to find the perfect watch for you
   </h1>
-  <div class="w-full flex justify-center w-1/2 mt-20">
+  <div class="w-full flex justify-center items-center w-1/2 mt-20">
     <div
-      class="flex flex-col md:flex-row items-center font-text gap-4 md:gap-8">
-      <p class="text-lg w-2/3 text-center">
+      class="flex flex-col md:flex-row items-center justify-between font-text
+      gap-4 md:gap-0">
+      <p class="text-lg w-2/3 text-center md:mr-8">
         Find a watch that suites you with this test
       </p>
       <a
@@ -36,12 +41,16 @@
     </div>
   </div>
   <section
-    class="mx-20 m20 flex flex-col-reverse lg:flex-row justify-between gap-8
-    font-text">
+    class="relative overflow-hidden mx-5 md:mx-12 lg:mx-20 py-12 flex flex-col-reverse lg:flex-row
+    justify-between gap-8 font-text">
     <img
       src={Brand}
       alt="Different watches next to eachother"
-      class="w-full lg:w-2/5 rounded-md" />
+      loading="lazy"
+      decoding="async"
+      width="100%"
+      height="100%"
+      class="w-full lg:w-2/5 rounded-md self-center" />
     <div class="w-full lg:w-1/2 flex flex-col justify-between">
       <h2 class="mt-0">Brands</h2>
       <div>
@@ -67,7 +76,7 @@
     </div>
   </section>
   <section
-    class="mx-20 lg:m-20 flex flex-col lg:flex-row justify-between gap-8
+    class="mx-5 md:mx-12 lg:mx-20 py-12 flex flex-col lg:flex-row justify-between gap-8
     font-text">
     <div class="w-full lg:w-1/2 flex flex-col justify-between">
       <h2 class="mt-0">Watches</h2>
@@ -96,15 +105,23 @@
     <img
       src={Watch}
       alt="A close-up of a watch"
-      class="w-full lg:w-2/5 rounded-md" />
+      loading="lazy"
+      decoding="async"
+      width="100%"
+      height="100%"
+      class="w-full lg:w-2/5 rounded-md self-center" />
   </section>
   <section
-    class="mx-20 m-20 flex flex-col-reverse lg:flex-row justify-between gap-8
+    class="mx-5 md:mx-12 lg:mx-20 py-12 flex flex-col-reverse lg:flex-row justify-between gap-8
     font-text">
     <img
       src={Matcher}
       alt="A lot of watches presented for sale"
-      class="w-full lg:w-2/5 rounded-md" />
+      loading="lazy"
+      decoding="async"
+      width="100%"
+      height="100%"
+      class="w-full lg:w-2/5 rounded-md self-center" />
     <div class="w-full lg:w-1/2 flex flex-col justify-between">
       <h2 class="mt-0">Watch matcher</h2>
       <div>

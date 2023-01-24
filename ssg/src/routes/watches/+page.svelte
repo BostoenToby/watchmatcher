@@ -97,6 +97,7 @@
     $watchesFilter = []
     $answersList = []
     $searchedWatches = []
+    $searchInput = ''
   }
 
   let promise = getImages()
@@ -105,14 +106,15 @@
 <svelte:head>
   <title>Watches</title>
   <meta name="description" content="Collection of all the watches" />
+  <link rel="canonical" href="https://watchmatcherssr.tobybostoen.be/watches" />
 </svelte:head>
 
 <main>
   <h1 class="text-5xl text-center font-classic">Watches</h1>
-  <div class="grid grid-cols-10 mx-12">
+  <div class="flex flex-col sm:grid sm:grid-cols-10 mx-auto sm:mx-12">
     <div
-      class="col-start-2 col-end-9 md:col-start-4 md:col-end-8 w-full mx-auto
-      flex justify-between px-4 py-2 items-center border border-solid
+      class="col-start-3 col-end-9 md:col-start-4 md:col-end-8 flex
+      justify-between px-4 py-2 items-center border border-solid
       border-neutral-200 rounded-md">
       <input
         bind:value={$searchInput}
@@ -130,9 +132,10 @@
     {#if $answersList.length > 0 || $searchedWatches.length > 0}
       <button
         on:click={removeFilters}
-        class="cursor-pointer bg-transparent p-0 col-start-10 min-w-min
-        col-end-11 px-4 py-2 border border-solid border-neutral-200 rounded-md
-        flex items-center font-text group">
+        class="mx-auto w-1/2 sm:w-full mt-4 sm:mt-0 cursor-pointer
+        bg-transparent p-0 col-start-10 min-w-min col-end-11 px-4 py-2 border
+        border-solid border-neutral-200 rounded-md flex items-center font-text
+        group">
         <p class="m-0 group-hover:text-emerald-700 text-xsm">Remove filter</p>
         <X class="text-neutral-600 group-hover:text-emerald-700" />
       </button>
@@ -162,7 +165,9 @@
                   )}
                   alt="The {watch.brand}
                   {watch.type} watch."
-                  class="max-h-full" />
+                  width="100%"
+                  height="100%"
+                  class="object-scale-down" />
               {/await}
             </div>
             <div class="flex flex-col flex-auto">
@@ -205,7 +210,9 @@
                   )}
                   alt="The {watch.brand}
                   {watch.type} watch."
-                  class="max-h-full" />
+                  width="100%"
+                  height="100%"
+                  class="object-scale-down" />
               {/await}
             </div>
             <div class="flex flex-col flex-auto">
@@ -248,7 +255,9 @@
                 )}
                 alt="The {watch.brand}
                 {watch.type} watch."
-                class="max-h-full" />
+                width="100%"
+                height="100%"
+                class="object-scale-down" />
             {/await}
           </div>
           <div class="flex flex-col flex-auto">
@@ -288,7 +297,9 @@
                 )}
                 alt="The {watch.brand}
                 {watch.type} watch."
-                class="max-h-full" />
+                width="100%"
+                height="100%"
+                class="object-scale-down" />
             {/await}
           </div>
           <div class="flex flex-col flex-auto">
