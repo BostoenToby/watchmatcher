@@ -65,6 +65,7 @@
 <svelte:head>
   <title>Watches</title>
   <meta name="description" content="Collection of all the watches" />
+  <link rel="canonical" href="https://watchmatcherssr.tobybostoen.be/watches" />
 </svelte:head>
 
 <AppHolder>
