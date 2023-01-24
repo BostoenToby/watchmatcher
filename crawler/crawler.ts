@@ -15,12 +15,15 @@ let requestPage = (url: string, cachePath: string) => {
 }
 
 let querySite = (site: string, path: string = '') => {
-    let cacheFile = `data/${site}-watchmatcher-${path}.html`
+    if(fs.existsSync('crawl') == false){
+        fs.mkdirSync('crawl')
+    }
+    let cacheFile = `crawl/${site}-watchmatcher-${path}.html`
     if(path == ''){
-        cacheFile = `data/${site}-watchmatcher.html`
+        cacheFile = `crawl/${site}-watchmatcher.html`
     }
     const apiUrl = `https://watchmatcher${site}.tobybostoen.be/${path}`
     requestPage(apiUrl, cacheFile)
 }
 
-export{requestPage, querySite}
+export default querySite

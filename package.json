@@ -7,7 +7,16 @@
     "dev:spa": "npm run dev -w spa",
     "dev:ssr": "npm run dev -w ssr",
     "dev:ssg": "npm run dev -w ssg",
-    "dev": "run-p dev:spa dev:ssr dev:ssg"
+    "dev": "run-p dev:spa dev:ssr dev:ssg",
+    "build:spa": "npm run build -w spa",
+    "build:ssr": "npm run build -w ssr",
+    "build:ssg": "npm run build -w ssg",
+    "build": "run-p build:spa build:ssr build:ssg",
+    "preview:spa": "npm run preview -w spa",
+    "preview:ssr": "npm run build -w ssr && npm run preview -w ssr",
+    "preview:ssg": "npm run build -w ssg && npm run preview -w ssg",
+    "preview": "run-p preview:spa preview:ssr preview:ssg",
+    "crawl": "npm run start -w crawler"
   },
   "repository": {
     "type": "git",
@@ -25,7 +34,8 @@
   "workspaces": [
     "spa",
     "ssr",
-    "ssg"
+    "ssg",
+    "crawler"
   ],
   "devDependencies": {
     "@zerodevx/svelte-img": "^1.2.3"

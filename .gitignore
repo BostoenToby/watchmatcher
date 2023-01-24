@@ -5,4 +5,4 @@
 **/.svelte-kit
 **/build
 **/.netlify
-cheerio/data
+crawler/crawl
