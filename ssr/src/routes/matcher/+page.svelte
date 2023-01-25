@@ -4,6 +4,8 @@
   import { goto } from '$app/navigation'
   import type { Answer } from '$lib/interfaces/questions.interface'
   import questions from '$lib/data/questions.json'
+  
+  // This code needs to be CSR because it only runs when there are changes in the answers
 
   let answers = writable<Array<Answer>>([])
 

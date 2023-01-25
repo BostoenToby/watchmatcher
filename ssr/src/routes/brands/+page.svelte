@@ -5,54 +5,11 @@
 
   import brands from '$lib/data/brands.json'
 
+  /** @type {import('./$types').PageData} */
+  export let data: any
+
   const searchInput = writable<string>()
   const filteredBrands = writable<Array<Brand>>([])
-  const images = writable<any>([])
-
-  const getValue = async (mods: any[]): Promise<any[]> => {
-    return new Promise(async (resolve, reject) => {
-      const modDefault = []
-      for (let m of mods) {
-        while (m.default === undefined) {
-          await new Promise((resolve) => setTimeout(resolve, 100))
-        }
-        if (m.default != undefined) {
-          modDefault.push(m.default)
-        }
-      }
-      if (modDefault.length > 0) {
-        resolve(modDefault)
-      }
-    })
-  }
-
-  const getMods = async () => {
-    return new Promise(async (resolve, reject) => {
-      const modules = await import.meta.glob('$lib/images/brands/*.webp')
-      const modList: any[] = []
-      for (let brand of brands) {
-        for (const path in modules) {
-          modules[path]().then((mod: any) => {
-            if (
-              path.includes(brand.name.replace(' ', '-').toLocaleLowerCase())
-            ) {
-              modList.push(mod)
-            }
-            if (modList.length == brands.length) {
-              resolve(modList)
-            }
-          })
-        }
-      }
-    })
-  }
-
-  const getImages = async () => {
-    const modList: any = await getMods()
-    const res = await getValue(modList)
-    images.set(res)
-    return res
-  }
 
   const filterBrands = () => {
     const res = brands.filter((brand) => {
@@ -60,8 +17,6 @@
     })
     filteredBrands.set(res)
   }
-
-  let promise = getImages()
 </script>
 
 <svelte:head>
@@ -101,7 +56,7 @@
           rounded-md drop-shadow-md">
           <div
             class="aspect-square flex overflow-hidden justify-center rounded-md">
-            {#await promise}
+            {#await data.images}
               <div
                 class="w-4/5 h-full bg-neutral-300 rounded-md animate-pulse" />
             {:then img}
@@ -140,7 +95,7 @@
           rounded-md drop-shadow-md">
           <div
             class="aspect-square flex overflow-hidden justify-center rounded-md">
-            {#await promise}
+            {#await data.images}
               <div
                 class="w-4/5 h-full bg-neutral-300 rounded-md animate-pulse" />
             {:then img}

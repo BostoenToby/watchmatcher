@@ -7,7 +7,9 @@
   export let data: any
 
   $: {
-    watchesFilter.set(data.watches)
+    if(data.watchesFilter != undefined) {
+      watchesFilter.set(data.watchesFilter)
+    }
   }
 
   import watches from '$lib/data/watches.json'
@@ -16,54 +18,6 @@
   const watchesFilter = writable<Array<Watch>>([])
   const searchInput = writable<string>()
   const searchedWatches = writable<Array<Watch>>([])
-  const images = writable<Array<any>>([])
-
-  const getValue = async (mods: any[]): Promise<any[]> => {
-    return new Promise(async (resolve, reject) => {
-      const modDefault = []
-      for (let m of mods) {
-        while (m.default === undefined) {
-          await new Promise((resolve) => setTimeout(resolve, 100))
-        }
-        if (m.default != undefined) {
-          modDefault.push(m.default)
-        }
-      }
-      if (modDefault.length > 0) {
-        resolve(modDefault)
-      }
-    })
-  }
-
-  const getMods = async () => {
-    return new Promise(async (resolve, reject) => {
-      const modules = await import.meta.glob('$lib/images/watches/*.webp')
-      const modList: any[] = []
-      for (let watch of watches) {
-        for (const path in modules) {
-          modules[path]().then((mod: any) => {
-            if (
-              path.includes(watch.type.replaceAll(' ', '-').toLocaleUpperCase())
-            ) {
-              if (path.includes('head')) {
-                modList.push(mod)
-              }
-            }
-            if (modList.length === watches.length) {
-              resolve(modList)
-            }
-          })
-        }
-      }
-    })
-  }
-
-  const getImages = async () => {
-    const modList: any = await getMods()
-    const res = await getValue(modList)
-    images.set(res)
-    return res
-  }
 
   const filterWatches = () => {
     if ($watchesFilter != undefined && $watchesFilter.length > 0) {
@@ -99,8 +53,6 @@
     $searchedWatches = []
     $searchInput = ''
   }
-
-  let promise = getImages()
 </script>
 
 <svelte:head>
@@ -153,7 +105,7 @@
             <div
               class="aspect-square flex overflow-hidden justify-center
               rounded-md">
-              {#await promise}
+              {#await data.watches}
                 <div
                   class="w-full h-full rounded-md bg-neutral-300 animate-pulse" />
               {:then images}
@@ -198,7 +150,7 @@
             <div
               class="aspect-square flex overflow-hidden justify-center
               rounded-md">
-              {#await promise}
+              {#await data.watches}
                 <div
                   class="w-full h-full rounded-md bg-neutral-300 animate-pulse" />
               {:then images}
@@ -243,7 +195,7 @@
           bg-neutral-200 p-2 rounded-md drop-shadow-md">
           <div
             class="aspect-square flex overflow-hidden justify-center rounded-md">
-            {#await promise}
+            {#await data.watches}
               <div
                 class="w-full h-full rounded-md bg-neutral-300 animate-pulse" />
             {:then images}
@@ -285,7 +237,7 @@
           bg-neutral-200 p-2 rounded-md drop-shadow-md">
           <div
             class="aspect-square flex overflow-hidden justify-center rounded-md">
-            {#await promise}
+            {#await data.watches}
               <div
                 class="w-full h-full bg-neutral-300 animate-pulse rounded-md" />
             {:then images}

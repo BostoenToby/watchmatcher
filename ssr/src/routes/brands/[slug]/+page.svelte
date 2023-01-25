@@ -5,6 +5,8 @@
   import brands from '$lib/data/brands.json'
   import type Brand from '$lib/interfaces/brand.interface'
 
+  // Can not get images for slug page at build because page slug is only defined when client is on the page --> needs to be CSR
+
   let brand = writable<Brand>()
   let headImage = writable<any>()
   let images = writable<Array<Array<any>>>()
@@ -90,8 +92,8 @@
 {#if $brand != undefined && $brand.history != undefined}
   <main>
     <section
-      class="flex flex-col-reverse lg:grid lg:grid-cols-10 justify-between mx-5 md:mx-12 lg:mx-20 py-12
-      gap-16">
+      class="flex flex-col-reverse lg:grid lg:grid-cols-10 justify-between mx-5
+      md:mx-12 lg:mx-20 py-12 gap-16">
       <picture
         class="relative aspect-auto lg:col-start-1 lg:col-end-4 overflow-hidden
         flex flex-wrap justify-center items-center">
