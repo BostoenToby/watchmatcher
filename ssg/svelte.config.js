@@ -20,7 +20,12 @@ const config = {
   preprocess: vitePreprocess(),
 
   kit: {
-    adapter: adapter({ precompress: false }),
+    adapter: adapter({
+      pages: 'build',
+      assets: 'build',
+      fallback: null, 
+      precompress: true 
+    }),
     prerender: {
       crawl: true,
       entries: routes,
