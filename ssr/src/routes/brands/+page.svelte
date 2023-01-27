@@ -4,6 +4,10 @@
   import { writable } from 'svelte/store'
 
   import brands from '$lib/data/brands.json'
+  import type { Images } from '$lib/interfaces/data.interface'
+
+  /** @type {import('./$types').PageData} */
+  export let data: Images
 
   /** @type {import('./$types').PageData} */
   export let data: any

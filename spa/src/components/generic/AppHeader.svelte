@@ -36,7 +36,7 @@
     <AlignLeft class="sm:w-8 sm:h-8" />
     <p class="text-transparent h-0 w-0">Menu</p>
   </button>
-  <nav class="hidden xl:flex gap-16">
+  <nav class="hidden xl:flex gap-12 2xl:gap-16">
     <Link
       to="/"
       class="no-underline text-zinc-600 self-center hover:text-emerald-700

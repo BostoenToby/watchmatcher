@@ -3,21 +3,22 @@
   import { writable } from 'svelte/store'
   import { answersList } from '$lib/stores'
 
-  /** @type {import('./$types').PageData} */
-  export let data: any
-
-  $: {
-    if(data.watchesFilter != undefined) {
-      watchesFilter.set(data.watchesFilter)
-    }
-  }
-
   import watches from '$lib/data/watches.json'
   import type Watch from '$lib/interfaces/watch.interface'
+  import type { WatchesData } from '$lib/interfaces/data.interface'
+
+  /** @type {import('./$types').PageData} */
+  export let data: WatchesData
 
   const watchesFilter = writable<Array<Watch>>([])
   const searchInput = writable<string>()
   const searchedWatches = writable<Array<Watch>>([])
+
+  $: {
+    if (data.watchesFilter != undefined) {
+      watchesFilter.set(data.watchesFilter)
+    }
+  }
 
   const filterWatches = () => {
     if ($watchesFilter != undefined && $watchesFilter.length > 0) {
@@ -81,22 +82,24 @@
         <p class="w-0 h-0 text-transparent">Search</p>
       </button>
     </div>
-    {#if $answersList.length > 0 || $searchedWatches.length > 0}
-      <button
-        on:click={removeFilters}
-        class="mx-auto w-1/2 sm:w-full mt-4 sm:mt-0 cursor-pointer
-        bg-transparent p-0 col-start-10 min-w-min col-end-11 px-4 py-2 border
-        border-solid border-neutral-200 rounded-md flex items-center font-text
-        group">
-        <p class="m-0 group-hover:text-emerald-700 text-xsm">Remove filter</p>
-        <X class="text-neutral-600 group-hover:text-emerald-700" />
-      </button>
+    {#if $answersList != undefined && $answersList != null && $searchedWatches != undefined && $searchedWatches != null}
+      {#if $answersList.length > 0 || $searchedWatches.length > 0}
+        <button
+          on:click={removeFilters}
+          class="mx-auto w-1/2 sm:w-full mt-4 sm:mt-0 cursor-pointer
+          bg-transparent p-0 col-start-10 min-w-min col-end-11 px-4 py-2 border
+          border-solid border-neutral-200 rounded-md flex items-center font-text
+          group">
+          <p class="m-0 group-hover:text-emerald-700 text-xsm">Remove filter</p>
+          <X class="text-neutral-600 group-hover:text-emerald-700" />
+        </button>
+      {/if}
     {/if}
   </div>
   <section
     class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-16
     m-20 font-text">
-    {#if $watchesFilter != undefined && $watchesFilter.length > 0}
+    {#if $watchesFilter.length > 0}
       {#if $searchedWatches.length != 0}
         {#each $searchedWatches as watch, index}
           <div

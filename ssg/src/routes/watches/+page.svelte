@@ -3,66 +3,21 @@
   import { writable } from 'svelte/store'
   import { answersList } from '$lib/stores'
 
-  /** @type {import('./$types').PageData} */
-  export let data: any
-
-  $: {
-    watchesFilter.set(data.watches)
-  }
-
   import watches from '$lib/data/watches.json'
   import type Watch from '$lib/interfaces/watch.interface'
+  import type { WatchesData } from '$lib/interfaces/data.interface'
+
+  /** @type {import('./$types').PageData} */
+  export let data: WatchesData
 
   const watchesFilter = writable<Array<Watch>>([])
   const searchInput = writable<string>()
   const searchedWatches = writable<Array<Watch>>([])
-  const images = writable<Array<any>>([])
 
-  const getValue = async (mods: any[]): Promise<any[]> => {
-    return new Promise(async (resolve, reject) => {
-      const modDefault = []
-      for (let m of mods) {
-        while (m.default === undefined) {
-          await new Promise((resolve) => setTimeout(resolve, 100))
-        }
-        if (m.default != undefined) {
-          modDefault.push(m.default)
-        }
-      }
-      if (modDefault.length > 0) {
-        resolve(modDefault)
-      }
-    })
-  }
-
-  const getMods = async () => {
-    return new Promise(async (resolve, reject) => {
-      const modules = await import.meta.glob('$lib/images/watches/*.webp')
-      const modList: any[] = []
-      for (let watch of watches) {
-        for (const path in modules) {
-          modules[path]().then((mod: any) => {
-            if (
-              path.includes(watch.type.replaceAll(' ', '-').toLocaleUpperCase())
-            ) {
-              if (path.includes('head')) {
-                modList.push(mod)
-              }
-            }
-            if (modList.length === watches.length) {
-              resolve(modList)
-            }
-          })
-        }
-      }
-    })
-  }
-
-  const getImages = async () => {
-    const modList: any = await getMods()
-    const res = await getValue(modList)
-    images.set(res)
-    return res
+  $: {
+    if (data.watchesFilter != undefined) {
+      watchesFilter.set(data.watchesFilter)
+    }
   }
 
   const filterWatches = () => {
@@ -99,14 +54,12 @@
     $searchedWatches = []
     $searchInput = ''
   }
-
-  let promise = getImages()
 </script>
 
 <svelte:head>
   <title>Watches</title>
   <meta name="description" content="Collection of all the watches" />
-  <link rel="canonical" href="https://watchmatcherssr.tobybostoen.be/watches" />
+  <link rel="canonical" href="https://watchmatcherssg.tobybostoen.be/watches" />
 </svelte:head>
 
 <main>
@@ -129,22 +82,24 @@
         <p class="w-0 h-0 text-transparent">Search</p>
       </button>
     </div>
-    {#if $answersList.length > 0 || $searchedWatches.length > 0}
-      <button
-        on:click={removeFilters}
-        class="mx-auto w-1/2 sm:w-full mt-4 sm:mt-0 cursor-pointer
-        bg-transparent p-0 col-start-10 min-w-min col-end-11 px-4 py-2 border
-        border-solid border-neutral-200 rounded-md flex items-center font-text
-        group">
-        <p class="m-0 group-hover:text-emerald-700 text-xsm">Remove filter</p>
-        <X class="text-neutral-600 group-hover:text-emerald-700" />
-      </button>
+    {#if $answersList != undefined && $answersList != null && $searchedWatches != undefined && $searchedWatches != null}
+      {#if $answersList.length > 0 || $searchedWatches.length > 0}
+        <button
+          on:click={removeFilters}
+          class="mx-auto w-1/2 sm:w-full mt-4 sm:mt-0 cursor-pointer
+          bg-transparent p-0 col-start-10 min-w-min col-end-11 px-4 py-2 border
+          border-solid border-neutral-200 rounded-md flex items-center font-text
+          group">
+          <p class="m-0 group-hover:text-emerald-700 text-xsm">Remove filter</p>
+          <X class="text-neutral-600 group-hover:text-emerald-700" />
+        </button>
+      {/if}
     {/if}
   </div>
   <section
     class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-16
     m-20 font-text">
-    {#if $watchesFilter != undefined && $watchesFilter.length > 0}
+    {#if $watchesFilter.length > 0}
       {#if $searchedWatches.length != 0}
         {#each $searchedWatches as watch, index}
           <div
@@ -153,9 +108,9 @@
             <div
               class="aspect-square flex overflow-hidden justify-center
               rounded-md">
-              {#await promise}
+              {#await data.watches}
                 <div
-                  class="h-full w-full bg-neutral-300 animate-pulse rounded-md" />
+                  class="w-full h-full rounded-md bg-neutral-300 animate-pulse" />
               {:then images}
                 <img
                   src={images.find((img) =>
@@ -198,9 +153,9 @@
             <div
               class="aspect-square flex overflow-hidden justify-center
               rounded-md">
-              {#await promise}
+              {#await data.watches}
                 <div
-                  class="h-full w-full bg-neutral-300 animate-pulse rounded-md" />
+                  class="w-full h-full rounded-md bg-neutral-300 animate-pulse" />
               {:then images}
                 <img
                   src={images.find((img) =>
@@ -243,9 +198,9 @@
           bg-neutral-200 p-2 rounded-md drop-shadow-md">
           <div
             class="aspect-square flex overflow-hidden justify-center rounded-md">
-            {#await promise}
+            {#await data.watches}
               <div
-                class="h-full w-full bg-neutral-300 animate-pulse rounded-md" />
+                class="w-full h-full rounded-md bg-neutral-300 animate-pulse" />
             {:then images}
               <img
                 src={images.find((img) =>
@@ -285,9 +240,9 @@
           bg-neutral-200 p-2 rounded-md drop-shadow-md">
           <div
             class="aspect-square flex overflow-hidden justify-center rounded-md">
-            {#await promise}
+            {#await data.watches}
               <div
-                class="h-full w-full bg-neutral-300 animate-pulse rounded-md" />
+                class="w-full h-full bg-neutral-300 animate-pulse rounded-md" />
             {:then images}
               <img
                 src={images.find((img) =>
