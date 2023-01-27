@@ -13,7 +13,8 @@
   const searchedWatches = writable<Array<Watch>>([])
 
   for (let watch of watches) {
-    if ($answersList.length > 0) {
+    try {
+      if ($answersList.length > 0) {
       const categories = watch.categories
       const answers = new Set($answersList)
       try {
@@ -22,13 +23,17 @@
           $watchesFilter.push(watch)
         }
       } catch (e) {
-        console.log(e)
+        console.log("Problem here 2")
       }
+    }
+    } catch (error) {
+     console.log("Problem here") 
     }
   }
 
   const filterWatches = () => {
-    if ($watchesFilter.length != 0) {
+    try {
+      if ($watchesFilter.length != 0) {
       const w = $watchesFilter.filter((watch) => {
         return watch.watch.toLowerCase().includes($searchInput.toLowerCase())
       })
@@ -52,6 +57,9 @@
       })
       const res = Array.from(new Set([...w, ...b, ...t]))
       searchedWatches.set(res)
+    }
+    } catch (error) {
+     console.log("There was a mistake made here") 
     }
   }
 
@@ -89,7 +97,7 @@
         <p class="w-0 h-0 text-transparent">Search</p>
       </button>
     </div>
-    <!-- {#if $answersList.length > 0 || $searchedWatches.length > 0}
+    {#if $answersList.length > 0 || $searchedWatches.length > 0}
       <button
         on:click={removeFilters}
         class="mx-auto w-1/2 sm:w-full mt-4 sm:mt-0 cursor-pointer
@@ -99,7 +107,7 @@
         <p class="m-0 group-hover:text-emerald-700 text-xsm">Remove filter</p>
         <X class="text-neutral-600 group-hover:text-emerald-700" />
       </button>
-    {/if} -->
+    {/if}
   </div>
   <section
     class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-16
