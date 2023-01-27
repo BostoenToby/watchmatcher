@@ -13,18 +13,23 @@
   const searchedWatches = writable<Array<Watch>>([])
 
   for (let watch of watches) {
+    console.log($answersList)
     if ($answersList != undefined && $answersList != null) {
-      if ($answersList.length > 0) {
-        const categories = watch.categories
-        const answers = new Set($answersList)
-        try {
-          const res = categories.filter((ans) => answers.has(ans)).length
-          if (res == $answersList.length) {
-            $watchesFilter.push(watch)
+      try {
+        if ($answersList.length > 0) {
+          const categories = watch.categories
+          const answers = new Set($answersList)
+          try {
+            const res = categories.filter((ans) => answers.has(ans)).length
+            if (res == $answersList.length) {
+              $watchesFilter.push(watch)
+            }
+          } catch (e) {
+            console.log('Problem here 2')
           }
-        } catch (e) {
-          console.log('Problem here 2')
         }
+      } catch (error) {
+        console.log('problem here 3')
       }
     }
   }
