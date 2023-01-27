@@ -21,7 +21,6 @@
   }
 
   const filterWatches = () => {
-    console.log('filter ', $watchesFilter)
     if ($watchesFilter != undefined && $watchesFilter.length > 0) {
       const w = $watchesFilter.filter((watch) => {
         return watch.watch.toLowerCase().includes($searchInput.toLowerCase())
@@ -55,8 +54,6 @@
     $searchedWatches = []
     $searchInput = ''
   }
-
-  console.log('watchesFilter', $watchesFilter)
 </script>
 
 <svelte:head>

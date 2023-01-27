@@ -25,7 +25,7 @@
     ><AlignLeft class="sm:w-8 sm:h-8" />
     <p class="w-0 h-0 text-transparent">Menu</p>
   </button>
-  <nav class="hidden xl:flex gap-16">
+  <nav class="hidden xl:flex gap-12 2xl:gap-16">
     <a
       href="/"
       class="no-underline text-zinc-600 self-center hover:text-emerald-700 focus:text-emerald-700 hover:underline focus:underline outline-none"
