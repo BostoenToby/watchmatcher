@@ -22,12 +22,12 @@ const filterWatches = async (): Promise<Array<Watch>> => {
             watchesFound.push(watch)
           }
         }
-        resolve(watchesFound)
         answersList.subscribe((data) => {
           if (browser) {
-            return localStorage.setItem('answers', JSON.stringify(data))
+            localStorage.setItem('answers', JSON.stringify(data))
           }
         })
+        resolve(watchesFound)
       } else {
         resolve([])
       }
@@ -35,16 +35,68 @@ const filterWatches = async (): Promise<Array<Watch>> => {
   })
 }
 
-export async function load() {
-  try {
-    const res = await filterWatches()
-    if (res.length > 0) {
-      return {
-        watches: res,
+const getValue = async (mods: any[]): Promise<Array<any>> => {
+  return new Promise(async (resolve, reject) => {
+    const modDefault = []
+    for (let m of mods) {
+      while (m.default === undefined) {
+        await new Promise((resolve) => setTimeout(resolve, 100))
+      }
+      if (m.default != undefined) {
+        modDefault.push(m.default)
       }
     }
-  } catch (error) {
-    console.log('error ', error)
+    if (modDefault.length > 0) {
+      resolve(modDefault)
+    }
+  })
+}
+
+const getMods = async (): Promise<Array<any>> => {
+  return new Promise(async (resolve, reject) => {
+    const modules = await import.meta.glob('$lib/images/watches/*.webp')
+    const modList: any[] = []
+    for (let watch of watches) {
+      for (const path in modules) {
+        modules[path]().then((mod: any) => {
+          if (
+            path.includes(watch.type.replaceAll(' ', '-').toLocaleUpperCase())
+          ) {
+            // TODO: refactor that watchHistory images are in a different folder
+            if (path.includes('head')) {
+              modList.push(mod)
+            }
+          }
+          if (modList.length === watches.length) {
+            resolve(modList)
+          }
+        })
+      }
+    }
+  })
+}
+
+export async function load() {
+  if (!browser) {
+    const modList: any = await getMods()
+    const res = await getValue(modList)
+    return {
+      watches: res,
+    }
+  } else {
+    const modList: any = await getMods()
+    const res = await getValue(modList)
+    const filters = await filterWatches()
+    if (filters.length > 0) {
+      return {
+        watches: res,
+        watchesFilter: filters,
+      }
+    } else {
+      return {
+        watches: res
+      }
+    }
   }
 }
 
