@@ -13,56 +13,43 @@
   const searchedWatches = writable<Array<Watch>>([])
 
   for (let watch of watches) {
-    console.log($answersList)
     if ($answersList != undefined && $answersList != null) {
-      try {
-        if ($answersList.length > 0) {
-          const categories = watch.categories
-          const answers = new Set($answersList)
-          try {
-            const res = categories.filter((ans) => answers.has(ans)).length
-            if (res == $answersList.length) {
-              $watchesFilter.push(watch)
-            }
-          } catch (e) {
-            console.log('Problem here 2')
-          }
+      if ($answersList.length > 0) {
+        const categories = watch.categories
+        const answers = new Set($answersList)
+        const res = categories.filter((ans) => answers.has(ans)).length
+        if (res == $answersList.length) {
+          $watchesFilter.push(watch)
         }
-      } catch (error) {
-        console.log('problem here 3')
       }
     }
   }
 
   const filterWatches = () => {
-    try {
-      if ($watchesFilter.length != 0) {
-        const w = $watchesFilter.filter((watch) => {
-          return watch.watch.toLowerCase().includes($searchInput.toLowerCase())
-        })
-        const b = $watchesFilter.filter((watch) => {
-          return watch.brand.toLowerCase().includes($searchInput.toLowerCase())
-        })
-        const t = $watchesFilter.filter((watch) => {
-          return watch.type.toLowerCase().includes($searchInput.toLowerCase())
-        })
-        const res = Array.from(new Set([...w, ...b, ...t]))
-        searchedWatches.set(res)
-      } else {
-        const w = watches.filter((watch) => {
-          return watch.watch.toLowerCase().includes($searchInput.toLowerCase())
-        })
-        const b = watches.filter((watch) => {
-          return watch.brand.toLowerCase().includes($searchInput.toLowerCase())
-        })
-        const t = watches.filter((watch) => {
-          return watch.type.toLowerCase().includes($searchInput.toLowerCase())
-        })
-        const res = Array.from(new Set([...w, ...b, ...t]))
-        searchedWatches.set(res)
-      }
-    } catch (error) {
-      console.log('There was a mistake made here')
+    if ($watchesFilter.length != 0) {
+      const w = $watchesFilter.filter((watch) => {
+        return watch.watch.toLowerCase().includes($searchInput.toLowerCase())
+      })
+      const b = $watchesFilter.filter((watch) => {
+        return watch.brand.toLowerCase().includes($searchInput.toLowerCase())
+      })
+      const t = $watchesFilter.filter((watch) => {
+        return watch.type.toLowerCase().includes($searchInput.toLowerCase())
+      })
+      const res = Array.from(new Set([...w, ...b, ...t]))
+      searchedWatches.set(res)
+    } else {
+      const w = watches.filter((watch) => {
+        return watch.watch.toLowerCase().includes($searchInput.toLowerCase())
+      })
+      const b = watches.filter((watch) => {
+        return watch.brand.toLowerCase().includes($searchInput.toLowerCase())
+      })
+      const t = watches.filter((watch) => {
+        return watch.type.toLowerCase().includes($searchInput.toLowerCase())
+      })
+      const res = Array.from(new Set([...w, ...b, ...t]))
+      searchedWatches.set(res)
     }
   }
 

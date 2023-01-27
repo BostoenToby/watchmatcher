@@ -10,12 +10,7 @@
   } from 'lucide-svelte'
   import { writable } from 'svelte/store'
 
-  const searchTerm = writable<string>()
   const showMenu = writable<boolean>(false)
-
-  const search = () => {
-    console.log('search')
-  }
 
   const menu = () => {
     $showMenu = !$showMenu
