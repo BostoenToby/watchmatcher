@@ -11,7 +11,7 @@
   const watchesFilter = writable<Array<Watch>>([])
   const searchInput = writable<string>()
   const searchedWatches = writable<Array<Watch>>([])
-    const answers = writable<Array<Watch>>([])
+    const answers = writable<Array<string>>([])
 
     $: {
       if($answersList != null || $answersList != undefined) {
