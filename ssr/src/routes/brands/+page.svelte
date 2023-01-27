@@ -9,6 +9,9 @@
   /** @type {import('./$types').PageData} */
   export let data: Images
 
+  /** @type {import('./$types').PageData} */
+  export let data: any
+
   const searchInput = writable<string>()
   const filteredBrands = writable<Array<Brand>>([])
 
