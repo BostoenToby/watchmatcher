@@ -104,89 +104,87 @@
   <section
     class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-16
     m-20 font-text">
-    {#if $answersList != null}
-      {#if $answersList.length > 0}
-        {#if $searchedWatches.length != 0}
-          {#each $searchedWatches as watch}
+    {#if $answersList.length > 0}
+      {#if $searchedWatches.length != 0}
+        {#each $searchedWatches as watch}
+          <div
+            class="flex flex-col h-full border-2 border-solid border-neutral-200
+            bg-neutral-200 p-2 rounded-md drop-shadow-md">
             <div
-              class="flex flex-col h-full border-2 border-solid
-              border-neutral-200 bg-neutral-200 p-2 rounded-md drop-shadow-md">
-              <div
-                class="aspect-square flex overflow-hidden justify-center
-                rounded-md">
-                <img
-                  src="/watches/{watch.brand
-                    .replaceAll(' ', '-')
-                    .toLocaleLowerCase()}-{watch.watch
-                    .replaceAll(' ', '-')
-                    .replaceAll('.', ',')
-                    .toLocaleUpperCase()}-{watch.type
-                    .replaceAll(' ', '-')
-                    .toLocaleUpperCase()}.webp"
-                  alt="The {watch.brand}"
-                  class="max-h-full" />
+              class="aspect-square flex overflow-hidden justify-center
+              rounded-md">
+              <img
+                src="/watches/{watch.brand
+                  .replaceAll(' ', '-')
+                  .toLocaleLowerCase()}-{watch.watch
+                  .replaceAll(' ', '-')
+                  .replaceAll('.', ',')
+                  .toLocaleUpperCase()}-{watch.type
+                  .replaceAll(' ', '-')
+                  .toLocaleUpperCase()}.webp"
+                alt="The {watch.brand}"
+                class="max-h-full" />
+            </div>
+            <div class="flex flex-col flex-auto">
+              <div class="text-center">
+                <p class="text-neutral-600 mb-2">
+                  {watch.brand} - {watch.watch}
+                </p>
+                <h2 class="mt-0 text-lg">{watch.type}</h2>
               </div>
-              <div class="flex flex-col flex-auto">
-                <div class="text-center">
-                  <p class="text-neutral-600 mb-2">
-                    {watch.brand} - {watch.watch}
-                  </p>
-                  <h2 class="mt-0 text-lg">{watch.type}</h2>
-                </div>
-                <div class="self-center flex items-end flex-1">
-                  <Link
-                    to="/watches/{watch.type
-                      .replaceAll(' ', '-')
-                      .toLocaleLowerCase()}"
-                    class="no-underline outline-none bg-emerald-700 text-white
-                    rounded-md px-4 py-2">
-                    View
-                  </Link>
-                </div>
+              <div class="self-center flex items-end flex-1">
+                <Link
+                  to="/watches/{watch.type
+                    .replaceAll(' ', '-')
+                    .toLocaleLowerCase()}"
+                  class="no-underline outline-none bg-emerald-700 text-white
+                  rounded-md px-4 py-2">
+                  View
+                </Link>
               </div>
             </div>
-          {/each}
-        {:else}
-          {#each $watchesFilter as watch}
+          </div>
+        {/each}
+      {:else}
+        {#each $watchesFilter as watch}
+          <div
+            class="flex flex-col h-full border-2 border-solid border-neutral-200
+            bg-neutral-200 p-2 rounded-md drop-shadow-md">
             <div
-              class="flex flex-col h-full border-2 border-solid
-              border-neutral-200 bg-neutral-200 p-2 rounded-md drop-shadow-md">
-              <div
-                class="aspect-square flex overflow-hidden justify-center
-                rounded-md">
-                <img
-                  src="/watches/{watch.brand
-                    .replaceAll(' ', '-')
-                    .toLocaleLowerCase()}-{watch.watch
-                    .replaceAll(' ', '-')
-                    .replaceAll('.', ',')
-                    .toLocaleUpperCase()}-{watch.type
-                    .replaceAll(' ', '-')
-                    .toLocaleUpperCase()}.webp"
-                  alt="The {watch.brand}"
-                  class="max-h-full" />
+              class="aspect-square flex overflow-hidden justify-center
+              rounded-md">
+              <img
+                src="/watches/{watch.brand
+                  .replaceAll(' ', '-')
+                  .toLocaleLowerCase()}-{watch.watch
+                  .replaceAll(' ', '-')
+                  .replaceAll('.', ',')
+                  .toLocaleUpperCase()}-{watch.type
+                  .replaceAll(' ', '-')
+                  .toLocaleUpperCase()}.webp"
+                alt="The {watch.brand}"
+                class="max-h-full" />
+            </div>
+            <div class="flex flex-col flex-auto">
+              <div class="text-center">
+                <p class="text-neutral-600 mb-2">
+                  {watch.brand} - {watch.watch}
+                </p>
+                <h2 class="mt-0 text-lg">{watch.type}</h2>
               </div>
-              <div class="flex flex-col flex-auto">
-                <div class="text-center">
-                  <p class="text-neutral-600 mb-2">
-                    {watch.brand} - {watch.watch}
-                  </p>
-                  <h2 class="mt-0 text-lg">{watch.type}</h2>
-                </div>
-                <div class="self-center flex items-end flex-1">
-                  <Link
-                    to="/watches/{watch.type
-                      .replaceAll(' ', '-')
-                      .toLocaleLowerCase()}"
-                    class="no-underline outline-none bg-emerald-700 text-white
-                    rounded-md px-4 py-2">
-                    View
-                  </Link>
-                </div>
+              <div class="self-center flex items-end flex-1">
+                <Link
+                  to="/watches/{watch.type
+                    .replaceAll(' ', '-')
+                    .toLocaleLowerCase()}"
+                  class="no-underline outline-none bg-emerald-700 text-white
+                  rounded-md px-4 py-2">
+                  View
+                </Link>
               </div>
             </div>
-          {/each}
-        {/if}
+          </div>
+        {/each}
       {/if}
     {:else if $searchedWatches.length != 0}
       {#each $searchedWatches as watch}
