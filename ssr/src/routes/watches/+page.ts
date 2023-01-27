@@ -22,12 +22,12 @@ const filterWatches = async (): Promise<Array<Watch>> => {
             watchesFound.push(watch)
           }
         }
-        resolve(watchesFound)
         answersList.subscribe((data) => {
           if (browser) {
-            return localStorage.setItem('answers', JSON.stringify(data))
+            localStorage.setItem('answers', JSON.stringify(data))
           }
         })
+        resolve(watchesFound)
       } else {
         resolve([])
       }
@@ -67,7 +67,6 @@ const getMods = async (): Promise<Array<any>> => {
               modList.push(mod)
             }
           }
-
           if (modList.length === watches.length) {
             resolve(modList)
           }
@@ -92,6 +91,10 @@ export async function load() {
       return {
         watches: res,
         watchesFilter: filters,
+      }
+    } else {
+      return {
+        watches: res
       }
     }
   }
