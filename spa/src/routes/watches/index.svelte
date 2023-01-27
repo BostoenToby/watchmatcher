@@ -11,6 +11,13 @@
   const watchesFilter = writable<Array<Watch>>([])
   const searchInput = writable<string>()
   const searchedWatches = writable<Array<Watch>>([])
+    const answers = writable<Array<Watch>>([])
+
+    $: {
+      if($answersList != null || $answersList != undefined) {
+        answers.set($answersList)
+      }
+    }
 
   for (let watch of watches) {
     if ($answersList != undefined && $answersList != null) {
@@ -56,6 +63,7 @@
   const removeFilters = () => {
     $watchesFilter = []
     $answersList = []
+    $answers = []
     $searchedWatches = []
     $searchInput = ''
   }
@@ -87,8 +95,7 @@
         <p class="w-0 h-0 text-transparent">Search</p>
       </button>
     </div>
-    {#if $answersList != null}
-      {#if $answersList.length > 0 || $searchedWatches.length > 0}
+      {#if $answers.length > 0 || $searchedWatches.length > 0}
         <button
           on:click={removeFilters}
           class="mx-auto w-1/2 sm:w-full mt-4 sm:mt-0 cursor-pointer
@@ -98,13 +105,12 @@
           <p class="m-0 group-hover:text-emerald-700 text-xsm">Remove filter</p>
           <X class="text-neutral-600 group-hover:text-emerald-700" />
         </button>
-      {/if}
     {/if}
   </div>
   <section
     class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-16
     m-20 font-text">
-    {#if $answersList.length > 0}
+    {#if $answers.length > 0}
       {#if $searchedWatches.length != 0}
         {#each $searchedWatches as watch}
           <div
