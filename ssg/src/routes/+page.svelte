@@ -19,7 +19,7 @@
       alt="The logo of Watchmatcher"
       width="100%"
       height="100%"
-      class="object-cover h-80" />
+      class="object-cover h-60" />
   </picture>
   <h1 class="text-center font-classic text-5xl mt-8">Watchmatcher</h1>
   <h1 class="text-center font-classic text-2xl mt-8">
@@ -50,8 +50,8 @@
       decoding="async"
       width="100%"
       height="100%"
-      class="w-full lg:w-2/5 rounded-md self-center" />
-    <div class="w-full lg:w-1/2 flex flex-col justify-between">
+      class="w-full lg:w-2/5 2xl:w-3/10 rounded-md self-center" />
+    <div class="w-full lg:w-1/2 2xl:w-3/5 flex flex-col justify-between">
       <h2 class="mt-0">Brands</h2>
       <div>
         <p class="leading-8">
@@ -78,7 +78,7 @@
   <section
     class="mx-5 md:mx-12 lg:mx-20 py-12 flex flex-col lg:flex-row justify-between gap-8
     font-text">
-    <div class="w-full lg:w-1/2 flex flex-col justify-between">
+    <div class="w-full lg:w-1/2 2xl:w-3/5 flex flex-col justify-between">
       <h2 class="mt-0">Watches</h2>
       <div>
         <p class="leading-8">
@@ -109,7 +109,7 @@
       decoding="async"
       width="100%"
       height="100%"
-      class="w-full lg:w-2/5 rounded-md self-center" />
+      class="w-full lg:w-2/5 2xl:w-3/10 rounded-md self-center" />
   </section>
   <section
     class="mx-5 md:mx-12 lg:mx-20 py-12 flex flex-col-reverse lg:flex-row justify-between gap-8
@@ -121,8 +121,8 @@
       decoding="async"
       width="100%"
       height="100%"
-      class="w-full lg:w-2/5 rounded-md self-center" />
-    <div class="w-full lg:w-1/2 flex flex-col justify-between">
+      class="w-full lg:w-2/5 2xl:w-3/10 rounded-md self-center" />
+    <div class="w-full lg:w-1/2 2xl:w-3/5 flex flex-col justify-between">
       <h2 class="mt-0">Watch matcher</h2>
       <div>
         <p class="leading-8">

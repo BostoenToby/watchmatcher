@@ -19,10 +19,6 @@
           class="no-underline text-black hover:text-emerald-700 hover:underline"
           >Rolex</a>
         <a
-          href="/brands/tissot"
-          class="no-underline text-black hover:text-emerald-700 hover:underline"
-          >Tissot</a>
-        <a
           href="/brands/audemars-piguet"
           class="no-underline text-black hover:text-emerald-700 hover:underline"
           >Audemars Piguet</a>
