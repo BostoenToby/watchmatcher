@@ -8,53 +8,58 @@
 
 
 <url>
-  <loc>https://watchmatcherssr.tobybostoen.be/</loc>
-  <lastmod>2023-01-13T15:11:31+00:00</lastmod>
+  <loc>https://watchmatcherssg.tobybostoen.be/</loc>
+  <lastmod>2023-01-29T19:32:25+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://watchmatcherssr.tobybostoen.be/brands</loc>
-  <lastmod>2023-01-13T15:11:31+00:00</lastmod>
+  <loc>https://watchmatcherssg.tobybostoen.be/brands</loc>
+  <lastmod>2023-01-29T19:32:25+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://watchmatcherssr.tobybostoen.be/watches</loc>
-  <lastmod>2023-01-13T15:11:31+00:00</lastmod>
+  <loc>https://watchmatcherssg.tobybostoen.be/watches</loc>
+  <lastmod>2023-01-29T19:32:25+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://watchmatcherssr.tobybostoen.be/matcher</loc>
-  <lastmod>2023-01-13T15:11:31+00:00</lastmod>
+  <loc>https://watchmatcherssg.tobybostoen.be/matcher</loc>
+  <lastmod>2023-01-29T19:32:25+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://watchmatcherssr.tobybostoen.be/brands/rolex</loc>
-  <lastmod>2023-01-13T15:11:31+00:00</lastmod>
+  <loc>https://watchmatcherssg.tobybostoen.be/brands/rolex</loc>
+  <lastmod>2023-01-29T19:32:25+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://watchmatcherssr.tobybostoen.be/brands/audemars-piguet</loc>
-  <lastmod>2023-01-13T15:11:31+00:00</lastmod>
+  <loc>https://watchmatcherssg.tobybostoen.be/brands/audemars-piguet</loc>
+  <lastmod>2023-01-29T19:32:25+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://watchmatcherssr.tobybostoen.be/brands/hublot</loc>
-  <lastmod>2023-01-13T15:11:31+00:00</lastmod>
+  <loc>https://watchmatcherssg.tobybostoen.be/brands/hublot</loc>
+  <lastmod>2023-01-29T19:32:25+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://watchmatcherssr.tobybostoen.be/brands/patek-philippe</loc>
-  <lastmod>2023-01-13T15:11:31+00:00</lastmod>
+  <loc>https://watchmatcherssg.tobybostoen.be/brands/patek-philippe</loc>
+  <lastmod>2023-01-29T19:32:25+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://watchmatcherssr.tobybostoen.be/watches/grande-sonnerie-carillon-supersonnerie</loc>
-  <lastmod>2023-01-13T15:11:31+00:00</lastmod>
+  <loc>https://watchmatcherssg.tobybostoen.be/brands/vacheron-constantin</loc>
+  <lastmod>2023-01-29T19:32:25+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://watchmatcherssr.tobybostoen.be/watches/tourbillon</loc>
-  <lastmod>2023-01-13T15:11:31+00:00</lastmod>
+  <loc>https://watchmatcherssg.tobybostoen.be/watches/grande-sonnerie-carillon-supersonnerie</loc>
+  <lastmod>2023-01-29T19:32:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://watchmatcherssg.tobybostoen.be/watches/fiftysix</loc>
+  <lastmod>2023-01-29T19:32:25+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 
