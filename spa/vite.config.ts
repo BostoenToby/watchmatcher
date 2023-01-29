@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
-import { imagetools } from 'vite-imagetools'
 import Unocss from 'unocss/vite'
 import presetUno from '@unocss/preset-uno'
 import presetWebFonts from '@unocss/preset-web-fonts'
@@ -9,7 +8,6 @@ import presetWebFonts from '@unocss/preset-web-fonts'
 export default defineConfig({
   plugins: [
     svelte(),
-    imagetools(),
     Unocss({
       presets: [
         presetUno(),
