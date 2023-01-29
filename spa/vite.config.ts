@@ -8,7 +8,6 @@ import presetWebFonts from '@unocss/preset-web-fonts'
 export default defineConfig({
   plugins: [
     svelte(),
-    imagetools(),
     Unocss({
       presets: [
         presetUno(),
