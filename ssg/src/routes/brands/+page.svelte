@@ -67,7 +67,7 @@
 <svelte:head>
   <title>Brands</title>
   <meta name="description" content="Collection of all the brands" />
-  <link rel="canonical" href="https://watchmatcherssr.tobybostoen.be/brands" />
+  <link rel="canonical" href="https://watchmatcherssg.tobybostoen.be/brands" />
 </svelte:head>
 
 <main>

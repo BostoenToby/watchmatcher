@@ -84,7 +84,7 @@
   <meta name="description" content="Specific information about a brand" />
   <link
     rel="canonical"
-    href="https://watchmatcherssr.tobybostoen.be/brands/{$page.params.slug}" />
+    href="https://watchmatcherssg.tobybostoen.be/brands/{$page.params.slug}" />
 </svelte:head>
 
 {#if $brand != undefined && $brand.history != undefined}
